@@ -1,0 +1,39 @@
+@import '../../../common/styles/_variables.scss';
+
+#home {
+
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+
+    overflow: hidden;
+
+
+    .hero-introduction,
+    .hero-image {
+        width: 50vw;
+        height: 100%;
+    }
+
+    .hero-introduction {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+
+    .hero-logo {
+        width: 19vh;
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+
+    }
+
+    .hero-image {
+        background-color: $color03;
+    }
+
+
+}

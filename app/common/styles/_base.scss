@@ -1,0 +1,150 @@
+@import 'reset';
+@import 'variables';
+
+html {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    overflow: auto;
+    margin: 0;
+
+
+}
+
+html,
+body {
+    font-family: 'GT America';
+    font-weight: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $color02;
+    background-color: $color01;
+
+
+}
+
+section {
+   /* width: 100vw;
+    max-width: 1920px;
+    margin: 0 auto;
+
+    padding: 20px;
+    box-sizing: border-box;*/
+}
+
+b {
+    font-weight: bold;
+    
+}
+
+.border {
+    padding: 2vw;
+    box-sizing: border-box;
+}
+
+ul,
+li,
+a {
+   // color: $color01;
+   color: inherit;
+}
+
+dl {
+    font-size: .7vw;
+    dt {
+        font-weight: bold;
+        margin-bottom: .5vw;
+    }
+}
+
+h1 {
+
+}
+h2 {
+
+}
+
+h3 {
+
+}
+
+h4 {
+
+}
+
+p {
+
+}
+
+.hide {
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.none {
+    display: none !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer-none {
+    pointer-events: none;
+}
+
+.page {
+
+}
+
+.wait {
+    cursor: wait !important;
+
+    a {
+        cursor: wait !important;
+    }
+}
+
+
+.mobile {
+ 
+
+}
+
+.tablet {
+  
+
+
+}
+
+.tablet,
+.desktop {
+    @media (orientation: portrait) {
+      
+
+    }
+}
+
+.rotate {
+    
+
+}
+
+.mobile {
+    @media (orientation: landscape) {
+        .rotate {
+         
+        }
+
+
+    }
+}

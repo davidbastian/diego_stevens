@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'Canopee';
+    src: url('Canopee-Regular.woff2') format('woff2'),
+        url('Canopee-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('GTAmerica-Regular.woff2') format('woff2'),
+        url('GTAmerica-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('GTAmericaTrial-Bd.woff2') format('woff2'),
+        url('GTAmericaTrial-Bd.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'GT America';
+    src: url('GTAmericaTrial-ExtBl.woff2') format('woff2'),
+        url('GTAmericaTrial-ExtBl.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+

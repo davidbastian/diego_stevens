@@ -1,0 +1,252 @@
+@import '../../../common/styles/_variables.scss';
+
+#about {
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    box-sizing: border-box;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-track {
+        background: transparent
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background: #666;
+    }
+
+
+    &::-webkit-scrollbar-thumb:hover {
+        background: $color01;
+    }
+
+    section {
+        background-color: $color02;
+        padding-top: 40vh;
+
+        .about_social {
+            a {
+                font-size: 2.5vh;
+                font-family: 'GT America';
+                font-weight: normal;
+                line-height: 3.5vh;
+                margin-right: 2vw;
+                border-bottom: 0.15vh solid $color01;
+                // padding-bottom: 0.5vw;
+
+            }
+        }
+
+        .registered-about {
+            // display: flex;
+            flex-wrap: wrap;
+            padding-top: 10vh;
+
+            h4 {
+                text-transform: uppercase;
+                box-sizing: border-box;
+                font-family: 'GT America Compressed';
+                font-weight: 500;
+                font-size: 2.5vh;
+                margin-bottom: 2vw;
+            }
+
+            div {
+
+                width: 50%;
+                margin-top: 2vh;
+
+                img {
+                    width: 100%;
+                    height: auto;
+                    display: block;
+                }
+
+            }
+        }
+
+        .about_profiles {
+            display: flex;
+            justify-content: space-between;
+            padding-top: 20vh;
+            flex-wrap: wrap;
+            max-width: 1440px;
+
+
+
+            div {
+                width: 40%;
+                margin-bottom: 10vh;
+
+                img {
+                    width: 100%;
+                    display: block;
+
+                }
+
+                dl {
+                    font-size: 1.8vh;
+
+                    dt {
+                        font-family: 'GT America';
+                        font-weight: normal;
+                        padding-top: 10px;
+                        padding-bottom: 10px;
+                        box-sizing: border-box;
+                        font-size: 2.5vh;
+                        line-height: 2.2vh;
+                    }
+
+                    dd {
+                        text-transform: uppercase;
+                        font-family: 'GT America Compressed';
+                        font-weight: 500;
+                        opacity: 0.5;
+
+
+                    }
+                }
+            }
+        }
+
+        .about_info {
+
+            display: flex;
+           // justify-content: flex-end;
+            padding: 5vh 0;
+
+            .about_info-title {
+                font-size: 5vw;
+                font-weight: bold;
+                text-transform: uppercase;
+                opacity: 0;
+            }
+
+            .about_info-desc {
+                max-width: 37%;
+                display: none;
+
+                p {
+                    margin-bottom: 8vh;
+                }
+            }
+
+        }
+
+        h3 {
+            padding-top: 10px;
+            text-transform: uppercase;
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+            font-family: 'GT America Compressed';
+            font-weight: 500;
+            font-size: 2vh;
+            margin-bottom: 1vw;
+        }
+
+        p {
+            max-width: 77vh;
+            margin-bottom: 3vh;
+            font-family: 'GT America';
+            font-weight: normal;
+
+        }
+    }
+
+}
+
+.tablet, .desktop, .mobile {
+    @media (orientation: portrait) {
+        #about {
+            section {
+                padding-top: 30vh;
+            }
+    
+            p {
+                line-height: 2.8vh;
+            }
+    
+            .about_social {
+                a {
+                    font-size: 2vh;
+                }
+            }
+    
+            .about_profiles {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 10vh;
+                flex-wrap: wrap;
+    
+                div {
+                    width: 45%;
+                    margin-bottom: 5vh;
+    
+                    img {
+                        width: 100%;
+                        display: block;
+    
+                    }
+    
+                    dl {
+                        font-size: 1.5vh;
+    
+                        dt {
+                            font-family: 'GT America';
+                            font-weight: normal;
+                            line-height: 1vh;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            box-sizing: border-box;
+                            font-size: 1.9vh;
+    
+    
+                        }
+    
+                        dd {
+                            text-transform: uppercase;
+                            font-family: 'GT America Compressed';
+                            font-weight: 500;
+                            opacity: 0.5;
+    
+    
+                        }
+                    }
+                }
+            }
+    
+            .about_info {
+    
+                display: flex;
+                justify-content: flex-end;
+                padding: 5vh 0;
+                padding-top: 2vh;
+                padding-bottom: 0;
+    
+                .about_info-title {
+                    font-size: 2vh;
+                    font-weight: bold;
+                    text-transform: uppercase;
+                    opacity: 0;
+                }
+    
+                .about_info-desc {
+                    max-width: 100%;
+    
+                    p {
+                        margin-bottom: 5vh;
+                    }
+                }
+    
+                padding-bottom: 20vh;
+    
+            }
+    
+        }
+        
+        
+      }
+}
