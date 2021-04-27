@@ -3,10 +3,7 @@
 #home {
 
     height: 100vh;
-    width: 100vw;
-    display: flex;
 
-    overflow: hidden;
 
 
     .hero-introduction,
@@ -19,6 +16,16 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
+        dd {
+            span {
+                padding: 0 .3vw;
+            }
+
+            a.active {
+                border-bottom: 1px solid;
+            }
+        }
     }
 
     .hero-logo {
@@ -36,4 +43,30 @@
     }
 
 
+}
+
+#about {
+    background-color: $color02;
+    color: $color01;
+    flex-direction: column;
+
+    .introduction {
+        padding: 18vh 0;
+        padding-left: 55vw;
+        padding-bottom: 21vh;
+        
+   
+
+        p {
+            
+            width: 28vw;
+
+            br {
+                display: block;
+                margin-bottom: 3vh;
+                content: '';
+            }
+        }
+
+    }
 }

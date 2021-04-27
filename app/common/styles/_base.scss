@@ -32,14 +32,16 @@ body {
 
 }
 
-section {
-   /* width: 100vw;
-    max-width: 1920px;
-    margin: 0 auto;
-
-    padding: 20px;
-    box-sizing: border-box;*/
+main {
+    overflow: hidden;
 }
+
+section {
+   width: 100vw;
+    display: flex;
+    overflow: hidden;
+}
+
 
 b {
     font-weight: bold;
@@ -58,6 +60,11 @@ a {
    color: inherit;
 }
 
+p {
+    font-size: 1.5vw;
+    line-height: 1.9vw;
+}
+
 dl {
     font-size: .7vw;
     dt {
@@ -65,6 +72,26 @@ dl {
         margin-bottom: .5vw;
     }
 }
+
+.quote {
+    text-align: center;
+    blockquote {
+        font-family: 'Canopee';
+        font-size: 7vw;
+    }
+    
+    figcaption {
+        padding: 2vh 0;
+        font-size: 1vw;
+        font-weight: bold;
+        cite {
+            font-weight: normal;
+        }
+    }
+
+}
+
+
 
 h1 {
 

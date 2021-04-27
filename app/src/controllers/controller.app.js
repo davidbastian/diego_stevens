@@ -27,7 +27,7 @@ class AppController {
             }
         }*/
 
-        HomeView.init(params, self.model.data.details);
+        HomeView.init(params, self.model.data);
 
         /*if (params.length === 1) {
             if (params[0] === 'services') {
