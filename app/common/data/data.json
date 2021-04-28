@@ -4,7 +4,7 @@
         "name":"Diego",
         "lastname":"Stevens",
         "slogan":"Chilean, Entrepreneur & Tech Visionary",
-        "image":""
+        "image":"common/media/img/000a.png"
     },
     "about": {
         "introduction":"Diego’s been working with entrepreneurships, big companies and with his own initiatives for 10 years and has a broad view of what entrepreneurship truly involves and understands how to successfully combine it with the commercial area, which are essentially, powerful attributes for a new role as a tech advisor or a tech board member.<br> On one hand, he helps with a great team, enterprises such as Falabella, Arauco, Forus, Sura and many others to transform their digital business through a disruptive and revolutionary cultural mindset change and new business models.<br> On the other hand, he provides advice, mentoring and knowledge to Startups of his portfolio to raise money ($5MM USD YTD in Startup fundraising stage through private and public funds), finding the real value of their technology, market and industries through different disruptive strategies.Nowadays, he manages his own  portfolio of tech business valuated at more than $35 Million USD.",
@@ -29,14 +29,26 @@
     },
 
     "interests":{
-        "title":"",
-        "list":["Watchmaking","Fintech","Smartcity","Fund Raising,AI & Cognitive Services","Disruptive Business Models","Change Management"],
+        "title":"Interests & Amusements",
+        "list":["Watchmaking","Fintech","Smartcity","Fund Raising","AI & Cognitive Services","Disruptive Business Models","Change Management"],
         "image":{
-            "url":"",
+            "url":"common/media/img/007.png",
             "title":"",
             "description":""
         }
         
+    },
+    "timeline":{
+        "years":[
+            {
+                "year":"2015",
+                "achivement":"Award of Entrepreneur of<br>2015 by Chilean Institute<br>of Engineers."
+            },
+            {
+                "year":"2016",
+                "achivement":"W* of National Pitch<br>Session of MeetLatam <br> Chile."
+            }
+        ]
     }
 
 

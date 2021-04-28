@@ -1,17 +1,7 @@
 @import '../../../common/styles/_variables.scss';
 
 #home {
-
     height: 100vh;
-
-
-
-    .hero-introduction,
-    .hero-image {
-        width: 50vw;
-        height: 100%;
-    }
-
     .hero-introduction {
         display: flex;
         flex-direction: column;
@@ -25,6 +15,14 @@
             a.active {
                 border-bottom: 1px solid;
             }
+        }
+    }
+
+    .hero-image {
+        img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
         }
     }
 
@@ -104,4 +102,27 @@
         }
 
     }
+}
+
+
+#interests {
+    height: 100vh;
+
+    .interests-list {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+
+        ul {
+            font-size: 2.8vw;
+            line-height: 6.5vh;
+        }
+    }
+
+}
+
+#timeline {
+    background-color: $color02;
+    color:$color01;
 }

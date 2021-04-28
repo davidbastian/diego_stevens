@@ -96,7 +96,18 @@ dl {
 
 .content {
     padding: 16vh 0;
-    
+
+}
+
+.cover {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.half {
+    width: 50vw;
+    height: 100%;
 }
 
 

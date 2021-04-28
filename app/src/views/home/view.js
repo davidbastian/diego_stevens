@@ -20,7 +20,7 @@ class View {
         const self = this;
         const markup = /*html*/ `
                 <section  id="home">
-                    <div class="hero-introduction border">
+                    <div class="hero-introduction border half">
                         <div class="hero-logo">
                             ${Logo}
                         </div>
@@ -31,8 +31,8 @@ class View {
                         </dl>
                          
                     </div>
-                    <div class="hero-image">
-
+                    <div class="hero-image half">
+                            <img class="cover" src="${self.data.details.image}" alt="${self.data.details.slogan}">
                     </div>
                     <div></div>       
                 </section>
@@ -112,9 +112,47 @@ class View {
                     
                     </div>
                 </section>
+
+                <section id="interests">
+                    <div class="interests-image half">
+                        <img class="cover" src="${self.data.interests.image.url}" alt="">  
+                    </div>
+
+                    <div class="interests-list half border">
+                    <p>${self.data.interests.title}</p>
+                    <ul>
+                        ${self.setInterests(self.data.interests.list)}
+                    </ul>
+                    </div>
+                    
+                </section>
+
+                <section id="timeline" class="border">
+                
+
+                </section>
         `
         document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
         // this.preloadMedia(document.body.querySelector('#services').querySelectorAll('.media'));
+    }
+
+    setInterests(interests){
+
+        const self = this;
+        let string = '';
+        for (let i = 0; i < interests.length; i++) {
+            const interest = interests[i];
+            let markup = /*html*/ `
+                <li>${interest}</li>
+                `
+                string += markup + "";
+
+
+        }
+
+        return string;
+
+
     }
 
 }
