@@ -61,8 +61,8 @@ a {
 }
 
 p {
-    font-size: 1.5vw;
-    line-height: 1.9vw;
+    font-size: 1.4vw;
+    line-height: 1.85vw;
 }
 
 dl {
@@ -70,6 +70,9 @@ dl {
     dt {
         font-weight: bold;
         margin-bottom: .5vw;
+    }
+    dd {
+        line-height: .85vw;
     }
 }
 
@@ -89,6 +92,11 @@ dl {
         }
     }
 
+}
+
+.content {
+    padding: 16vh 0;
+    
 }
 
 
