@@ -61,37 +61,38 @@
             },
             {
                 "year":"2020",
-                "achivements":["Chilean of the Year 2020<br> in the \"Innovator Category\""]
+                "achivements":["Chilean of the Year 2020<br> in the \"Innovator Category\"."]
             }
     ],
 
     "today":{
-        "description":"Chilean of the Year 2020<br> in the \"Innovator Category\"",
+        "description":"Aca va un texto que <br> necesitamos como <br>intro  para today.",
+        "title":"Today",
         "cards":[
             {
                 "title":"What is the <br>Aspiration?",
                 "description":"Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media":""
+                "media":"common/media/img/008.png"
             },
             {
                 "title":"Where <br> am I now?",
                 "description":"Mature Digital model,<br>Main GAP and recommendation<br>Tecnical & Commercial sizing",
-                "media":""
+                "media":"common/media/img/009.png"
             },
             {
                 "title":"Where do I focus <br> my Transformation?",
                 "description":"Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media":""
+                "media":"common/media/img/010.png"
             },
             {
                 "title":"Consolidating my <br>Transformation",
                 "description":"Strategic & Economic focus <br> Defination goals, projects and bussiness driver",
-                "media":""
+                "media":"common/media/img/011.png"
             },
             {
                 "title":"On going portfolio <br> of Projects",
                 "description":"Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
-                "media":""
+                "media":"common/media/img/012.png"
             }
         ]
     }

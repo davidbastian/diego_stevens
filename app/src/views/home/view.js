@@ -134,7 +134,19 @@ class View {
                 </section>
 
                 <section id="today" class="border content">
-                    
+
+                    <div class="today-intro">
+                            <h2>${self.data.today.title}</h2>
+                            <p>${self.data.today.description}</p>
+                            
+                    </div>
+
+                    <div class="today-cards">
+                        <div class="today-cards_content">
+                            ${self.setCards(self.data.today.cards)}
+                        </div>  
+                    </div>
+
                 </section>
         `
         document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
@@ -188,6 +200,29 @@ class View {
         return string;
 
     }
+
+    setCards(cards){
+        const self = this;
+        let string = '';
+        for (let i = 0; i < cards.length; i++) {
+            const item = cards[i];
+            let markup = /*html*/ `
+                    <div class="today-card">
+                        <div class="today-card_info">
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                        </div>
+                        
+                        <img src="${item.media}" alt="">
+                    </div>    
+                `
+                string += markup + "";
+        }
+        return string;
+
+    }
+
+
 
 }
 
