@@ -196,10 +196,12 @@
         width: 100vw;
         display: flex;
         overflow-y: scroll;
+        margin-bottom: 20vh;
 
         .today-cards_content {
             display: flex;
             padding: 20vh 3vw;
+            padding-bottom: 0;
 
         }
 
