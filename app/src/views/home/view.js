@@ -127,9 +127,14 @@ class View {
                     
                 </section>
 
-                <section id="timeline" class="border">
-                
+                <section id="timeline" class="border content">
 
+                    ${self.setTimeline(self.data.timeline)}
+
+                </section>
+
+                <section id="today" class="border content">
+                    
                 </section>
         `
         document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
@@ -137,7 +142,6 @@ class View {
     }
 
     setInterests(interests){
-
         const self = this;
         let string = '';
         for (let i = 0; i < interests.length; i++) {
@@ -146,12 +150,42 @@ class View {
                 <li>${interest}</li>
                 `
                 string += markup + "";
-
-
         }
-
         return string;
+    }
 
+    setTimeline(timeline){
+        const self = this;
+        let string = '';
+        for (let i = 0; i < timeline.length; i++) {
+            const item = timeline[i];
+            let markup = /*html*/ `
+                <div class="timeline-item">
+                    <div class="timeline-item_content">
+                        <h2>${item.year}</h2>
+                        <div class="timeline-item_achivements">
+                            ${self.setAchivements(item.achivements)}
+                        </div>
+                        
+                    </div>
+                </div>
+                `
+                string += markup + "";
+        }
+        return string;
+    }
+
+    setAchivements(achivements){
+        const self = this;
+        let string = '';
+        for (let i = 0; i < achivements.length; i++) {
+            const item = achivements[i];
+            let markup = /*html*/ `
+                <p>${item}</p>
+                `
+                string += markup + "";
+        }
+        return string;
 
     }
 

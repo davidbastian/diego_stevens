@@ -2,6 +2,7 @@
 
 #home {
     height: 100vh;
+
     .hero-introduction {
         display: flex;
         flex-direction: column;
@@ -73,6 +74,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+
         figure {
             display: flex;
 
@@ -112,11 +114,11 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        
+
 
         ul {
             font-size: 2.8vw;
-            line-height: 6.5vh;
+            line-height: 3.5vw;
         }
     }
 
@@ -124,5 +126,56 @@
 
 #timeline {
     background-color: $color02;
-    color:$color01;
+    color: $color01;
+    flex-direction: column;
+
+    .timeline-item {
+        display: flex;
+        margin-left: 4vw;
+        border-bottom: 1px solid $color04;
+        width: 100vw;
+
+        &:last-child {
+            border-bottom: none;
+
+            .timeline-item_content {
+                padding-bottom: 0;
+            }
+        }
+
+        .timeline-item_content {
+            padding: 6vh 0;
+            display: flex;
+
+            .timeline-item_achivements {
+                display: flex;
+                width: 40vw;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                p {
+                    margin-bottom: 13vh;
+                }
+            }
+        }
+
+        h2 {
+            margin-top: -2.6vh;
+            width: 48.2vw;
+
+        }
+    }
+
+    .timeline-item_achivements {
+        display: flex;
+        width: 40vw;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}
+
+#today {
+    background-color: $color01;
+    color: $color02;
+
 }
