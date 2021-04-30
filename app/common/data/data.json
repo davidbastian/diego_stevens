@@ -120,6 +120,10 @@
             "description": ""
         }
 
+    },
+    "clients":{
+        "description":"I work with clients from all sectors based on a shared value set and <br> vision for how to create a better future though design.",
+        "img":"common/media/img/014.png"
     }
 
 

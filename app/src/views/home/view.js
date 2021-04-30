@@ -162,10 +162,14 @@ class View {
                     <div class="challenges-image half">
                         <img class="cover" src="${self.data.challenges.image.url}" alt="">  
                     </div>
-
-                    
-                    
+  
                 </section>
+
+                <section id="clients">
+                        <p>${self.data.clients.description}</p>
+                        <img  src="${self.data.clients.img}" alt="">  
+                </section>
+
 
         `
         document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
