@@ -6,6 +6,7 @@ import {
     checkDevice
 } from '../../../common/utils/utils';
 import Logo from '../../../common/svg/logo.svg'
+import Star from '../../../common/svg/star.svg'
 
 
 class View {
@@ -118,7 +119,7 @@ class View {
                         <img class="cover" src="${self.data.interests.image.url}" alt="">  
                     </div>
 
-                    <div class="interests-list half border">
+                    <div class="interests-list list half border">
                     <p>${self.data.interests.title}</p>
                     <ul>
                         ${self.setInterests(self.data.interests.list)}
@@ -148,6 +149,24 @@ class View {
                     </div>
 
                 </section>
+
+                <section id="challenges">
+
+                    <div class="challenges-list list half border">
+                        <p><span>${Star}</span> ${self.data.challenges.title}</p>
+                        <ul>
+                            ${self.setChallenges(self.data.challenges.list)}
+                        </ul>
+                    </div>
+
+                    <div class="challenges-image half">
+                        <img class="cover" src="${self.data.challenges.image.url}" alt="">  
+                    </div>
+
+                    
+                    
+                </section>
+
         `
         document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
         // this.preloadMedia(document.body.querySelector('#services').querySelectorAll('.media'));
@@ -160,6 +179,18 @@ class View {
             const interest = interests[i];
             let markup = /*html*/ `
                 <li>${interest}</li>
+                `
+                string += markup + "";
+        }
+        return string;
+    }
+    setChallenges(challenges){
+        const self = this;
+        let string = '';
+        for (let i = 0; i < challenges.length; i++) {
+            const challenge = challenges[i];
+            let markup = /*html*/ `
+                <li class="done-${challenge.done}">${challenge.title}</li>
                 `
                 string += markup + "";
         }

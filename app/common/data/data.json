@@ -1,102 +1,127 @@
-
 {
-    "details":{
-        "name":"Diego",
-        "lastname":"Stevens",
-        "slogan":"Chilean, Entrepreneur & Tech Visionary",
-        "image":"common/media/img/000a.png"
+    "details": {
+        "name": "Diego",
+        "lastname": "Stevens",
+        "slogan": "Chilean, Entrepreneur & Tech Visionary",
+        "image": "common/media/img/000a.png"
     },
-    
+
     "about": {
-        "introduction":"Diego’s been working with entrepreneurships, big companies and with his own initiatives for 10 years and has a broad view of what entrepreneurship truly involves and understands how to successfully combine it with the commercial area, which are essentially, powerful attributes for a new role as a tech advisor or a tech board member.<br> On one hand, he helps with a great team, enterprises such as Falabella, Arauco, Forus, Sura and many others to transform their digital business through a disruptive and revolutionary cultural mindset change and new business models.<br> On the other hand, he provides advice, mentoring and knowledge to Startups of his portfolio to raise money ($5MM USD YTD in Startup fundraising stage through private and public funds), finding the real value of their technology, market and industries through different disruptive strategies.Nowadays, he manages his own  portfolio of tech business valuated at more than $35 Million USD.",
-        "quotes":[
-            {
-                "quote":"The art of making<br>technology<br>more natural.",
-                "caption":"Keynote Conference",
-                "year":"2020"
-            },{
-                "quote":"Never regret<br>anything that<br>made you smile.",
-                "caption":"Mark Twain",
-                "year":"American writer"
-            }
-        ],
-        "images":[
-            {
-                "url":"",
-                "title":"Diego & Lorem ipsum",
-                "description":"Photo by Peter Stackpole <br> Photograph by Ronald Dick",
-                "position":""
-            }
-        ]
+        "introduction": "Diego’s been working with entrepreneurships, big companies and with his own initiatives for 10 years and has a broad view of what entrepreneurship truly involves and understands how to successfully combine it with the commercial area, which are essentially, powerful attributes for a new role as a tech advisor or a tech board member.<br> On one hand, he helps with a great team, enterprises such as Falabella, Arauco, Forus, Sura and many others to transform their digital business through a disruptive and revolutionary cultural mindset change and new business models.<br> On the other hand, he provides advice, mentoring and knowledge to Startups of his portfolio to raise money ($5MM USD YTD in Startup fundraising stage through private and public funds), finding the real value of their technology, market and industries through different disruptive strategies.Nowadays, he manages his own  portfolio of tech business valuated at more than $35 Million USD.",
+        "quotes": [{
+            "quote": "The art of making<br>technology<br>more natural.",
+            "caption": "Keynote Conference",
+            "year": "2020"
+        }, {
+            "quote": "Never regret<br>anything that<br>made you smile.",
+            "caption": "Mark Twain",
+            "year": "American writer"
+        }],
+        "images": [{
+            "url": "",
+            "title": "Diego & Lorem ipsum",
+            "description": "Photo by Peter Stackpole <br> Photograph by Ronald Dick",
+            "position": ""
+        }]
     },
-    "interests":{
-        "title":"Interests & Amusements",
-        "list":["Watchmaking","Fintech","Smartcity","Fund Raising","AI & Cognitive Services","Disruptive Business Models","Change Management"],
-        "image":{
-            "url":"common/media/img/007.png",
-            "title":"",
-            "description":""
-        } 
+    "interests": {
+        "title": "Interests & Amusements",
+        "list": ["Watchmaking", "Fintech", "Smartcity", "Fund Raising", "AI & Cognitive Services", "Disruptive Business Models", "Change Management"],
+        "image": {
+            "url": "common/media/img/007.png",
+            "title": "",
+            "description": ""
+        }
     },
-    "timeline":[
-            {
-                "year":"2015",
-                "achivements":["Award of Entrepreneur of<br>2015 by Chilean Institute<br>of Engineers."]
-            },
-            {
-                "year":"2016",
-                "achivements":["W* of National Pitch<br>Session of MeetLatam <br> Chile."]
-            },
-            {
-                "year":"2017",
-                "achivements":["W* Silicon Valley<br>Tour-representing Chile as<br> one of the most important<br> Entrepreneurs' of Chile."]
-            },
-            {
-                "year":"2018",
-                "achivements":["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."]
-            },
-            {
-                "year":"2019",
-                "achivements":["7th place in the most<br>important Startup Event<br>in Colombia, StartCo.", "Representing Chile in the<br> Worldwide VS's event eMerge<br>Americas, Miami, USA.", "Representing Chile in the<br> World Congress Smart City<br> Barcelona."]
-            },
-            {
-                "year":"2020",
-                "achivements":["Chilean of the Year 2020<br> in the \"Innovator Category\"."]
-            }
+    "timeline": [{
+            "year": "2015",
+            "achivements": ["Award of Entrepreneur of<br>2015 by Chilean Institute<br>of Engineers."]
+        },
+        {
+            "year": "2016",
+            "achivements": ["W* of National Pitch<br>Session of MeetLatam <br> Chile."]
+        },
+        {
+            "year": "2017",
+            "achivements": ["W* Silicon Valley<br>Tour-representing Chile as<br> one of the most important<br> Entrepreneurs' of Chile."]
+        },
+        {
+            "year": "2018",
+            "achivements": ["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."]
+        },
+        {
+            "year": "2019",
+            "achivements": ["7th place in the most<br>important Startup Event<br>in Colombia, StartCo.", "Representing Chile in the<br> Worldwide VS's event eMerge<br>Americas, Miami, USA.", "Representing Chile in the<br> World Congress Smart City<br> Barcelona."]
+        },
+        {
+            "year": "2020",
+            "achivements": ["Chilean of the Year 2020<br> in the \"Innovator Category\"."]
+        }
     ],
 
-    "today":{
-        "description":"Aca va un texto que <br> necesitamos como intro  <br> para esta seccion.",
-        "title":"Today",
-        "cards":[
-            {
-                "title":"What is the <br>Aspiration?",
-                "description":"Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media":"common/media/img/008.png"
+    "today": {
+        "description": "Aca va un texto que <br> necesitamos como intro  <br> para esta seccion.",
+        "title": "Today",
+        "cards": [{
+                "title": "What is the <br>Aspiration?",
+                "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
+                "media": "common/media/img/008.png"
             },
             {
-                "title":"Where <br> am I now?",
-                "description":"Mature Digital model,<br>Main GAP and recommendation<br>Tecnical & Commercial sizing",
-                "media":"common/media/img/009.png"
+                "title": "Where <br> am I now?",
+                "description": "Mature Digital model,<br>Main GAP and recommendation<br>Tecnical & Commercial sizing",
+                "media": "common/media/img/009.png"
             },
             {
-                "title":"Where do I focus <br> my Transformation?",
-                "description":"Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media":"common/media/img/010.png"
+                "title": "Where do I focus <br> my Transformation?",
+                "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
+                "media": "common/media/img/010.png"
             },
             {
-                "title":"Consolidating my <br>Transformation",
-                "description":"Strategic & Economic focus <br> Defination goals, projects and bussiness driver",
-                "media":"common/media/img/011.png"
+                "title": "Consolidating my <br>Transformation",
+                "description": "Strategic & Economic focus <br> Defination goals, projects and bussiness driver",
+                "media": "common/media/img/011.png"
             },
             {
-                "title":"On going portfolio <br> of Projects",
-                "description":"Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
-                "media":"common/media/img/012.png"
+                "title": "On going portfolio <br> of Projects",
+                "description": "Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
+                "media": "common/media/img/012.png"
             }
         ]
+    },
+
+    "challenges": {
+        "title": "Challenges",
+        "list": [{
+            "title": "Selfie with Satya Nadella",
+            "done": false
+        },{
+            "title": "Create a Shark Tank",
+            "done": false
+        },{
+            "title": "Parachute jump",
+            "done": true
+        },{
+            "title": "Run a marathon",
+            "done": false
+        },{
+            "title": "Take on a charity challenge",
+            "done": false
+        },{
+            "title": "Surprise yourself",
+            "done": false
+        },{
+            "title": "Climb a famous peak",
+            "done": false
+        }],
+        "image": {
+            "url": "common/media/img/013.png",
+            "title": "",
+            "description": ""
+        }
+
     }
-    
+
 
 
 }

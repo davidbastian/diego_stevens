@@ -107,21 +107,39 @@
 }
 
 
-#interests {
+#interests,
+#challenges {
     height: 100vh;
+}
 
-    .interests-list {
+#challenges {
+    background-color: $color02;
+    color: $color01;
+
+    p {
         display: flex;
-        flex-direction: column;
-        justify-content: space-between;
 
+        span {
+            display: block;
+            width: 1.1vw;
+            margin-right: .3vw;
+        }
 
-        ul {
-            font-size: 2.8vw;
-            line-height: 3.5vw;
+        svg {
+            width: 100%;
+            height: auto;
         }
     }
 
+    li {
+        color: $color04;
+
+        &.done-true {
+            color: $color01;
+            text-decoration: line-through;
+
+        }
+    }
 }
 
 #timeline {
