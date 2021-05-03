@@ -17,6 +17,7 @@
     "gsap": "^1.20.3",
     "ip": "^1.1.5",
     "json-loader": "^0.5.4",
+    "locomotive-scroll": "^4.1.1",
     "node-sass": "^4.5.3",
     "path": "^0.12.7",
     "postcss-load-config": "1.0.0",
@@ -24,9 +25,9 @@
     "raw-loader": "^0.5.1",
     "sass-loader": "^6.0.5",
     "style-loader": "^0.18.1",
+    "virtual-scroll": "^1.4.0",
     "webpack": "^2.6.0",
-    "webpack-dev-server": "^2.7.1",
-    "virtual-scroll": "^1.4.0"
+    "webpack-dev-server": "^2.7.1"
   },
   "scripts": {
     "build": "webpack",

@@ -1,12 +1,16 @@
 import './style.scss';
 import {
-    TweenMax
-} from 'gsap';
-import {
     checkDevice
 } from '../../../common/utils/utils';
 import Logo from '../../../common/svg/logo.svg'
 import Star from '../../../common/svg/star.svg'
+import ScrollController from '../../controllers/controller.scroll';
+import ScrollTest from '../../controllers/controller.scrollTest';
+import {
+    TweenMax,
+    TimelineMax
+} from 'gsap';
+
 
 
 class View {
@@ -28,12 +32,12 @@ class View {
 
                         <dl>
                             <dt>${self.data.details.slogan}</dt>
-                            <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
+                            <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a><span>|</span>Scroll to Explore</dd>
                         </dl>
                          
                     </div>
-                    <div class="hero-image half">
-                            <img class="cover" src="${self.data.details.image}" alt="${self.data.details.slogan}">
+                    <div class="hero-image half pointer-none">
+                            <img  class="cover" src="${self.data.details.image}" alt="${self.data.details.slogan}">
                     </div>
                     <div></div>       
                 </section>
@@ -167,16 +171,216 @@ class View {
 
                 <section id="clients">
                         <p>${self.data.clients.description}</p>
-                        <img  src="${self.data.clients.img}" alt="">  
+                        <img class="pointer-none" src="${self.data.clients.img}" alt="">  
+                </section>
+
+                <section id="press" class="content">
+
+                    <div class="press-intro">
+                            <h2>${self.data.press.title}</h2>
+                            <p>${self.data.press.description}</p>
+                            
+                    </div>
+
+                    <div class="press-articles content"> 
+                        <div class="border">
+                            ${self.setArticles(self.data.press.articles)}
+                        </div>  
+                    </div>
+
+                </section>
+
+                <section id="contact" class="content">
+                    <div class="border">
+                        <h2>${self.data.contact.title}</h2>
+                        <h5>Let’s talk <br> <a href="">${self.data.contact.email}</a></h5>
+                    </div>
+                </section>
+
+                <section id="cast" class="content">
+                    <div class="partners">
+                            <h6> <b>Partners</b> </h6>
+                            <div class="partners-container">
+                                ${self.setPartners(self.data.cast.partners)}
+                            </div>
+                    </div>
+
+                    <div class="partnerships">
+                            <h6> <b>Partnerships</b> </h6>
+                            <div class="partnerships-container">  
+                                <a target="_blank" href="https://www.prochile.gob.cl/"><p>Pro Chile</p></a>
+                                <a target="_blank" href="https://www.meetlatam.com/"><p>MeetLatam</p></a>
+                                <a target="_blank" href="https://www.microsoft.com"><p>Microsoft</p></a>
+                                <a target="_blank" href="https://www.dtschile.com/"><p>DTS Chile</p></a>
+                            </div>
+                    </div>
+                    <div class="my-companies">
+                        <h6><b>My Companies</b></h6>
+                        <div class="container">                            
+                                <img src="common/media/img/019.png" alt="">    
+                        </div>   
+                    </div>
+
+                    <div class="collaborations">
+                        <h6><b>Collaborations and Consultant</b></h6>
+                        <div class="container">                            
+                            <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
+                        </div>   
+                    </div>
+
+                    <div class="investors">
+                        <h6><b>Investors</b></h6>
+                        <div class="container">                            
+                            <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
+                        </div>   
+                    </div>
+
+                    <div class="my-companies">
+                        <h6><b>Alma Matter</b></h6>
+                        <div class="container">                            
+                                <img src="common/media/img/020.png" alt="">    
+                        </div>   
+                    </div>
+
+                    <h6 class="copyright">The entire diegostevens.com Web site is Copyright ©2021 by Diego Stevens. All Rights Reserved. The diegostevens.com site may not be copied or duplicated in whole or part by any means without express prior agreement in writing or unless specifically noted on the site.
+                        Some photographs or documents contained on the site may be the copyrighted property of others; acknowledgement of those copyrights is hereby given. All such material is used with the permission of the owner.
+                    </h6>
+
                 </section>
 
 
+
         `
-        document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
-        // this.preloadMedia(document.body.querySelector('#services').querySelectorAll('.media'));
+        const main = document.body.querySelector('main');
+        main.insertAdjacentHTML('afterbegin', markup);
+
+        //self.setScroll(main);
+        var tl = new TimelineMax({
+            onUpdate: updateStats,
+        });
+
+        tl.to(main.querySelector('#about'), 4, {
+            yPercent: -33,
+            ease: 'Linear.easeNone'
+        });
+        tl.to(main.querySelector('#home'), 2, {
+            yPercent: -40,
+            ease: 'Linear.easeNone',
+
+        }, '-=4');
+
+        tl.to(main.querySelector('#home').querySelector('img'), 1, {
+            ease: 'Linear.easeNone',
+            scale: 1.2,
+
+        }, '-=4');
+
+        var blurElement = {
+            a: 0
+        }; //start the blur at 0 pixels
+
+        tl.to(blurElement, 1, {
+            a: 80,
+            onUpdate: applyBlur,
+            ease: 'Linear.easeNone',
+        },'-=4');
+
+        tl.to(main.querySelector('#about').querySelector('.about-introduction'), 2, {
+            yPercent: -30,
+            ease: 'Linear.easeNone'
+        });
+
+
+        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 2, {
+            opacity:0,
+            yPercent:-10,
+            ease: 'Linear.easeNone'
+        },'-=1.5');
+
+        tl.to(main.querySelector('#about'), 6, {
+            yPercent: -100,
+            ease: 'Linear.easeNone'
+        },'-=1');
+
+
+
+
+        function applyBlur() {
+            TweenMax.set(main.querySelector('#home').querySelector('img'), {
+                webkitFilter: "blur(" + blurElement.a+ "px)"
+            });
+        };
+
+        function updateStats() {
+            console.log(tl.progress())
+        }
+
+        tl.pause();
+
+        this.scroll = new ScrollTest({
+            container: main,
+            pos: 0,
+            ease: 0.05,
+            delta: 40,
+            timeline: tl
+        });
+
+        this.scroll.init();
+
     }
 
-    setInterests(interests){
+    setScroll(main) {
+
+        /* this.scroll = new ScrollController({
+             container:main,
+             pos: 0,
+             ease: 0.05,
+             delta: 40,
+         });
+
+         this.scroll.init(main);*/
+
+    }
+
+    setPartners(partners) {
+        const self = this;
+        let string = '';
+        for (let i = 0; i < partners.length; i++) {
+            const partner = partners[i];
+            let markup = /*html*/ `
+                <a target="_blank" href="${partner.link}" class="partner-item">
+                    <p class="partner-role">${partner.role}</p>  
+                    <p class="partner-name">${partner.name}</p>
+                    
+                </a>
+                `
+            string += markup + "";
+        }
+        return string;
+
+    }
+
+    setArticles(articles) {
+        const self = this;
+        let string = '';
+        for (let i = 0; i < articles.length; i++) {
+            const article = articles[i];
+            let markup = /*html*/ `
+                <a target="_blank" href="${article.url}">
+                    <img src="${article.img}" alt="${article.title}">
+                    <h6><b>${article.type}, </b>${article.date}</h6>
+                    <h3>${article.title}</h3>
+                    <p>${article.description}</p>
+                </a>
+                `
+            string += markup + "";
+        }
+        return string;
+
+
+    }
+
+    setInterests(interests) {
         const self = this;
         let string = '';
         for (let i = 0; i < interests.length; i++) {
@@ -184,11 +388,11 @@ class View {
             let markup = /*html*/ `
                 <li>${interest}</li>
                 `
-                string += markup + "";
+            string += markup + "";
         }
         return string;
     }
-    setChallenges(challenges){
+    setChallenges(challenges) {
         const self = this;
         let string = '';
         for (let i = 0; i < challenges.length; i++) {
@@ -196,12 +400,12 @@ class View {
             let markup = /*html*/ `
                 <li class="done-${challenge.done}">${challenge.title}</li>
                 `
-                string += markup + "";
+            string += markup + "";
         }
         return string;
     }
 
-    setTimeline(timeline){
+    setTimeline(timeline) {
         const self = this;
         let string = '';
         for (let i = 0; i < timeline.length; i++) {
@@ -217,12 +421,12 @@ class View {
                     </div>
                 </div>
                 `
-                string += markup + "";
+            string += markup + "";
         }
         return string;
     }
 
-    setAchivements(achivements){
+    setAchivements(achivements) {
         const self = this;
         let string = '';
         for (let i = 0; i < achivements.length; i++) {
@@ -230,13 +434,13 @@ class View {
             let markup = /*html*/ `
                 <p>${item}</p>
                 `
-                string += markup + "";
+            string += markup + "";
         }
         return string;
 
     }
 
-    setCards(cards){
+    setCards(cards) {
         const self = this;
         let string = '';
         for (let i = 0; i < cards.length; i++) {
@@ -251,7 +455,7 @@ class View {
                         <img src="${item.media}" alt="">
                     </div>    
                 `
-                string += markup + "";
+            string += markup + "";
         }
         return string;
 

@@ -4,7 +4,8 @@
 html {
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
+     overflow: hidden;
     -ms-touch-action: manipulation;
     touch-action: manipulation;
 
@@ -14,8 +15,8 @@ body {
     height: 100%;
     width: 100%;
     padding: 0;
-    overflow: auto;
     margin: 0;
+     overflow: hidden;
 
 
 }
@@ -33,44 +34,33 @@ body {
 }
 
 main {
+    /* overflow-y: scroll;
     overflow: hidden;
+    height: 100vh;
+    width: calc(100vw + 25px);*/
 }
 
 section {
-   width: 100vw;
+    width: 100vw;
     display: flex;
     overflow: hidden;
 }
 
-
-b {
-    font-weight: bold;
-    
-}
 
 .border {
     padding: 2vw;
     box-sizing: border-box;
 }
 
-ul,
-li,
-a {
-   // color: $color01;
-   color: inherit;
-}
-
-p {
-    font-size: 1.4vw;
-    line-height: 1.85vw;
-}
 
 dl {
     font-size: .7vw;
+
     dt {
         font-weight: bold;
         margin-bottom: .5vw;
     }
+
     dd {
         line-height: .85vw;
     }
@@ -78,15 +68,17 @@ dl {
 
 .quote {
     text-align: center;
+
     blockquote {
         font-family: 'Canopee';
         font-size: 7vw;
     }
-    
+
     figcaption {
         padding: 2vh 0;
         font-size: 1vw;
         font-weight: bold;
+
         cite {
             font-weight: normal;
         }
@@ -112,13 +104,12 @@ dl {
 
 
 
-h1 {
-
-}
+h1 {}
 
 h2 {
     font-family: 'Canopee';
-    font-size: 14vw;
+    font-size: 13vw;
+    line-height: 11vw;
 }
 
 h3 {
@@ -127,11 +118,33 @@ h3 {
 }
 
 h4 {
+    font-size: 1vw;
+}
 
+h5 {
+    font-size: 1.4vw;
+    margin-bottom: .5vw;
+}
+
+h6 {
+    font-size: .7vw;
+    margin-bottom: .5vw;
+}
+
+ul,
+li,
+a {
+    color: inherit;
 }
 
 p {
+    font-size: 1.4vw;
+    line-height: 1.85vw;
+}
 
+
+b {
+    font-weight: bold;
 }
 
 .hide {
@@ -172,35 +185,20 @@ p {
 }
 
 
-.mobile {
- 
+.mobile {}
 
-}
-
-.tablet {
-  
-
-
-}
+.tablet {}
 
 .tablet,
 .desktop {
-    @media (orientation: portrait) {
-      
-
-    }
+    @media (orientation: portrait) {}
 }
 
-.rotate {
-    
-
-}
+.rotate {}
 
 .mobile {
     @media (orientation: landscape) {
-        .rotate {
-         
-        }
+        .rotate {}
 
 
     }
