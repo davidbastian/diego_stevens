@@ -80,8 +80,8 @@ class View {
                         </dl>
                     </figure>
 
-                    <figure class="horizontal"  style="margin-left: 40vw;margin-top: -8vh;">
-                        <img style="width:20vw;" src="common/media/img/004.png" alt="">
+                    <figure class="horizontal"  style="margin-left: 40vw;margin-top: -8vh; ">
+                        <img style="width:20vw; transform-origin:right top;" src="common/media/img/004.png" alt="">
                         <dl>
                             <dt>Diego & Lorem ipsum</dt>
                             <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
@@ -298,9 +298,60 @@ class View {
         },'-=1.5');
 
         tl.to(main.querySelector('#about'), 6, {
-            yPercent: -100,
+            yPercent: -63,
             ease: 'Linear.easeNone'
         },'-=1');
+
+
+        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[0], 6, {
+            yPercent: 50,
+        },{
+            yPercent: -200,
+            ease: 'Linear.easeNone'
+        },'5');
+
+        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[1], 4, {
+            yPercent: 50,
+        },{
+            yPercent: -200,
+            ease: 'Linear.easeNone'
+        },'7');
+
+        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[2], 6, {
+            yPercent: 100,
+        },{
+            yPercent: -200,
+            ease: 'Linear.easeNone'
+        },'5.5');
+
+        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3], 6, {
+            yPercent: 100,
+        },{
+            yPercent: -200,
+            ease: 'Linear.easeNone'
+        },'3.5');
+
+        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3].querySelector('img'), 4, {
+            scale: 1,
+        },{
+            scale: 1.9,
+            ease: 'Linear.easeNone'
+        },);
+
+        tl.to(main.querySelector('#about'), 6, {
+            yPercent: -80,
+            ease: 'Linear.easeNone'
+        });
+
+        
+
+
+       /* tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3].querySelector('img'), 4, {
+            scale: 1,
+        },{
+            scale: 1.9,
+            ease: 'Linear.easeNone'
+        },'8');*/
 
 
 
