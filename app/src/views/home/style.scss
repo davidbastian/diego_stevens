@@ -2,7 +2,6 @@
 
 #home {
     height: 100vh;
-    position: fixed;
     width: 100%;
     background-color: #fff;
 
@@ -52,9 +51,7 @@
     background-color: $color02;
     color: $color01;
     flex-direction: column;
-    position: fixed;
     width: 100%;
-    top: 100vh;
 
     .about-introduction {
 

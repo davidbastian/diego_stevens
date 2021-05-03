@@ -5,7 +5,6 @@ import {
 import Logo from '../../../common/svg/logo.svg'
 import Star from '../../../common/svg/star.svg'
 import ScrollController from '../../controllers/controller.scroll';
-import ScrollTest from '../../controllers/controller.scrollTest';
 import {
     TweenMax,
     TimelineMax
@@ -254,91 +253,18 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-        //self.setScroll(main);
-        var tl = new TimelineMax({
-            onUpdate: updateStats,
-        });
-
-        tl.to(main.querySelector('#about'), 4, {
-            yPercent: -33,
-            ease: 'Linear.easeNone'
-        });
-        tl.to(main.querySelector('#home'), 2, {
-            yPercent: -40,
-            ease: 'Linear.easeNone',
-
-        }, '-=4');
-
-        tl.to(main.querySelector('#home').querySelector('img'), 1, {
-            ease: 'Linear.easeNone',
-            scale: 1.2,
-
-        }, '-=4');
-
-        var blurElement = {
-            a: 0
-        }; //start the blur at 0 pixels
-
-        tl.to(blurElement, 1, {
-            a: 80,
-            onUpdate: applyBlur,
-            ease: 'Linear.easeNone',
-        },'-=4');
-
-        tl.to(main.querySelector('#about').querySelector('.about-introduction'), 2, {
-            yPercent: -30,
-            ease: 'Linear.easeNone'
-        });
-
-
-        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 2, {
-            opacity:0,
-            yPercent:-10,
-            ease: 'Linear.easeNone'
-        },'-=1.5');
-
-        tl.to(main.querySelector('#about'), 6, {
-            yPercent: -100,
-            ease: 'Linear.easeNone'
-        },'-=1');
-
-
-
-
-        function applyBlur() {
-            TweenMax.set(main.querySelector('#home').querySelector('img'), {
-                webkitFilter: "blur(" + blurElement.a+ "px)"
-            });
-        };
-
-        function updateStats() {
-            console.log(tl.progress())
-        }
-
-        tl.pause();
-
-        this.scroll = new ScrollTest({
-            container: main,
-            pos: 0,
-            ease: 0.05,
-            delta: 40,
-            timeline: tl
-        });
-
-        this.scroll.init();
-
     }
 
     setScroll(main) {
 
-        /* this.scroll = new ScrollController({
+         this.scroll = new ScrollController({
              container:main,
              pos: 0,
              ease: 0.05,
              delta: 40,
          });
 
-         this.scroll.init(main);*/
+         this.scroll.init(main);
 
     }
 
