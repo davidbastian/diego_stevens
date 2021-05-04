@@ -14,10 +14,9 @@
     "css-loader": "^0.28.2",
     "extract-text-webpack-plugin": "^2.1.0",
     "file-loader": "^0.11.1",
-    "gsap": "^1.20.3",
+    "gsap": "^3.6.1",
     "ip": "^1.1.5",
     "json-loader": "^0.5.4",
-    "locomotive-scroll": "^4.1.1",
     "node-sass": "^4.5.3",
     "path": "^0.12.7",
     "postcss-load-config": "1.0.0",
@@ -32,5 +31,6 @@
   "scripts": {
     "build": "webpack",
     "start": "webpack-dev-server --open"
-  }
+  },
+  "dependencies": {}
 }
