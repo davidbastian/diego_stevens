@@ -68,6 +68,9 @@ dl {
 
 .quote {
     text-align: center;
+    position:relative;
+    z-index: 1;
+    
 
     blockquote {
         font-family: 'Canopee';

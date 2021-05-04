@@ -279,6 +279,24 @@ class View {
             a: 0
         }; //start the blur at 0 pixels
 
+        var blurElementB = {
+            a: 0
+        }; //start the blur at 0 pixels
+
+        function applyBlur() {
+            TweenMax.set(main.querySelector('#home').querySelector('img'), {
+                webkitFilter: "blur(" + blurElement.a+ "px)"
+            });
+        };
+
+        function applyBlurB() {
+            TweenMax.set(main.querySelector('#about').querySelectorAll('.quote')[0], {
+                webkitFilter: "blur(" + blurElementB.a+ "px)"
+            });
+        };
+
+
+
         tl.to(blurElement, 1, {
             a: 80,
             onUpdate: applyBlur,
@@ -290,18 +308,23 @@ class View {
             ease: 'Linear.easeNone'
         });
 
-
-        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 2, {
-            opacity:0,
-            yPercent:-10,
+        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 5, {
+          //  opacity:0,
+            yPercent:0,
             ease: 'Linear.easeNone'
-        },'-=1.5');
+        },'-=2');
 
-        tl.to(main.querySelector('#about'), 6, {
-            yPercent: -63,
+
+        tl.to(main.querySelector('#about'), 8, {
+            yPercent: -70,
             ease: 'Linear.easeNone'
-        },'-=1');
+        });
 
+        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 5, {
+            //  opacity:0,
+              yPercent:-100,
+              ease: 'Linear.easeNone'
+        });
 
         tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[0], 6, {
             yPercent: 50,
@@ -310,38 +333,38 @@ class View {
             ease: 'Linear.easeNone'
         },'5');
 
-        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[1], 4, {
+        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[1], 6, {
             yPercent: 50,
         },{
             yPercent: -200,
             ease: 'Linear.easeNone'
-        },'7');
+        },'6');
 
         tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[2], 6, {
             yPercent: 100,
         },{
             yPercent: -200,
             ease: 'Linear.easeNone'
-        },'5.5');
+        },'6');
 
         tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3], 6, {
-            yPercent: 100,
+            yPercent: -150,
         },{
-            yPercent: -200,
+            yPercent: -300,
             ease: 'Linear.easeNone'
-        },'3.5');
+        },'6');
 
         tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3].querySelector('img'), 4, {
             scale: 1,
         },{
-            scale: 1.9,
+            scale: 2,
             ease: 'Linear.easeNone'
         },);
 
-        tl.to(main.querySelector('#about'), 6, {
+      /*  tl.to(main.querySelector('#about'), 6, {
             yPercent: -80,
             ease: 'Linear.easeNone'
-        });
+        });*/
 
         
 
@@ -356,11 +379,7 @@ class View {
 
 
 
-        function applyBlur() {
-            TweenMax.set(main.querySelector('#home').querySelector('img'), {
-                webkitFilter: "blur(" + blurElement.a+ "px)"
-            });
-        };
+      
 
         function updateStats() {
             console.log(tl.progress())
@@ -372,7 +391,7 @@ class View {
             container: main,
             pos: 0,
             ease: 0.05,
-            delta: 40,
+            delta:20,
             timeline: tl
         });
 
