@@ -257,8 +257,22 @@ class View {
             onUpdate: updateStats,
         });*/
 
+        var blurHero = {
+            a: 0
+        }; 
+        function applyBlur() {
+            gsap.set(main.querySelector('#home').querySelector('img'), {
+                webkitFilter: "blur(" + blurHero.a+ "px)"
+            });
+        };
+
+
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
-        tl.from('#about',{yPercent:100, duration:30});
+
+        tl.from('#about',{yPercent:100, duration:30});   
+        tl.to(blurHero, {a: 100, onUpdate: applyBlur,duration:30},"-=30");
+        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
+        tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
         //about parallax
         tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=20");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:-20}, {yPercent:-420,duration:100},"-=50");
@@ -270,11 +284,6 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-400}, {yPercent:-1050,duration:100},"-=50");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500}, {yPercent:-1000,duration:80},"-=55");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-500}, {yPercent:-1000,duration:60},"-=75");
-     //   tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[5],{yPercent:-100}, {yPercent:-1300,duration:60},"-=65");
-        
-
-
-
         tl.from('#interests',{yPercent:100, duration:30},"-=45");
         tl.from('#timeline',{yPercent:100, duration:30});
         tl.from('#today',{yPercent:100, duration:30});
