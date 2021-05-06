@@ -39,7 +39,15 @@
         },
         {
             "year": "2016",
-            "achivements": ["W* of National Pitch<br>Session of MeetLatam <br> Chile."]
+            "achivements": ["W* of National Pitch<br>Session of MeetLatam <br> Chile."],
+            "img":{
+                "url":"common/media/img/021.png",
+                "credits": {
+                    "title":"",
+                    "description":""
+                },
+                "align": "flex-start"
+            }
         },
         {
             "year": "2017",
@@ -47,7 +55,15 @@
         },
         {
             "year": "2018",
-            "achivements": ["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."]
+            "achivements": ["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."],
+            "img":{
+                "url":"common/media/img/022.png",
+                "credits": {
+                    "title":"",
+                    "description":""
+                },
+                "align": "flex-end"
+            }
         },
         {
             "year": "2019",

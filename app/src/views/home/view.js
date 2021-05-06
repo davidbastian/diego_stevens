@@ -6,8 +6,8 @@ import Logo from '../../../common/svg/logo.svg'
 import Star from '../../../common/svg/star.svg'
 import ScrollController from '../../controllers/controller.scroll';
 import ScrollTest from '../../controllers/controller.scrollTest';
-import {gsap,
-} from 'gsap';
+import {gsap
+} from "gsap";
 
 
 
@@ -252,204 +252,71 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-        //self.setScroll(main);
-        /*var tl = new TimelineMax({
-            onUpdate: updateStats,
-        });*/
-
         var blurHero = {
             a: 0
         }; 
-        function applyBlur() {
+        function applyBlurHero() {
             gsap.set(main.querySelector('#home').querySelector('img'), {
                 webkitFilter: "blur(" + blurHero.a+ "px)"
             });
         };
-
+  
 
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
         tl.from('#about',{yPercent:100, duration:30});   
-        tl.to(blurHero, {a: 100, onUpdate: applyBlur,duration:30},"-=30");
+        tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
         tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
-        //about parallax
+        //about
         tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=20");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:-20}, {yPercent:-420,duration:100},"-=50");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:-100}, {yPercent:-420,duration:60},"-=90");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-100}, {yPercent:-520,duration:60},"-=80");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-100}, {yPercent:-520,duration:85},"-=70");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-100}, {yPercent:-580,duration:60},"-=70");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-100}, {yPercent:-1300,duration:60},"-=65");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.5}, {scale:2,duration:50},"-=55");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-100}, {yPercent:-1350,duration:60},"-=65");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.5}, {scale:2.5,duration:50},"-=55");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-400}, {yPercent:-1050,duration:100},"-=50");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500}, {yPercent:-1000,duration:80},"-=55");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-500}, {yPercent:-1000,duration:60},"-=75");
-        tl.from('#interests',{yPercent:100, duration:30},"-=45");
-        tl.from('#timeline',{yPercent:100, duration:30});
-        tl.from('#today',{yPercent:100, duration:30});
-        tl.from('#challenges',{yPercent:100, duration:30});
-
-        //tl.from('#about',{yPercent:100, duration:16});
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-500}, {yPercent:-1000,duration:90},"-=68");
+        //interest
 
 
-        /*tl.fromTo(main.querySelector('#about'), 16, {
-            yPercent: 100,
-        },{
-            yPercent: 0,
-            ease: 'Linear.easeNone'
-        });
+        tl.from('#interests',{yPercent:100, duration:100},"-=76");
+        //timeline
+        tl.from('#timeline',{yPercent:100, duration:100},'-=35');
 
-        tl.fromTo(main.querySelector('.about-introduction '), 16, {
-            yPercent: 0,
-        },{
-            yPercent: -50,
-            ease: 'Linear.easeNone'
-        },'16');
+        tl.to(main.querySelectorAll('.timeline-item')[1],{yPercent:-200,duration:250},'-=10');
+       
+        tl.to(main.querySelectorAll('.timeline-item')[0],{opacity:0,duration:30},'-=250');
 
 
-        tl.fromTo(main.querySelector('#interests'), 16, {
-            yPercent: 100,
-         
-        },{
-            yPercent: 0,
-            ease: 'Linear.easeNone'
-        });
+        tl.to(main.querySelectorAll('.timeline-item')[0],{yPercent:-100,duration:50},'-=250');
+        tl.to(main.querySelectorAll('.timeline-item')[2],{yPercent:-550,duration:100},'-=235');
+        tl.to(main.querySelectorAll('.timeline-item')[1],{opacity:0,duration:20},'-=200');
+        tl.to(main.querySelectorAll('.timeline-item')[3],{yPercent:-500,duration:480},'-=252');
+        tl.to(main.querySelectorAll('.timeline-item')[2],{opacity:0,duration:30},'-=410');
+        tl.to(main.querySelectorAll('.timeline-item')[4],{yPercent:-850,duration:480},'-=520');
+        tl.to(main.querySelectorAll('.timeline-item')[3],{opacity:0,duration:30},'-=360');
+        tl.to(main.querySelectorAll('.timeline-item')[5],{yPercent:-1700,duration:480},'-=560');
+        tl.to(main.querySelectorAll('.timeline-item')[4],{opacity:0,duration:30},'-=320');
+        tl.to(main.querySelectorAll('.timeline-item')[5],{opacity:0,duration:30},'-=220');
 
+        tl.from('#today',{yPercent:100, duration:180},'-=320');
 
-        tl.fromTo(main.querySelector('#timeline'), 16, {
-            yPercent: 100,
-         
-        },{
-            yPercent: 0,
-            ease: 'Linear.easeNone'
-        });
-
-
-        tl.fromTo(main.querySelector('#today'), 16, {
-            yPercent: 100,
-         
-        },{
-            yPercent: 0,
-            ease: 'Linear.easeNone'
-        });
-
-        tl.fromTo(main.querySelector('#challenges'), 16, {
-            yPercent: 100,
-         
-        },{
-            yPercent: 0,
-            ease: 'Linear.easeNone'
-        });*/
-
-
-
-
-
-        /*tl.to(main.querySelector('#about'), 4, {
-            yPercent: -33,
-            ease: 'Linear.easeNone'
-        });
-        tl.to(main.querySelector('#home'), 2, {
-            yPercent: -40,
-            ease: 'Linear.easeNone',
-
-        }, '-=4');
-
-        tl.to(main.querySelector('#home').querySelector('img'), 1, {
-            ease: 'Linear.easeNone',
-            scale: 1.2,
-
-        }, '-=4');
-
-        var blurElement = {
-            a: 0
-        }; //start the blur at 0 pixels
-
-        var blurElementB = {
-            a: 0
-        }; //start the blur at 0 pixels
-
-        function applyBlur() {
-            TweenMax.set(main.querySelector('#home').querySelector('img'), {
-                webkitFilter: "blur(" + blurElement.a+ "px)"
-            });
-        };
-
-        function applyBlurB() {
-            TweenMax.set(main.querySelector('#about').querySelectorAll('.quote')[0], {
-                webkitFilter: "blur(" + blurElementB.a+ "px)"
-            });
-        };
-
-
-
-        tl.to(blurElement, 1, {
-            a: 80,
-            onUpdate: applyBlur,
-            ease: 'Linear.easeNone',
-        },'-=4');
-
-        tl.to(main.querySelector('#about').querySelector('.about-introduction'), 2, {
-            yPercent: -30,
-            ease: 'Linear.easeNone'
-        });
-
-        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 5, {
-          //  opacity:0,
-            yPercent:0,
-            ease: 'Linear.easeNone'
-        },'-=2');
-
-
-        tl.to(main.querySelector('#about'), 8, {
-            yPercent: -70,
-            ease: 'Linear.easeNone'
-        });
-
-        tl.to(main.querySelector('#about').querySelectorAll('.quote')[0], 5, {
-            //  opacity:0,
-              yPercent:-100,
-              ease: 'Linear.easeNone'
-        });
-
-        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[0], 6, {
-            yPercent: 50,
-        },{
-            yPercent: -200,
-            ease: 'Linear.easeNone'
-        },'5');
-
-        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[1], 6, {
-            yPercent: 50,
-        },{
-            yPercent: -200,
-            ease: 'Linear.easeNone'
-        },'6');
-
-        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[2], 6, {
-            yPercent: 100,
-        },{
-            yPercent: -200,
-            ease: 'Linear.easeNone'
-        },'6');
-
-        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3], 6, {
-            yPercent: -150,
-        },{
-            yPercent: -300,
-            ease: 'Linear.easeNone'
-        },'6');
-
-        tl.fromTo(main.querySelector('#about').querySelector('.about-moments').querySelectorAll('figure')[3].querySelector('img'), 4, {
-            scale: 1,
-        },{
-            scale: 2,
-            ease: 'Linear.easeNone'
-        },);
-
-     */
-
+        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:200}, {yPercent:-400,duration:780},'-=350');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:100}, {yPercent:-150,duration:840},"-=770");
         
+        tl.from('#challenges',{yPercent:100, duration:250},'-=420');
+
+        tl.from('#press',{yPercent:100, duration:250},'-=160');
+        
+        tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:200}, {yPercent:-400,duration:780},'-=150');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[0],{yPercent:100}, {yPercent:-400,duration:780},'-=650');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[1],{yPercent:100}, {yPercent:-450,duration:780},'-=750');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[2],{yPercent:100}, {yPercent:-500,duration:780},'-=800');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:100}, {yPercent:-600,duration:780},'-=770');
+
 
 
         function updateStats() {
@@ -558,6 +425,7 @@ class View {
                         <div class="timeline-item_achivements">
                             ${self.setAchivements(item.achivements)}
                         </div>
+                        ${self.setImageTimeline(item)}
                         
                     </div>
                 </div>
@@ -565,6 +433,22 @@ class View {
             string += markup + "";
         }
         return string;
+    }
+
+    setImageTimeline(item){
+
+        let markup;
+        if (item.img) {
+            markup =/*html*/ `<div class="img-timeline-wrap ${item.img.align}"><img src="${item.img.url}" alt=""></div>`
+        } else {
+            markup = "";
+
+        }
+
+        return markup
+
+        
+
     }
 
     setAchivements(achivements) {
