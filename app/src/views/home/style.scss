@@ -420,20 +420,23 @@ section {
     flex-direction: column;
     padding-bottom: 0;
     text-align: center;
+    z-index: 9;
 
-    h5 {
-        margin-top: 6vh;
+    .contact-info {
+        h5 {
+            margin-top: 6vh;
 
-        color: $color05;
+            color: $color05;
 
-        a {
-            color: $color01;
+            a {
+                color: $color01;
+            }
         }
     }
+
 }
 
 #cast {
-    background-color: $color02;
     color: $color01;
     flex-direction: column;
 

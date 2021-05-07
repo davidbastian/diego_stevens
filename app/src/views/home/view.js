@@ -193,62 +193,63 @@ class View {
                 </section>
 
                 <section id="contact" class="content">
-                    <div class="border">
+                    <div class="border contact-info">
                         <h2>${self.data.contact.title}</h2>
                         <h5>Let’s talk <br> <a href="">${self.data.contact.email}</a></h5>
                     </div>
+                    <div id="cast" class="content">
+                        <div class="partners">
+                                <h6> <b>Partners</b> </h6>
+                                <div class="partners-container">
+                                    ${self.setPartners(self.data.cast.partners)}
+                                </div>
+                        </div>
+
+                        <div class="partnerships">
+                                <h6> <b>Partnerships</b> </h6>
+                                <div class="partnerships-container">  
+                                    <a target="_blank" href="https://www.prochile.gob.cl/"><p>Pro Chile</p></a>
+                                    <a target="_blank" href="https://www.meetlatam.com/"><p>MeetLatam</p></a>
+                                    <a target="_blank" href="https://www.microsoft.com"><p>Microsoft</p></a>
+                                    <a target="_blank" href="https://www.dtschile.com/"><p>DTS Chile</p></a>
+                                </div>
+                        </div>
+                        <div class="my-companies">
+                            <h6><b>My Companies</b></h6>
+                            <div class="container">                            
+                                    <img src="common/media/img/019.png" alt="">    
+                            </div>   
+                        </div>
+
+                        <div class="collaborations">
+                            <h6><b>Collaborations and Consultant</b></h6>
+                            <div class="container">                            
+                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
+                            </div>   
+                        </div>
+
+                        <div class="investors">
+                            <h6><b>Investors</b></h6>
+                            <div class="container">                            
+                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
+                            </div>   
+                        </div>
+
+                        <div class="my-companies">
+                            <h6><b>Alma Matter</b></h6>
+                            <div class="container">                            
+                                    <img src="common/media/img/020.png" alt="">    
+                            </div>   
+                        </div>
+
+                        <h6 class="copyright">The entire diegostevens.com Web site is Copyright ©2021 by Diego Stevens. All Rights Reserved. The diegostevens.com site may not be copied or duplicated in whole or part by any means without express prior agreement in writing or unless specifically noted on the site.
+                            Some photographs or documents contained on the site may be the copyrighted property of others; acknowledgement of those copyrights is hereby given. All such material is used with the permission of the owner.
+                        </h6>
+
+                    </div>
                 </section>
 
-                <section id="cast" class="content">
-                    <div class="partners">
-                            <h6> <b>Partners</b> </h6>
-                            <div class="partners-container">
-                                ${self.setPartners(self.data.cast.partners)}
-                            </div>
-                    </div>
-
-                    <div class="partnerships">
-                            <h6> <b>Partnerships</b> </h6>
-                            <div class="partnerships-container">  
-                                <a target="_blank" href="https://www.prochile.gob.cl/"><p>Pro Chile</p></a>
-                                <a target="_blank" href="https://www.meetlatam.com/"><p>MeetLatam</p></a>
-                                <a target="_blank" href="https://www.microsoft.com"><p>Microsoft</p></a>
-                                <a target="_blank" href="https://www.dtschile.com/"><p>DTS Chile</p></a>
-                            </div>
-                    </div>
-                    <div class="my-companies">
-                        <h6><b>My Companies</b></h6>
-                        <div class="container">                            
-                                <img src="common/media/img/019.png" alt="">    
-                        </div>   
-                    </div>
-
-                    <div class="collaborations">
-                        <h6><b>Collaborations and Consultant</b></h6>
-                        <div class="container">                            
-                            <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
-                        </div>   
-                    </div>
-
-                    <div class="investors">
-                        <h6><b>Investors</b></h6>
-                        <div class="container">                            
-                            <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
-                        </div>   
-                    </div>
-
-                    <div class="my-companies">
-                        <h6><b>Alma Matter</b></h6>
-                        <div class="container">                            
-                                <img src="common/media/img/020.png" alt="">    
-                        </div>   
-                    </div>
-
-                    <h6 class="copyright">The entire diegostevens.com Web site is Copyright ©2021 by Diego Stevens. All Rights Reserved. The diegostevens.com site may not be copied or duplicated in whole or part by any means without express prior agreement in writing or unless specifically noted on the site.
-                        Some photographs or documents contained on the site may be the copyrighted property of others; acknowledgement of those copyrights is hereby given. All such material is used with the permission of the owner.
-                    </h6>
-
-                </section>
+              
 
 
 
@@ -275,19 +276,19 @@ class View {
         tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
 
         //about
-        tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=20");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:-20}, {yPercent:-420,duration:100},"-=50");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:-100}, {yPercent:-420,duration:60},"-=90");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-100}, {yPercent:-520,duration:85},"-=70");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-100}, {yPercent:-580,duration:60},"-=70");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-100}, {yPercent:-1350,duration:60},"-=65");
+        tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=26");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-490,duration:100},"-=62");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-450,duration:60},"-=86");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:0}, {yPercent:-520,duration:75},"-=76");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-100}, {yPercent:-580,duration:60},"-=55");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-100}, {yPercent:-1550,duration:60},"-=50");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.5}, {scale:2.5,duration:50},"-=55");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-400}, {yPercent:-1050,duration:100},"-=50");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500}, {yPercent:-1000,duration:80},"-=55");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-500}, {yPercent:-1000,duration:90},"-=68");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-300}, {yPercent:-1050,duration:155},"-=90");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-300}, {yPercent:-1000,duration:80},"-=90");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-300}, {yPercent:-1000,duration:90},"-=78");
         
         //interest
-        tl.from('#interests',{yPercent:100, duration:30},"-=76");
+        tl.from('#interests',{yPercent:100, duration:30},"-=60");
         
         //timeline
         tl.from('#timeline',{yPercent:100, duration:30},'-=35');
@@ -310,16 +311,22 @@ class View {
         tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:200}, {yPercent:-400,duration:70},'-=50');
         tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:200}, {yPercent:-250,duration:160},'-=94');
 
+        //challeges
         tl.from('#challenges',{yPercent:100, duration:30},'-=100');
 
+        //press
         tl.from('#press',{yPercent:100, duration:30},'-=45');
-
         tl.fromTo(main.querySelector('#clients'),{yPercent:90}, {yPercent:-300,duration:100},'-=36');
         tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:70}, {yPercent:-400,duration:64},'-=90');
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[0],{yPercent:70}, {yPercent:-400,duration:90},'-=80');
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[1],{yPercent:0}, {yPercent:-500,duration:110},'-=75');
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[2],{yPercent:-100}, {yPercent:-600,duration:78},'-=90');
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:0}, {yPercent:-750,duration:110},'-=95');
+
+        //press
+        tl.from('#contact',{yPercent:100, duration:30},'-=50');
+        tl.fromTo('.contact-info',{yPercent:100}, {yPercent:-150,duration:110},'-=30');
+        tl.fromTo('#cast',{yPercent:20}, {yPercent:-100,duration:200},'-=100');
 
 
 
