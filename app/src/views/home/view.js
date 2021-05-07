@@ -167,12 +167,16 @@ class View {
   
                 </section>
 
-                <section id="clients">
-                        <p>${self.data.clients.description}</p>
-                        <img class="pointer-none" src="${self.data.clients.img}" alt="">  
-                </section>
-
+                
                 <section id="press" class="content">
+
+                    <div id="clients">
+                        <div class="clients-container">
+                            <p>${self.data.clients.description}</p>
+                            <img class="pointer-none" src="${self.data.clients.img}" alt="">     
+                        </div>    
+                    </div>
+
 
                     <div class="press-intro">
                             <h2>${self.data.press.title}</h2>
@@ -265,9 +269,11 @@ class View {
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
         tl.from('#about',{yPercent:100, duration:30});   
+        
         tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
         tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
+
         //about
         tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=20");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:-20}, {yPercent:-420,duration:100},"-=50");
@@ -279,43 +285,41 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-400}, {yPercent:-1050,duration:100},"-=50");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500}, {yPercent:-1000,duration:80},"-=55");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-500}, {yPercent:-1000,duration:90},"-=68");
+        
         //interest
-
-
-        tl.from('#interests',{yPercent:100, duration:100},"-=76");
+        tl.from('#interests',{yPercent:100, duration:30},"-=76");
+        
         //timeline
-        tl.from('#timeline',{yPercent:100, duration:100},'-=35');
+        tl.from('#timeline',{yPercent:100, duration:30},'-=35');
 
-        tl.to(main.querySelectorAll('.timeline-item')[1],{yPercent:-200,duration:250},'-=10');
-       
-        tl.to(main.querySelectorAll('.timeline-item')[0],{opacity:0,duration:30},'-=250');
+        tl.fromTo(main.querySelectorAll('.timeline-item')[0],{yPercent:250}, {yPercent:-200,duration:75},"-=37");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[1],{yPercent:150}, {yPercent:-200,duration:120},"-=78");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[2],{yPercent:-160}, {yPercent:-650,duration:65},"-=80");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[3],{yPercent:-80}, {yPercent:-350,duration:100},"-=72");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[4],{yPercent:-160}, {yPercent:-650,duration:55},"-=92");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[5],{yPercent:-1000}, {yPercent:-1700,duration:50},"-=73");
 
+        tl.to(main.querySelectorAll('.timeline-item')[0],{opacity:0,duration:10},"-=115");
+        tl.to(main.querySelectorAll('.timeline-item')[1],{opacity:0,duration:10},"-=95");
+        tl.to(main.querySelectorAll('.timeline-item')[2],{opacity:0,duration:10},"-=89");
+        tl.to(main.querySelectorAll('.timeline-item')[3],{opacity:0,duration:10},"-=69");
+        tl.to(main.querySelectorAll('.timeline-item')[4],{opacity:0,duration:10},"-=59");
 
-        tl.to(main.querySelectorAll('.timeline-item')[0],{yPercent:-100,duration:50},'-=250');
-        tl.to(main.querySelectorAll('.timeline-item')[2],{yPercent:-550,duration:100},'-=235');
-        tl.to(main.querySelectorAll('.timeline-item')[1],{opacity:0,duration:20},'-=200');
-        tl.to(main.querySelectorAll('.timeline-item')[3],{yPercent:-500,duration:480},'-=252');
-        tl.to(main.querySelectorAll('.timeline-item')[2],{opacity:0,duration:30},'-=410');
-        tl.to(main.querySelectorAll('.timeline-item')[4],{yPercent:-850,duration:480},'-=520');
-        tl.to(main.querySelectorAll('.timeline-item')[3],{opacity:0,duration:30},'-=360');
-        tl.to(main.querySelectorAll('.timeline-item')[5],{yPercent:-1700,duration:480},'-=560');
-        tl.to(main.querySelectorAll('.timeline-item')[4],{opacity:0,duration:30},'-=320');
-        tl.to(main.querySelectorAll('.timeline-item')[5],{opacity:0,duration:30},'-=220');
+        //today
+        tl.from('#today',{yPercent:100, duration:30},'-=58');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:200}, {yPercent:-400,duration:70},'-=50');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:200}, {yPercent:-250,duration:160},'-=94');
 
-        tl.from('#today',{yPercent:100, duration:180},'-=320');
+        tl.from('#challenges',{yPercent:100, duration:30},'-=100');
 
-        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:200}, {yPercent:-400,duration:780},'-=350');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:100}, {yPercent:-150,duration:840},"-=770");
-        
-        tl.from('#challenges',{yPercent:100, duration:250},'-=420');
+        tl.from('#press',{yPercent:100, duration:30},'-=45');
 
-        tl.from('#press',{yPercent:100, duration:250},'-=160');
-        
-        tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:200}, {yPercent:-400,duration:780},'-=150');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[0],{yPercent:100}, {yPercent:-400,duration:780},'-=650');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[1],{yPercent:100}, {yPercent:-450,duration:780},'-=750');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[2],{yPercent:100}, {yPercent:-500,duration:780},'-=800');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:100}, {yPercent:-600,duration:780},'-=770');
+        tl.fromTo(main.querySelector('#clients'),{yPercent:90}, {yPercent:-300,duration:100},'-=36');
+        tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:70}, {yPercent:-400,duration:64},'-=90');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[0],{yPercent:70}, {yPercent:-400,duration:90},'-=80');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[1],{yPercent:0}, {yPercent:-500,duration:110},'-=75');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[2],{yPercent:-100}, {yPercent:-600,duration:78},'-=90');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:0}, {yPercent:-750,duration:110},'-=95');
 
 
 

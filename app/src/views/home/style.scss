@@ -33,6 +33,7 @@ section {
 
     .hero-image {
         overflow: hidden;
+
         img {
             object-fit: cover;
             width: 100%;
@@ -161,22 +162,24 @@ section {
 
                 width: 100vw;
                 padding: 10vh 0;
+
                 img {
                     width: 65vw;
                     height: auto;
                 }
 
                 display: flex;
-              
 
-                &.flex-end{
+
+                &.flex-end {
                     justify-content: flex-end;
                 }
-                &.flex-start{
+
+                &.flex-start {
                     justify-content: flex-start;
                 }
-            }   
-           
+            }
+
 
             .timeline-item_achivements {
                 display: flex;
@@ -304,12 +307,38 @@ section {
     }
 }
 
+
+
+
 #press {
+
+    #clients {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+
+
+        padding-top: 27vh;
+        padding-bottom: 18vh;
+
+        p {
+            margin-bottom: 10vh;
+        }
+
+        img {
+            width: 65vw;
+        }
+    }
+
+
     background-color: $color01;
     color: $color02;
     flex-direction: column;
     padding-bottom: 0;
     z-index: 8;
+
+
 
     .press-intro {
         display: flex;
@@ -392,7 +421,7 @@ section {
     padding-bottom: 0;
     text-align: center;
 
-    h5{
+    h5 {
         margin-top: 6vh;
 
         color: $color05;
@@ -442,7 +471,8 @@ section {
 
 
     .collaborations,
-    .investors,.my-companies {
+    .investors,
+    .my-companies {
         text-align: center;
         margin-top: 20vh;
 
@@ -457,9 +487,10 @@ section {
             h4 {
                 margin: 0 1vw;
                 margin-top: -.5vw;
-                
+
             }
         }
+
         img {
             width: 45vw;
         }
@@ -509,28 +540,3 @@ section {
 
 
 }
-
-
-
-
-
-
-#clients {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-
-
-    padding-top: 27vh;
-    padding-bottom: 18vh;
-
-    p {
-        margin-bottom: 10vh;
-    }
-
-    img {
-        width: 65vw;
-    }
-}
-
