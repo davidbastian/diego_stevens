@@ -126,6 +126,10 @@ section {
 #interests {
     z-index: 4;
     background-color: $color01;
+    .interests-image {
+        overflow:hidden;
+        background-color: $color01;
+    }
 }
 
 #timeline {
@@ -280,6 +284,10 @@ section {
     background-color: $color02;
     color: $color01;
     z-index: 7;
+    .challenges-image {
+        overflow:hidden;
+        background-color: $color01;
+    }
 
     p {
         display: flex;
