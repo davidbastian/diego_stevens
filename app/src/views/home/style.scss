@@ -430,6 +430,7 @@ section {
     text-align: center;
     z-index: 9;
 
+
     .contact-info {
         h5 {
             margin-top: 6vh;
@@ -447,6 +448,9 @@ section {
 #cast {
     color: $color01;
     flex-direction: column;
+    position: relative;
+
+    
 
     .partners {
 
@@ -469,9 +473,43 @@ section {
                 display: flex;
                 justify-content: space-between;
                 padding: .8vh 0;
+                position: relative;
+
+                .img-container {
+                    filter: grayscale(100%);
+                    margin: 2vw;
+                    position: absolute;
+                    transition: .5s ease-out;
+                    opacity: 0.3;
+                    z-index: -1;
+                }
+
+                img {
+                    height: auto;
+                    width:  20vw;
+                   
+                   
+                }
+                p {
+
+                }
 
                 p.partner-role {
                     font-size: 1vw;
+                }
+
+                &:hover {
+                    p {
+                       opacity: .6;
+                       text-decoration: underline;
+                    }
+                    .img-container {
+                        filter: grayscale(0%);
+                        opacity: 1;
+  
+                        
+
+                    }
                 }
             }
 

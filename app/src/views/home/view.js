@@ -214,6 +214,7 @@ class View {
                                     <a target="_blank" href="https://www.dtschile.com/"><p>DTS Chile</p></a>
                                 </div>
                         </div>
+                        
                         <div class="my-companies">
                             <h6><b>My Companies</b></h6>
                             <div class="container">                            
@@ -354,6 +355,11 @@ class View {
         tl.fromTo('.contact-info',{yPercent:100}, {yPercent:-200,duration:110},'-=50');
         tl.fromTo('#cast',{yPercent:20}, {yPercent:-100,duration:210},'-=110');
 
+        tl.fromTo(main.querySelectorAll('.partner-item')[0].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:100},'-=172');
+        tl.fromTo(main.querySelectorAll('.partner-item')[1].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:80},'-=180');
+        tl.fromTo(main.querySelectorAll('.partner-item')[2].querySelectorAll('img'),{yPercent:400}, {yPercent:-700,duration:100},'-=165');
+        tl.fromTo(main.querySelectorAll('.partner-item')[3].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:70},'-=170');
+
 
 
         function updateStats() {
@@ -395,7 +401,11 @@ class View {
             let markup = /*html*/ `
                 <a target="_blank" href="${partner.link}" class="partner-item">
                     <p class="partner-role">${partner.role}</p>  
-                    <p class="partner-name">${partner.name}</p>
+                    <p class="partner-name">${partner.name}</p> 
+                    <div style="left:${partner.pos}" class="img-container">
+                        <img  src="${partner.img}" alt="">
+                    </div>
+                
                     
                 </a>
                 `
