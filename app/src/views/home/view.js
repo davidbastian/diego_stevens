@@ -5,7 +5,7 @@ import {
 import Logo from '../../../common/svg/logo.svg'
 import Star from '../../../common/svg/star.svg'
 import ScrollController from '../../controllers/controller.scroll';
-import ScrollTest from '../../controllers/controller.scrollTest';
+import DragController from '../../controllers/controller.drag.js';
 import {gsap
 } from "gsap";
 
@@ -368,7 +368,7 @@ class View {
 
         tl.pause();
 
-        this.scroll = new ScrollTest({
+        this.scroll = new ScrollController({
             container: main,
             pos: 0,
             ease: 0.05,
@@ -377,6 +377,16 @@ class View {
         });
 
         this.scroll.init();
+
+        /*this.drag = new DragController({
+            container: main.querySelector('.today-cards'),
+            el:main.querySelector('.today-cards_content'), 
+            pos: 0,
+            ease: 0.05,
+            delta:40,
+        });
+
+        this.drag.init();*/
 
     }
 
