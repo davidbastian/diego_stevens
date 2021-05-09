@@ -290,7 +290,7 @@ class View {
 
         tl.from('#about',{yPercent:100, duration:30});   
         
-        tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
+       // tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
         tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
 
@@ -314,7 +314,7 @@ class View {
         //timeline
         tl.from('#timeline',{yPercent:100, duration:30},'-=25');
         tl.to('#interests',{yPercent:-60, duration:30},"-=30");
-        tl.to(blurHero2, {a: 100, onUpdate: applyBlurHero2,duration:30},"-=30");
+        //tl.to(blurHero2, {a: 100, onUpdate: applyBlurHero2,duration:30},"-=30");
         tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
 
 
@@ -340,7 +340,7 @@ class View {
         //challenges
         tl.from('#challenges',{yPercent:100, duration:30},'-=90');
         tl.to('#challenges',{yPercent:-60, duration:30},"-=48");
-        tl.to(blurHero3, {a: 100, onUpdate: applyBlurHero3,duration:30},"-=48");
+       // tl.to(blurHero3, {a: 100, onUpdate: applyBlurHero3,duration:30},"-=48");
         tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=48");
 
         //press

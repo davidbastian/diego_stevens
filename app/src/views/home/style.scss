@@ -15,6 +15,7 @@ section {
     height: 100vh;
     width: 100%;
     background-color: #fff;
+//    height: auto;
 
     .hero-introduction {
         display: flex;
@@ -65,6 +66,7 @@ section {
     color: $color01;
     flex-direction: column;
     width: 100%;
+    height: auto;
 
     .about-introduction {
 
@@ -127,6 +129,7 @@ section {
 #interests {
     z-index: 4;
     background-color: $color01;
+    height: auto;
     .interests-image {
         overflow:hidden;
         background-color: $color01;
@@ -138,6 +141,7 @@ section {
     background-color: $color02;
     color: $color01;
     flex-direction: column;
+    height: auto;
 
     .timeline-item {
         display: flex;
@@ -218,6 +222,7 @@ section {
     background-color: $color01;
     color: $color02;
     flex-direction: column;
+    height: auto;
 
     .today-intro {
         display: flex;
@@ -285,6 +290,7 @@ section {
     background-color: $color02;
     color: $color01;
    z-index: 7;
+   height: auto;
     .challenges-image {
         overflow:hidden;
         background-color: $color01;
@@ -325,6 +331,7 @@ section {
     flex-direction: column;
     padding-bottom: 0;
     z-index: 8;
+    height: auto;
 
     #clients {
         flex-direction: column;
@@ -431,6 +438,7 @@ section {
     padding-bottom: 0;
     text-align: center;
     z-index: 9;
+    height: auto;
 
 
     .contact-info {
