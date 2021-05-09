@@ -294,7 +294,8 @@ class View {
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
         tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
 
-        //about
+        //about  
+        
         tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=26");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-490,duration:100},"-=62");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-450,duration:60},"-=86");
@@ -305,6 +306,7 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-300}, {yPercent:-1050,duration:155},"-=113");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-300}, {yPercent:-1000,duration:80},"-=94");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-300}, {yPercent:-1000,duration:90},"-=83");
+
         
         //interest
         tl.from('#interests',{yPercent:100, duration:30},"-=60");

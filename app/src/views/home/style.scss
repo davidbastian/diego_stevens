@@ -97,7 +97,7 @@ section {
             display: flex;
 
             img {
-                height: auto;
+                height: 100%;
                 width: 100%;
             }
 
@@ -170,7 +170,7 @@ section {
 
                 img {
                     width: 65vw;
-                    height: auto;
+                    height: 100%;
                 }
 
                 display: flex;
@@ -284,7 +284,7 @@ section {
 #challenges {
     background-color: $color02;
     color: $color01;
-    z-index: 7;
+   z-index: 7;
     .challenges-image {
         overflow:hidden;
         background-color: $color01;
@@ -320,6 +320,11 @@ section {
 
 
 #press {
+    background-color: $color01;
+    color: $color02;
+    flex-direction: column;
+    padding-bottom: 0;
+    z-index: 8;
 
     #clients {
         flex-direction: column;
@@ -341,11 +346,7 @@ section {
     }
 
 
-    background-color: $color01;
-    color: $color02;
-    flex-direction: column;
-    padding-bottom: 0;
-    z-index: 8;
+  
 
 
 
@@ -443,151 +444,151 @@ section {
             }
         }
     }
-
-}
-
-#cast {
-    color: $color01;
-    flex-direction: column;
-    position: relative;
-
-    
-
-    .partners {
-
-        width: 50vw;
-        margin: 0 auto;
-        text-align: center;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+    #cast {
+        color: $color01;
         flex-direction: column;
-        padding: 20vh 0;
-        padding-bottom: 0;
-        margin-top: 20vh;
-
-
-        .partners-container {
-            padding-top: 5vh;
-            width: 100%;
-
-            .partner-item {
-                display: flex;
-                justify-content: space-between;
-                padding: .8vh 0;
-                position: relative;
-
-                .img-container {
-                    filter: grayscale(100%);
-                    margin: 2vw;
-                    position: absolute;
-                    transition: .5s ease-out;
-                    opacity: 0.3;
-                    z-index: -1;
-                }
-
-                img {
-                    height: auto;
-                    width:  20vw;
-                   
-                   
-                }
-                p {
-
-                }
-
-                p.partner-role {
-                    font-size: 1vw;
-                }
-
-                &:hover {
-                    p {
-                       opacity: .6;
-                       text-decoration: underline;
-                    }
+        position: relative;
+    
+        
+    
+        .partners {
+    
+            width: 50vw;
+            margin: 0 auto;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20vh 0;
+            padding-bottom: 0;
+            margin-top: 20vh;
+    
+    
+            .partners-container {
+                padding-top: 5vh;
+                width: 100%;
+    
+                .partner-item {
+                    display: flex;
+                    justify-content: space-between;
+                    padding: .8vh 0;
+                    position: relative;
+    
                     .img-container {
-                        filter: grayscale(0%);
-                        opacity: 1;
-  
-                        
-
+                        filter: grayscale(100%);
+                        margin: 2vw;
+                        position: absolute;
+                        transition: .5s ease-out;
+                        opacity: 0.3;
+                        z-index: -1;
+                    }
+    
+                    img {
+                        height: auto;
+                        width:  20vw;
+                       
+                       
+                    }
+                    p {
+    
+                    }
+    
+                    p.partner-role {
+                        font-size: 1vw;
+                    }
+    
+                    &:hover {
+                        p {
+                           opacity: .6;
+                           text-decoration: underline;
+                        }
+                        .img-container {
+                            filter: grayscale(0%);
+                            opacity: 1;
+      
+                            
+    
+                        }
                     }
                 }
+    
             }
-
+    
+    
         }
-
-
-    }
-
-
-    .collaborations,
-    .investors,
-    .my-companies {
-        text-align: center;
-        margin-top: 20vh;
-
-        .container {
-            padding-top: .8vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-
-            h4 {
-                margin: 0 1vw;
-                margin-top: -.5vw;
-
+    
+    
+        .collaborations,
+        .investors,
+        .my-companies {
+            text-align: center;
+            margin-top: 20vh;
+    
+            .container {
+                padding-top: .8vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+    
+    
+                h4 {
+                    margin: 0 1vw;
+                    margin-top: -.5vw;
+    
+                }
             }
-        }
-
-        img {
-            width: 45vw;
-        }
-
-    }
-
-    .collaborations {
-        .container {
-            flex-direction: column;
-
-            h4 {
-                margin: .5vh 0;
-                margin-bottom: 1.5vh;
+    
+            img {
+                width: 45vw;
             }
-
+    
         }
-
-    }
-
-    .partnerships {
-        text-align: center;
-        margin-top: 50vh;
-
-        .partnerships-container {
-            padding-top: .8vh;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-            a {
-                padding: .8vh 0;
+    
+        .collaborations {
+            .container {
+                flex-direction: column;
+    
+                h4 {
+                    margin: .5vh 0;
+                    margin-bottom: 1.5vh;
+                }
+    
             }
-
+    
         }
-
+    
+        .partnerships {
+            text-align: center;
+            margin-top: 50vh;
+    
+            .partnerships-container {
+                padding-top: .8vh;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+    
+                a {
+                    padding: .8vh 0;
+                }
+    
+            }
+    
+        }
+    
+        .copyright {
+            text-align: center;
+            width: 30vw;
+            margin: 0 auto;
+            padding-top: 20vh;
+            line-height: .9vw;
+        }
+    
+    
     }
-
-    .copyright {
-        text-align: center;
-        width: 30vw;
-        margin: 0 auto;
-        padding-top: 20vh;
-        line-height: .9vw;
-    }
-
 
 }
+
