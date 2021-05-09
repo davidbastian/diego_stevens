@@ -288,15 +288,20 @@ class View {
   
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
-        tl.from('#about',{yPercent:100, duration:30});   
+        
         
        // tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
-        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},"-=30");
-        tl.to(main.querySelector('#home'),{yPercent:-60,duration:30},"-=30");
+       //
+
+       tl.from('#about',{yPercent:100, duration:30}); 
 
         //about  
         
-        tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},"-=26");
+        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},'<');
+        tl.to(main.querySelector('#home'),{yPercent:-100,duration:30},'<');
+        
+        tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-100,duration:100},'-=10');
+
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-490,duration:100},"-=62");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-450,duration:60},"-=86");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:0}, {yPercent:-520,duration:75},"-=76");
@@ -307,7 +312,6 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-300}, {yPercent:-1000,duration:80},"-=94");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-300}, {yPercent:-1000,duration:90},"-=83");
 
-        
         //interest
         tl.from('#interests',{yPercent:100, duration:30},"-=60");
         
@@ -333,8 +337,8 @@ class View {
         tl.to(main.querySelectorAll('.timeline-item')[5],{opacity:0,duration:10},"-=68");
 
         //today
-        tl.from('#today',{yPercent:100, duration:30},'-=72');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:250}, {yPercent:-450,duration:80},'-=48');
+        tl.from('#today',{yPercent:100, duration:30},'-=82');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:250}, {yPercent:-450,duration:80},'-=55');
         tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:200}, {yPercent:-250,duration:150},'-=99');
 
         //challenges

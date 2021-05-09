@@ -35,6 +35,9 @@ body {
 }
 
 main {
+    width: 100%;
+    height: 100%;
+    background-color: $color02;
     /* overflow-y: scroll;
     overflow: hidden;
     height: 100vh;
