@@ -326,7 +326,6 @@ class View {
 
 
        // tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
-       //
 
       /* tl.from('#about',{yPercent:100, duration:30}); 
 
@@ -405,7 +404,9 @@ class View {
             console.log(tl.progress())
         }
 
-       tl.pause();
+       // tl.timeScale(3)
+
+        tl.pause();
 
         this.scroll = new ScrollController({
             container: main,
