@@ -3,11 +3,14 @@
 
 section {
     width: 100vw;
+    position: relative;
 
-    height: 100vh;
+   /* height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
+    display: flex;*/
+    display: flex;
 }
 
 #home {
@@ -130,6 +133,11 @@ section {
     z-index: 4;
     background-color: $color01;
     height: auto;
+  //  height: 100vh;
+  position: absolute;
+    top: 0;
+    left: 0;
+
     .interests-image {
         overflow:hidden;
         background-color: $color01;
@@ -138,10 +146,13 @@ section {
 
 #timeline {
     z-index: 5;
-    background-color: $color02;
+   // background-color: $color02;
     color: $color01;
     flex-direction: column;
     height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
 
     .timeline-item {
         display: flex;
@@ -150,13 +161,9 @@ section {
         width: 100vw;
         background-color: $color02;
 
-        &:first-child {
-            border-top: none;
-        }
+       
 
         &:last-child {
-            border-bottom: none;
-
             .timeline-item_content {
                 padding-bottom: 0;
             }

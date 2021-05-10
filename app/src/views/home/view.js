@@ -131,12 +131,14 @@ class View {
                 </section>
 
                 <section id="timeline" class="border content">
+                    <div class="bg"></div>
 
                     ${self.setTimeline(self.data.timeline)}
 
                 </section>
 
                 <section id="today" class="border content">
+                
 
                     <div class="today-intro">
                             <h2>${self.data.today.title}</h2>
@@ -288,15 +290,43 @@ class View {
   
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
+
+        main.querySelectorAll('.timeline-item')[0].style.border = "none";
+
         
+       // tl.fromTo('main',{yPercent:0, duration:1000}, {yPercent:-100}); 
+
+        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25});
+        tl.to(main.querySelector('#home'),{yPercent:-100,duration:25},'<');
+        tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-250,duration:75},'-=20');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-1050,duration:100},"-=65");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-850,duration:50},"-=84");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:0}, {yPercent:-900,duration:50},"-=77");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:0}, {yPercent:-900,duration:50},"-=75");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000}, {yPercent:-2500,duration:50},"-=58");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.7}, {scale:4,duration:50},"<");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-500}, {yPercent:-1550,duration:100},"-=75");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-600}, {yPercent:-1500,duration:50},"-=70");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600}, {yPercent:-1500,duration:50},"-=62");
+
+        tl.fromTo('#interests',{yPercent:100},{yPercent:-100,duration:25},"-=55");
+      
         
+        tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:250}, {yPercent:-400,duration:100},"-=60");
+        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=90');
+        tl.fromTo(main.querySelectorAll('.timeline-item')[0],{yPercent:500}, {yPercent:-310,duration:50},"-=95");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[1],{yPercent:400}, {yPercent:-179,duration:95},"-=118");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[2],{yPercent:300}, {yPercent:-685,duration:55},"-=80");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[3],{yPercent:200}, {yPercent:-390,duration:95},"-=85");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[4],{yPercent:100}, {yPercent:-790,duration:55},"-=74");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[5],{yPercent:-100}, {yPercent:-2000,duration:55},"-=67");
+
+
        // tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
        //
 
-       tl.from('#about',{yPercent:100, duration:30}); 
+      /* tl.from('#about',{yPercent:100, duration:30}); 
 
-        //about  
-        
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:30},'<');
         tl.to(main.querySelector('#home'),{yPercent:-100,duration:30},'<');
         
@@ -364,7 +394,7 @@ class View {
         tl.fromTo(main.querySelectorAll('.partner-item')[0].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:100},'-=172');
         tl.fromTo(main.querySelectorAll('.partner-item')[1].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:80},'-=180');
         tl.fromTo(main.querySelectorAll('.partner-item')[2].querySelectorAll('img'),{yPercent:400}, {yPercent:-700,duration:100},'-=165');
-        tl.fromTo(main.querySelectorAll('.partner-item')[3].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:70},'-=170');
+        tl.fromTo(main.querySelectorAll('.partner-item')[3].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:70},'-=170');*/
 
 
 
@@ -372,7 +402,7 @@ class View {
             console.log(tl.progress())
         }
 
-        tl.pause();
+       tl.pause();
 
         this.scroll = new ScrollController({
             container: main,
