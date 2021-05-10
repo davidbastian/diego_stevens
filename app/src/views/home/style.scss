@@ -226,10 +226,17 @@ section {
 
 #today {
     z-index: 6;
-    background-color: $color01;
+  //  background-color: $color01;
     color: $color02;
     flex-direction: column;
     height: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    .bg {
+        background-color: $color01;
+    }
 
     .today-intro {
         display: flex;

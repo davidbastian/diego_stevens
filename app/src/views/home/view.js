@@ -138,8 +138,7 @@ class View {
                 </section>
 
                 <section id="today" class="border content">
-                
-
+                    <div class="bg"></div>
                     <div class="today-intro">
                             <h2>${self.data.today.title}</h2>
                             <p>${self.data.today.description}</p>
@@ -253,9 +252,6 @@ class View {
                 </section>
 
               
-
-
-
         `
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
@@ -286,18 +282,18 @@ class View {
                 webkitFilter: "blur(" + blurHero3.a+ "px)"
             });
         };
-
   
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
-
 
         main.querySelectorAll('.timeline-item')[0].style.border = "none";
 
         
-       // tl.fromTo('main',{yPercent:0, duration:1000}, {yPercent:-100}); 
 
+        //home
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25});
         tl.to(main.querySelector('#home'),{yPercent:-100,duration:25},'<');
+
+        //about
         tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-250,duration:75},'-=20');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-1050,duration:100},"-=65");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-850,duration:50},"-=84");
@@ -309,9 +305,10 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-600}, {yPercent:-1500,duration:50},"-=70");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600}, {yPercent:-1500,duration:50},"-=62");
 
+        //interests
         tl.fromTo('#interests',{yPercent:100},{yPercent:-100,duration:25},"-=55");
       
-        
+        //timeline
         tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:250}, {yPercent:-400,duration:100},"-=60");
         tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=90');
         tl.fromTo(main.querySelectorAll('.timeline-item')[0],{yPercent:500}, {yPercent:-310,duration:50},"-=95");
@@ -320,6 +317,12 @@ class View {
         tl.fromTo(main.querySelectorAll('.timeline-item')[3],{yPercent:200}, {yPercent:-390,duration:95},"-=85");
         tl.fromTo(main.querySelectorAll('.timeline-item')[4],{yPercent:100}, {yPercent:-790,duration:55},"-=74");
         tl.fromTo(main.querySelectorAll('.timeline-item')[5],{yPercent:-100}, {yPercent:-2000,duration:55},"-=67");
+
+
+
+        tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:200}, {yPercent:-100,duration:25},"-=56");
+        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:400}, {yPercent:-1300,duration:60},'-=53');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:200}, {yPercent:-300,duration:90},'-=72');
 
 
        // tl.to(blurHero, {a: 100, onUpdate: applyBlurHero,duration:30},"-=30");
