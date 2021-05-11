@@ -291,7 +291,7 @@ class View {
         
 
         //home
-        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25});
+      /*  tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25});
         tl.to(main.querySelector('#home'),{yPercent:-100,duration:25},'<');
 
         //about
@@ -333,7 +333,7 @@ class View {
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[0],{yPercent:-200}, {yPercent:-700,duration:120},'-=105');
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[1],{yPercent:-200}, {yPercent:-800,duration:140},'-=115');
         tl.fromTo(main.querySelector('#press').querySelectorAll('a')[2],{yPercent:-200}, {yPercent:-900,duration:140},'-=145');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:-200}, {yPercent:-1100,duration:150},'-=135');
+        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:-200}, {yPercent:-1100,duration:150},'-=135');*/
 
 /*
 
@@ -357,7 +357,7 @@ class View {
 
         tl.pause();
 
-        this.scroll = new ScrollController({
+     /*   this.scroll = new ScrollController({
             container: main,
             pos: 0,
             ease: 0.05,
@@ -365,7 +365,7 @@ class View {
             timeline: tl
         });
 
-        this.scroll.init();
+        this.scroll.init();*/
 
         /*this.drag = new DragController({
             container: main.querySelector('.today-cards'),

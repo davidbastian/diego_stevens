@@ -8,7 +8,7 @@ html {
     -ms-touch-action: manipulation;
     touch-action: manipulation;
 
-   // overflow-y: scroll;
+    overflow-y: scroll;
 
 }
 
@@ -17,7 +17,7 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+  //  overflow: hidden;
 
 
 }
@@ -46,8 +46,8 @@ body {
 main {
     width: 100%;
     height: auto;
-    background-color: $color02;
-    transform-origin: center;
+  //  background-color: $color02;
+  //  transform-origin: center;
     /* overflow-y: scroll;
     overflow: hidden;
     height: 100vh;
