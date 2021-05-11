@@ -45,22 +45,14 @@ body {
 
 main {
     width: 100%;
-    height: auto;
-  //  background-color: $color02;
-  //  transform-origin: center;
-    /* overflow-y: scroll;
-    overflow: hidden;
     height: 100vh;
-    width: calc(100vw + 25px);*/
+    overflow: hidden;
     section {
         width: 100vw;
         position: relative;
         display: flex;
-    }
-    
+    }    
 }
-
-
 
 .border {
     padding: 2vw;
