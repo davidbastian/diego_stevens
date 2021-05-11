@@ -8,7 +8,7 @@ html {
     -ms-touch-action: manipulation;
     touch-action: manipulation;
 
-    overflow-y: scroll;
+   
 
 }
 
@@ -17,7 +17,7 @@ body {
     width: 100%;
     padding: 0;
     margin: 0;
-  //  overflow: hidden;
+    overflow-y: scroll;
 
 
 }
@@ -52,6 +52,12 @@ main {
     overflow: hidden;
     height: 100vh;
     width: calc(100vw + 25px);*/
+    section {
+        width: 100vw;
+        position: relative;
+        display: flex;
+    }
+    
 }
 
 
