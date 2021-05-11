@@ -5,7 +5,7 @@ section {
     width: 100vw;
     position: relative;
 
-   /* height: 100vh;
+    /* height: 100vh;
     position: fixed;
     top: 0;
     left: 0;
@@ -18,7 +18,7 @@ section {
     height: 100vh;
     width: 100%;
     background-color: #fff;
-//    height: auto;
+    //    height: auto;
 
     .hero-introduction {
         display: flex;
@@ -133,20 +133,20 @@ section {
     z-index: 4;
     background-color: $color01;
     height: auto;
-  //  height: 100vh;
-  position: absolute;
+    //  height: 100vh;
+    position: absolute;
     top: 0;
     left: 0;
 
     .interests-image {
-        overflow:hidden;
+        overflow: hidden;
         background-color: $color01;
     }
 }
 
 #timeline {
     z-index: 5;
-   // background-color: $color02;
+    // background-color: $color02;
     color: $color01;
     flex-direction: column;
     height: auto;
@@ -161,7 +161,7 @@ section {
         width: 100vw;
         background-color: $color02;
 
-       
+
 
         &:last-child {
             .timeline-item_content {
@@ -226,7 +226,7 @@ section {
 
 #today {
     z-index: 6;
-  //  background-color: $color01;
+    //  background-color: $color01;
     color: $color02;
     flex-direction: column;
     height: auto;
@@ -303,10 +303,14 @@ section {
 #challenges {
     background-color: $color02;
     color: $color01;
-   z-index: 7;
-   height: auto;
+    z-index: 7;
+    height: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+
     .challenges-image {
-        overflow:hidden;
+        overflow: hidden;
         background-color: $color01;
     }
 
@@ -346,6 +350,13 @@ section {
     padding-bottom: 0;
     z-index: 8;
     height: auto;
+    position: absolute;
+    top: 100%;
+    left: 0;
+
+    .bg {
+        background-color: $color01;
+    }
 
     #clients {
         flex-direction: column;
@@ -367,7 +378,7 @@ section {
     }
 
 
-  
+
 
 
 
@@ -466,15 +477,16 @@ section {
             }
         }
     }
+
     #cast {
         color: $color01;
         flex-direction: column;
         position: relative;
-    
-        
-    
+
+
+
         .partners {
-    
+
             width: 50vw;
             margin: 0 auto;
             text-align: center;
@@ -485,18 +497,18 @@ section {
             padding: 20vh 0;
             padding-bottom: 0;
             margin-top: 20vh;
-    
-    
+
+
             .partners-container {
                 padding-top: 5vh;
                 width: 100%;
-    
+
                 .partner-item {
                     display: flex;
                     justify-content: space-between;
                     padding: .8vh 0;
                     position: relative;
-    
+
                     .img-container {
                         filter: grayscale(100%);
                         margin: 2vw;
@@ -505,86 +517,86 @@ section {
                         opacity: 0.3;
                         z-index: -1;
                     }
-    
+
                     img {
                         height: auto;
-                        width:  20vw;
-                       
-                       
+                        width: 20vw;
+
+
                     }
-                    p {
-    
-                    }
-    
+
+                    p {}
+
                     p.partner-role {
                         font-size: 1vw;
                     }
-    
+
                     &:hover {
                         p {
-                           opacity: .6;
-                           text-decoration: underline;
+                            opacity: .6;
+                            text-decoration: underline;
                         }
+
                         .img-container {
                             filter: grayscale(0%);
                             opacity: 1;
-      
-                            
-    
+
+
+
                         }
                     }
                 }
-    
+
             }
-    
-    
+
+
         }
-    
-    
+
+
         .collaborations,
         .investors,
         .my-companies {
             text-align: center;
             margin-top: 20vh;
-    
+
             .container {
                 padding-top: .8vh;
                 width: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
-    
-    
+
+
                 h4 {
                     margin: 0 1vw;
                     margin-top: -.5vw;
-    
+
                 }
             }
-    
+
             img {
                 width: 45vw;
             }
-    
+
         }
-    
+
         .collaborations {
             .container {
                 flex-direction: column;
-    
+
                 h4 {
                     margin: .5vh 0;
                     margin-bottom: 1.5vh;
                 }
-    
+
             }
-    
+
         }
-    
+
         .partnerships {
             text-align: center;
             margin-top: 50vh;
-    
+
             .partnerships-container {
                 padding-top: .8vh;
                 width: 100%;
@@ -592,15 +604,15 @@ section {
                 justify-content: center;
                 align-items: center;
                 flex-direction: column;
-    
+
                 a {
                     padding: .8vh 0;
                 }
-    
+
             }
-    
+
         }
-    
+
         .copyright {
             text-align: center;
             width: 30vw;
@@ -608,9 +620,8 @@ section {
             padding-top: 20vh;
             line-height: .9vw;
         }
-    
-    
+
+
     }
 
 }
-
