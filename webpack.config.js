@@ -1,5 +1,4 @@
 const path = require('path')
-const webpack = require("webpack")
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const CopyWebpackPlugin = require("copy-webpack-plugin")
 var ip = require("ip")
@@ -14,13 +13,12 @@ module.exports = {
 
     devServer: {
         contentBase: path.join(__dirname, "dist"),
-        compress: true,
-        disableHostCheck: true, // That solved it
+       // compress: true,
+     //   disableHostCheck: true, // That solved it
         port: 9292,
         host: ip.address()
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new MiniCssExtractPlugin({
             filename: 'style.css',
         }),

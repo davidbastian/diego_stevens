@@ -258,98 +258,22 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-        var blurHero = {
-            a: 0
-        }; 
-        function applyBlurHero() {
-            gsap.set(main.querySelector('#home').querySelector('img'), {
-                webkitFilter: "blur(" + blurHero.a+ "px)"
-            });
-        };
-
-        var blurHero2 = {
-            a: 0
-        }; 
-        function applyBlurHero2() {
-            gsap.set(main.querySelector('#interests').querySelector('img'), {
-                webkitFilter: "blur(" + blurHero2.a+ "px)"
-            });
-        };
-
-        var blurHero3 = {
-            a: 0
-        }; 
-        function applyBlurHero3() {
-            gsap.set(main.querySelector('#challenges').querySelector('img'), {
-                webkitFilter: "blur(" + blurHero3.a+ "px)"
-            });
-        };
-  
+   
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
         main.querySelectorAll('.timeline-item')[0].style.border = "none";
 
+        tl.fromTo(main.querySelector('#home'),{yPercent:0},{yPercent:-100,duration:25});
+        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1},{scale:1.5,duration:25},'<');
+        tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:25},'<');
+        tl.fromTo(main.querySelector('#about').querySelector('.about-introduction'),{yPercent:100},{yPercent:-300,duration:85},'<-1');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:100},{yPercent:-1200,duration:125},'-=75');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:100},{yPercent:-1200,duration:90},'-=115');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-300},{yPercent:-1200,duration:90},'-=95');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-350},{yPercent:-1200,duration:90},'-=90');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2400,duration:90},'-=80');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:1},{scale:2,duration:40},'<');
 
-        tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0}, {yPercent:-100,duration:25});
-        tl.to(main.querySelector('#home'),{yPercent:-100,duration:25},'-=25');
-
-        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=25');
-        tl.fromTo('.about-introduction',{yPercent:0}, {yPercent:-250,duration:75},'-=12');  
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-1050,duration:100},"-=70");
-
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-850,duration:50},"-=84");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:0}, {yPercent:-900,duration:50},"-=77");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:0}, {yPercent:-900,duration:50},"-=75");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000}, {yPercent:-2500,duration:50},"-=58");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.7}, {scale:4,duration:50},"<");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-500}, {yPercent:-1550,duration:100},"-=75");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-600}, {yPercent:-1500,duration:50},"-=70");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600}, {yPercent:-1500,duration:60},"-=62");
-
-        //interests
-        tl.fromTo('#interests',{yPercent:100},{yPercent:-200,duration:45},"-=65");
-
-        //timeline
-        tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:100}, {yPercent:-100,duration:45},"-=58");
-        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=45');
-
-       tl.fromTo(main.querySelectorAll('.timeline-item')[0],{yPercent:500}, {yPercent:-500,duration:80},"-=68");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[1],{yPercent:500}, {yPercent:-500,duration:260},"-=128");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[2],{yPercent:400}, {yPercent:-1000,duration:80},"-=185");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[3],{yPercent:200}, {yPercent:-1000,duration:260},"-=196");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[4],{yPercent:300}, {yPercent:-1100,duration:80},"-=225");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[5],{yPercent:200}, {yPercent:-2250,duration:80},"-=228");
-
-
-/*
-
-        tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:200}, {yPercent:-100,duration:25},"-=56");
-        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:400}, {yPercent:-1300,duration:60},'-=51');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:200}, {yPercent:-300,duration:90},'-=73');
-        tl.fromTo('#challenges',{yPercent:100},{yPercent:-100,duration:50},"-=45");
-      
-
-        tl.fromTo(main.querySelector('#press').querySelector('.bg'),{yPercent:300}, {yPercent:-250,duration:100},"-=67");
-        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=70');
-
-        tl.fromTo(main.querySelector('#clients'),{yPercent:100}, {yPercent:-300,duration:100},'-=86');
-        tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:100}, {yPercent:-1000,duration:145},'-=80');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[0],{yPercent:-200}, {yPercent:-700,duration:120},'-=105');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[1],{yPercent:-200}, {yPercent:-800,duration:140},'-=115');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[2],{yPercent:-200}, {yPercent:-900,duration:140},'-=145');
-        tl.fromTo(main.querySelector('#press').querySelectorAll('a')[3],{yPercent:-200}, {yPercent:-1100,duration:150},'-=135');*/
-
-/*
-
-        //press
-        tl.from('#contact',{yPercent:100, duration:30},'-=63');
-        tl.fromTo('.contact-info',{yPercent:100}, {yPercent:-200,duration:110},'-=50');
-        tl.fromTo('#cast',{yPercent:20}, {yPercent:-100,duration:210},'-=110');
-
-        tl.fromTo(main.querySelectorAll('.partner-item')[0].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:100},'-=172');
-        tl.fromTo(main.querySelectorAll('.partner-item')[1].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:80},'-=180');
-        tl.fromTo(main.querySelectorAll('.partner-item')[2].querySelectorAll('img'),{yPercent:400}, {yPercent:-700,duration:100},'-=165');
-        tl.fromTo(main.querySelectorAll('.partner-item')[3].querySelectorAll('img'),{yPercent:400}, {yPercent:-600,duration:70},'-=170');*/
 
 
 
@@ -365,21 +289,11 @@ class View {
             container: main,
             pos: 0,
             ease: 0.05,
-            delta:100,
+            delta:120,
             timeline: tl
         });
 
         this.scroll.init();
-
-        /*this.drag = new DragController({
-            container: main.querySelector('.today-cards'),
-            el:main.querySelector('.today-cards_content'), 
-            pos: 0,
-            ease: 0.05,
-            delta:40,
-        });
-
-        this.drag.init();*/
 
     }
 
