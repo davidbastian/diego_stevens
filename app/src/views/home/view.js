@@ -30,7 +30,7 @@ class View {
 
                         <dl>
                             <dt>${self.data.details.slogan}</dt>
-                            <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a><span>|</span>Scroll to Explore</dd>
+                            <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
                         </dl>
                          
                     </div>
@@ -41,6 +41,7 @@ class View {
                 </section>
 
                 <section id="about" class="border">
+                    <div class="bg"></div>
                     <div class="about-introduction content">
                         <p>${self.data.about.introduction}</p>
                     </div>
@@ -288,15 +289,14 @@ class View {
 
         main.querySelectorAll('.timeline-item')[0].style.border = "none";
 
-        
 
-        //home
-      /*  tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25});
-        tl.to(main.querySelector('#home'),{yPercent:-100,duration:25},'<');
+        tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0}, {yPercent:-100,duration:25});
+        tl.to(main.querySelector('#home'),{yPercent:-100,duration:25},'-=25');
 
-        //about
-        tl.fromTo('.about-introduction',{yPercent:60}, {yPercent:-250,duration:75},'-=20');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-1050,duration:100},"-=65");
+        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=25');
+        tl.fromTo('.about-introduction',{yPercent:0}, {yPercent:-250,duration:75},'-=12');  
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:165}, {yPercent:-1050,duration:100},"-=70");
+
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:80}, {yPercent:-850,duration:50},"-=84");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:0}, {yPercent:-900,duration:50},"-=77");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:0}, {yPercent:-900,duration:50},"-=75");
@@ -304,20 +304,24 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.7}, {scale:4,duration:50},"<");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-500}, {yPercent:-1550,duration:100},"-=75");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-600}, {yPercent:-1500,duration:50},"-=70");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600}, {yPercent:-1500,duration:50},"-=62");
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600}, {yPercent:-1500,duration:60},"-=62");
 
         //interests
-        tl.fromTo('#interests',{yPercent:100},{yPercent:-100,duration:25},"-=55");
-      
+        tl.fromTo('#interests',{yPercent:100},{yPercent:-200,duration:45},"-=65");
+
         //timeline
-        tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:250}, {yPercent:-400,duration:100},"-=60");
-        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=90');
-        tl.fromTo(main.querySelectorAll('.timeline-item')[0],{yPercent:500}, {yPercent:-310,duration:50},"-=95");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[1],{yPercent:400}, {yPercent:-179,duration:95},"-=118");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[2],{yPercent:300}, {yPercent:-685,duration:55},"-=80");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[3],{yPercent:200}, {yPercent:-390,duration:95},"-=85");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[4],{yPercent:100}, {yPercent:-790,duration:55},"-=74");
-        tl.fromTo(main.querySelectorAll('.timeline-item')[5],{yPercent:-100}, {yPercent:-2000,duration:55},"-=67");
+        tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:100}, {yPercent:-100,duration:45},"-=58");
+        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1}, {scale:1.4,duration:25},'-=45');
+
+       tl.fromTo(main.querySelectorAll('.timeline-item')[0],{yPercent:500}, {yPercent:-500,duration:80},"-=68");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[1],{yPercent:500}, {yPercent:-500,duration:260},"-=128");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[2],{yPercent:400}, {yPercent:-1000,duration:80},"-=185");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[3],{yPercent:200}, {yPercent:-1000,duration:260},"-=196");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[4],{yPercent:300}, {yPercent:-1100,duration:80},"-=225");
+        tl.fromTo(main.querySelectorAll('.timeline-item')[5],{yPercent:200}, {yPercent:-2250,duration:80},"-=228");
+
+
+/*
 
         tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:200}, {yPercent:-100,duration:25},"-=56");
         tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:400}, {yPercent:-1300,duration:60},'-=51');
@@ -357,7 +361,7 @@ class View {
 
         tl.pause();
 
-     /*   this.scroll = new ScrollController({
+       this.scroll = new ScrollController({
             container: main,
             pos: 0,
             ease: 0.05,
@@ -365,7 +369,7 @@ class View {
             timeline: tl
         });
 
-        this.scroll.init();*/
+        this.scroll.init();
 
         /*this.drag = new DragController({
             container: main.querySelector('.today-cards'),

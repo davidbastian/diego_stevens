@@ -12,6 +12,12 @@ html {
 
 }
 
+@media (max-aspect-ratio: 1/1) {
+    body {
+      display: none;
+    }
+  }
+
 body {
     height: 100%;
     width: 100%;
@@ -27,6 +33,7 @@ body {
     width: 100vw;
     height: 100vh;
     top: 0;
+    left: 0;
     z-index: -1;
     background-color: $color02;
 }
@@ -49,8 +56,12 @@ main {
     overflow: hidden;
     section {
         width: 100vw;
-        position: relative;
+     //  position: relative;
         display: flex;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        height: 100vh;
     }    
 }
 

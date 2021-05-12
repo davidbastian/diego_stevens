@@ -7,6 +7,7 @@
     height: 100vh;
     width: 100%;
     background-color: $color01;
+    top: 0;
     //    height: auto;
 
     .hero-introduction {
@@ -32,6 +33,7 @@
             object-fit: cover;
             width: 100%;
             height: 100%;
+            object-position: right;
         }
     }
 
@@ -59,6 +61,10 @@
     flex-direction: column;
     width: 100%;
     height: auto;
+
+    .bg{
+        background-color: $color02;
+    }
 
     .about-introduction {
 
@@ -122,6 +128,10 @@
     z-index: 4;
     background-color: $color01;
     height: auto;
+
+    img {
+        object-position: center;
+    }
 
     .interests-image {
         overflow: hidden;
@@ -285,6 +295,10 @@
     color: $color01;
     z-index: 7;
     height: auto;
+
+    img {
+        object-position: right;
+    }
 
 
     .challenges-image {
