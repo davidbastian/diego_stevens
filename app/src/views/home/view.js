@@ -274,6 +274,8 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2430,duration:90},'-=80');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:1},{scale:2,duration:40},'<');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-800},{yPercent:-1600,duration:125},'-=85');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500},{yPercent:-1200,duration:90},'-=120');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=100');
 
 
 
