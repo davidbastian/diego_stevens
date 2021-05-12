@@ -265,9 +265,10 @@ class View {
 
         tl.fromTo(main.querySelector('#home'),{yPercent:0},{yPercent:-100,duration:25});
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1},{scale:1.5,duration:25},'<');
+
         tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:25},'<');
-        tl.fromTo(main.querySelector('#about').querySelector('.about-introduction'),{yPercent:100},{yPercent:-300,duration:85},'<-1');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:100},{yPercent:-1200,duration:125},'-=75');
+        tl.fromTo(main.querySelector('#about').querySelector('.about-introduction'),{yPercent:100},{yPercent:-300,duration:100},'<-1');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:100},{yPercent:-1200,duration:125},'-=84');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:100},{yPercent:-1200,duration:90},'-=115');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-300},{yPercent:-1200,duration:90},'-=95');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-350},{yPercent:-1200,duration:90},'-=90');
@@ -275,7 +276,14 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:1},{scale:2,duration:40},'<');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-800},{yPercent:-1600,duration:125},'-=85');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500},{yPercent:-1200,duration:90},'-=120');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=100');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=95');
+
+
+        
+        tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
+      //  tl.addLabel("interests","-=65.35");
+
+
 
 
 
@@ -287,6 +295,7 @@ class View {
        // tl.timeScale(3)
 
         tl.pause();
+      //  tl.seek("interests");
 
        this.scroll = new ScrollController({
             container: main,
