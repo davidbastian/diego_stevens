@@ -271,8 +271,9 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:100},{yPercent:-1200,duration:90},'-=115');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-300},{yPercent:-1200,duration:90},'-=95');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-350},{yPercent:-1200,duration:90},'-=90');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2400,duration:90},'-=80');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2430,duration:90},'-=80');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:1},{scale:2,duration:40},'<');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-800},{yPercent:-1600,duration:125},'-=85');
 
 
 
