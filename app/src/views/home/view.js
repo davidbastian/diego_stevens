@@ -132,7 +132,7 @@ class View {
                 </section>
 
                 <section id="timeline" class="border content">
-                    <div class="bg"></div>
+    
 
                     ${self.setTimeline(self.data.timeline)}
 
@@ -281,7 +281,20 @@ class View {
 
         
         tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
+        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
       //  tl.addLabel("interests","-=65.35");
+       // tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:100},{yPercent:0,duration:25},'-=65');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:400},{yPercent:-100,duration:90},'-=75');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1],{yPercent:200},{yPercent:-100,duration:90},'-=75');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2],{yPercent:400},{yPercent:-500,duration:90},'-=55');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3],{yPercent:200},{yPercent:-300,duration:100},'-=85');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4],{yPercent:300},{yPercent:-900,duration:100},'-=80');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[5],{yPercent:1000},{yPercent:-1300,duration:90},'-=103');
+
+        tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:15},'-=85');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:0},{yPercent:-1650,duration:90},'-=84');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:0},{yPercent:-300,duration:120},'-=92');
+
 
 
 
@@ -301,7 +314,7 @@ class View {
             container: main,
             pos: 0,
             ease: 0.05,
-            delta:120,
+            delta:100,
             timeline: tl
         });
 
