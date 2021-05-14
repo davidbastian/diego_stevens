@@ -278,8 +278,6 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500},{yPercent:-1200,duration:90},'-=120');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=95');
 
-
-        
         tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
         tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
       //  tl.addLabel("interests","-=65.35");
@@ -293,10 +291,10 @@ class View {
 
         tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:15},'-=85');
         tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:0},{yPercent:-1650,duration:90},'-=84');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:0},{yPercent:-300,duration:120},'-=93');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:0},{yPercent:-350,duration:120},'-=93');
 
-        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
-        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
+        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=85');
+        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=70');
 
 
 
@@ -317,7 +315,7 @@ class View {
             container: main,
             pos: 0,
             ease: 0.05,
-            delta:100,
+            delta:80,
             timeline: tl
         });
 
