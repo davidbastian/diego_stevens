@@ -293,7 +293,10 @@ class View {
 
         tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:15},'-=85');
         tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:0},{yPercent:-1650,duration:90},'-=84');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:0},{yPercent:-300,duration:120},'-=92');
+        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:0},{yPercent:-300,duration:120},'-=93');
+
+        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
+        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
 
 
 

@@ -307,6 +307,9 @@
     color: $color01;
     z-index: 7;
     height: auto;
+    
+    position: absolute;
+    top: 0;
 
     img {
         object-position: right;
