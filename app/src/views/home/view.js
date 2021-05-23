@@ -235,7 +235,11 @@ class View {
                         <div class="investors">
                             <h6><b>Private and Public Inverstors</b></h6>
                             <div class="container">                            
-                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
+                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a>
+                                <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
+                                <a target="_blank" href="https://www.conicyt.cl/"><h5>Conicyt</h5></a>
+                                
+                                
                             </div>   
                         </div>
 
