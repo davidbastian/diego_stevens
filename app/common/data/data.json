@@ -71,12 +71,12 @@
         },
         {
             "year": "2020",
-            "achivements": ["Chilean of the Year 2020<br> in the \"Innovator Category\"."]
+            "achivements": ["Chilean of the Year 2020 in  <br> the Innovator Category for <br> Premios Natida Chile."]
         }
     ],
 
     "today": {
-        "description": "Aca va un texto que <br> necesitamos como intro  <br> para esta seccion.",
+        "description": "Transforming technology <br> dreams into actions through  <br>5 questions and processes",
         "title": "Today",
         "cards": [{
                 "title": "What is the <br>Aspiration?",
@@ -118,16 +118,10 @@
             "title": "Parachute jump",
             "done": true
         },{
-            "title": "Run a marathon",
-            "done": false
-        },{
             "title": "Take on a charity challenge",
             "done": false
         },{
-            "title": "Surprise yourself",
-            "done": false
-        },{
-            "title": "Climb a famous peak",
+            "title": "Hang out with Elon Musk",
             "done": false
         }],
         "image": {
@@ -138,7 +132,7 @@
 
     },
     "clients":{
-        "description":"I work with clients from all sectors based on a shared value set and <br> vision for how to create a better future though design.",
+        "description":"I work with clients & partners from all sectors based on a shared value set and vision for how to create a better future through technology.",
         "img":"common/media/img/014.png"
     },
     "press":{
@@ -146,33 +140,33 @@
         "description":"I love being able to share and help others achieve more through my work. These talks and interviews are my small contribution for a more open, connected and transparent industry. ",
         "articles":[
             {
-                "title":"Los planes de la startup informática Clever IT",
+                "title":"The plans for the Softech <br> Startup of Cleverit",
                 "type":"News",
                 "img":"common/media/img/015.png",
                 "date":"4 April 2021",
                 "url":"https://dfu.owo.cl/#https://www.df.cl/noticias/df-lab/innovacion-y-startups/los-planes-de-la-startup-informatica-clever-it-para-apoyar-a/2021-04-07/112103.html",
-                "description":"Invertirán un total de US$ 20 millones en el lanzamiento de un área de incubación para emprendedores de la industria SofTech y en concretar su plan de crecimiento con alcance global."
+                "description":"They will invest a total of 20 million in lunching an area of entrepreneur incubation of the IT industry and accomplishing their global growth plan."
             },{
-                "title":"Especialista cuenta sobre tecnología e innovación “made <br> in  Chile” que seduce a Europa",
+                "title":"Specialist talks about technology and innovation “made in Chile” that calls the attention of Europe",
                 "type":"Interview",
                 "img":"common/media/img/016.png",
                 "date":"30 March 2021",
                 "url":"https://www.america-retail.com/opinion/opinion-especialista-cuenta-sobre-tecnologia-e-innovacion-made-in-chile-que-seduce-a-europa/",
-                "description":"Mientras en todo el mundo se experimentan diversos cambios producidos por la acelerada transformación digital, en Chile – y sin ser una excepción a esta tendencia- han surgido una serie de tecnologías y soluciones digitales que se encuentran aportando a la digitalización laboral interna y que hoy, además, son recibidas con los brazos abiertos en el viejo continente."
+                "description":"Meanwhile the entire world is experiences changes produced by accelerated digital transformation, in Chile, with out exception of this trend, has arisen a series of digital and technological solutions, that are well received in Europe."
             },{
-                "title":"Redes sociales e innovación <br> para emprendedores",
+                "title":"Social Medias and Innovation <br> for Entrepreneurs",
                 "type":"Podcast",
                 "img":"common/media/img/017.png",
                 "date":"19 Feb 2021",
                 "url":"https://open.spotify.com/episode/0gydjYg5MmebzUORLS3KOo?si=WCm8FM9zSS2iWFEq4b-V2g&nd=1",
-                "description":"La pandemia y el confinamiento aumentaron y extendieron el uso de las redes sociales. Su uso comercial para ofrecer productos y servicios aumentó, pero a la vez hizo de estos nuevos compradores digitales personas más activas y exigentes."
+                "description":"The pandemic and the confinement increase and extended the use of social networks. Their commercial use to offer products and services has increased. Regardless, at the same time these new digital buyers have become more active and demanding."
             },{
-                "title":"Cómo la pandemia impulsó el interés por los robots de compañía",
+                "title":"How the pandemic has driving the interest in robots of companies",
                 "type":"Quote",
                 "img":"common/media/img/018.png",
                 "date":"18 Jan 2021",
                 "url":"https://open.spotify.com/episode/0gydjYg5MmebzUORLS3KOo?si=WCm8FM9zSS2iWFEq4b-V2g&nd=1",
-                "description":"La tendencia en los próximos años serán los robots médicos, de compañía y servicio, mayormente enfocados en personas con discapacidades, enfermedades neurodegenerativas o la tercera edad. Entre ellos, muchos aparatos que ayudarán en las tareas del hogar."
+                "description":"The trends of the following years will be oriented towards medical robots, services and mainly focus on people with handicaps, neurodegenerative illnesses, or the elderly. Among them, many devices will help chores around the house."
             }
         ]
     },
@@ -185,7 +179,7 @@
            "partners": [
                 {
                     "name":"Martin Burns",
-                    "role":"Chief Financial Officer at Cleverit",
+                    "role":"Chief Financial Officer at Cleverit & Meetcard",
                     "link":"https://www.linkedin.com/in/martin-burns-krassa-5298013b/",
                     "img":"common/media/img/023.png",
                     "pos":"-25vw"
@@ -201,14 +195,22 @@
                     "role":"Chief Technology Officer at Cleverit",
                     "link":"https://www.linkedin.com/in/carlos-gallardo-66092615/",
                     "img":"common/media/img/024.png",
-                    "pos":"25vw"
+                    "pos":"31vw"
                 },{
                     "name":"Orlando Orozco",
                     "role":"Co Founder y CTO at Meetcard",
                     "link":"https://www.linkedin.com/in/orlando-orozco-cancino-67bb1334/",
                     "img":"common/media/img/026.png",
-                    "pos":"50vw"
+                    "pos":"55vw"
+                },
+                {
+                    "name":"Matias Gonzalez",
+                    "role":"International Director",
+                    "link":"https://www.linkedin.com/in/orlando-orozco-cancino-67bb1334/",
+                    "img":"common/media/img/026.png",
+                    "pos":"15vw"
                 }
+
             ],
             "investors": [
                 {

@@ -133,7 +133,6 @@ class View {
 
                 <section id="timeline" class="border content">
     
-
                     ${self.setTimeline(self.data.timeline)}
 
                 </section>
@@ -155,6 +154,7 @@ class View {
                 </section>
 
                 <section id="challenges">
+                    <div class="bg"></div>
 
                     <div class="challenges-list list half border">
                         <p><span>${Star}</span> ${self.data.challenges.title}</p>
@@ -202,7 +202,7 @@ class View {
                     </div>
                     <div id="cast" class="content">
                         <div class="partners">
-                                <h6> <b>Partners</b> </h6>
+                                <h6> <b>Partners & Friends</b> </h6>
                                 <div class="partners-container">
                                     ${self.setPartners(self.data.cast.partners)}
                                 </div>
@@ -219,21 +219,21 @@ class View {
                         </div>
                         
                         <div class="my-companies">
-                            <h6><b>My Companies</b></h6>
+                            <h6><b>My bridge to the binary world</b></h6>
                             <div class="container">                            
                                     <img src="common/media/img/019.png" alt="">    
                             </div>   
                         </div>
 
                         <div class="collaborations">
-                            <h6><b>Collaborations and Consultant</b></h6>
+                            <h6><b>Collaborations & Alliances</b></h6>
                             <div class="container">                            
                                 <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
                             </div>   
                         </div>
 
                         <div class="investors">
-                            <h6><b>Investors</b></h6>
+                            <h6><b>Private and Public Inverstors</b></h6>
                             <div class="container">                            
                                 <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
                             </div>   
@@ -281,25 +281,38 @@ class View {
         tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
         tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
       //  tl.addLabel("interests","-=65.35");
-       // tl.fromTo(main.querySelector('#timeline').querySelector('.bg'),{yPercent:100},{yPercent:0,duration:25},'-=65');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:400},{yPercent:-100,duration:90},'-=75');
+
+
+       tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:400},{yPercent:-140,duration:90},'-=70');
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1],{yPercent:200},{yPercent:-100,duration:90},'-=75');
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2],{yPercent:400},{yPercent:-500,duration:90},'-=55');
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3],{yPercent:200},{yPercent:-300,duration:100},'-=85');
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4],{yPercent:300},{yPercent:-900,duration:100},'-=80');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[5],{yPercent:1000},{yPercent:-1300,duration:90},'-=103');
-
-        tl.fromTo(main.querySelector('#today').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:15},'-=85');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-intro'),{yPercent:0},{yPercent:-1650,duration:90},'-=84');
-        tl.fromTo(main.querySelector('#today').querySelector('.today-cards'),{yPercent:0},{yPercent:-350,duration:120},'-=93');
-
-        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=85');
-        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=70');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[5],{yPercent:1200},{yPercent:-1400,duration:70},'-=100');
+        tl.fromTo(main.querySelector('#today'),{yPercent:0},{yPercent:-350,duration:150},'-=85');
 
 
 
+        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=135');
+        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=118');
 
 
+       tl.fromTo(main.querySelector('#clients'),{yPercent:0},{yPercent:-400,duration:135},'-=112');
+       tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:100},{yPercent:-1000,duration:90},'-=120');
+
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[0],{yPercent:100},{yPercent:-1000,duration:200},'-=128');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[1],{yPercent:100},{yPercent:-1000,duration:200},'-=195');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[2],{yPercent:100},{yPercent:-1000,duration:200},'-=205');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3],{yPercent:100},{yPercent:-1000,duration:210},'-=215');
+
+      tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:250},'-=105');
+
+
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=215');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=195');
 
 
         function updateStats() {
