@@ -35,33 +35,27 @@ class AppView {
         window.addEventListener("hashchange", this.getURL.bind(this));
         for (let i = 0; i < document.querySelectorAll('a').length; i++) {
             const a = document.querySelectorAll('a')[i];
-            a.addEventListener('click',self.addWait.bind(this));
-            
+            a.addEventListener('click', self.addWait.bind(this));
+
         }
     }
 
-    addWait(){
+    addWait() {
         document.querySelector('body').classList.add('wait');
     }
 
     setMarkup() {
         const markup = /*html*/ `
-        <header>
-            <section>
-                <nav>
-                    
-                </nav>
-                
-            </section>
-            
-        </header>
+        
 
         <main>
         
         </main>
         
         <div>
+
             <div id="preloader">
+                <img src="common/media/img/f2.gif" alt="">
             </div>
         </div>
         <div class="rotate">
@@ -77,7 +71,7 @@ class AppView {
 
 
     preload() {
-       
+
 
     }
 

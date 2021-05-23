@@ -22,6 +22,54 @@ class View {
     setup() {
         const self = this;
         const markup = /*html*/ `
+
+                <header>
+                    
+                    <nav>
+                        <a target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
+                        <a target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
+                        <a href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+                        <a href="#" id="hamburger">
+                            <div>
+                                <span></span>
+                                <span></span>
+                            </div> 
+                        </a>
+                    </nav>
+
+                    <div class="menu">  
+                        <div class="hero-introduction border half">
+                                <div class="hero-logo">
+                                    ${Logo}
+                                </div>
+
+                                <dl>
+                                    <dt>${self.data.details.slogan}</dt>
+                                    <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
+                                </dl>
+                                    
+                            </div>
+                            <div class="hero-image half pointer-none border">
+                                <div class="list">
+                                    <ul>
+                                       <li><a href=""></a>About</li>
+                                       <li><a href=""></a>Interests</li>
+                                       <li><a href=""></a>Timeline</li>
+                                       <li><a href="">Today</a></li>
+                                       <li><a href="">Challenges</a></li>
+                                       <li><a href="">Press</a></li>
+                                       <li><a href="">Contact</a></li>
+                                   </ul>
+
+                                </div>
+
+                                   
+                            </div>  
+                    </div>
+                
+                </header>
+
+
                 <section  id="home">
                     <div class="hero-introduction border half">
                         <div class="hero-logo">
@@ -37,7 +85,7 @@ class View {
                     <div class="hero-image half pointer-none">
                             <img  class="cover" src="${self.data.details.image}" alt="${self.data.details.slogan}">
                     </div>
-                    <div></div>       
+                      
                 </section>
 
                 <section id="about" class="border">
@@ -146,7 +194,7 @@ class View {
                     </div>
 
                     <div class="today-cards">
-                        <div class="today-cards_content">
+                        <div class="today-cards_content grabbable">
                             ${self.setCards(self.data.today.cards)}
                         </div>  
                     </div>
@@ -284,7 +332,7 @@ class View {
 
         tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
         tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
-      //  tl.addLabel("interests","-=65.35");
+     //   tl.addLabel("interests","-=65.35");
 
 
        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:400},{yPercent:-140,duration:90},'-=70');
@@ -325,18 +373,32 @@ class View {
 
        // tl.timeScale(3)
 
-        tl.pause();
-      //  tl.seek("interests");
+      /*  tl.pause();
+       // tl.seek("interests");
 
        this.scroll = new ScrollController({
             container: main,
             pos: 0,
             ease: 0.05,
-            delta:80,
+            delta:40,
             timeline: tl
         });
 
-        this.scroll.init();
+        this.scroll.init();*/
+
+
+        this.drag = new DragController({
+            pos: 0,
+            ease: 0.05,
+            el: main.querySelector(".today-cards_content"),
+            container:main.querySelector('.today-cards'),
+            direction: "landscape",
+            delta: 40,
+            drag: 6
+        });
+
+        this.drag.init();
+
 
     }
 

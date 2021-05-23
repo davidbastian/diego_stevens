@@ -10,15 +10,15 @@ class DragController {
     this.pos = opt.pos;
     this.ease = opt.ease;
     this.delta = opt.delta;
+    this.drag = opt.drag;
     this.target = opt.pos;
     this.container = opt.container;
     this.el = opt.el;
-
-
-
+    this.point = 0;
   }
 
   init() {
+    this.area = this.el.offsetWidth - this.container.offsetWidth;
     this.addEvents();
     this.anima();
   }
@@ -27,84 +27,55 @@ class DragController {
     const self = this;
     self.container.addEventListener("mousemove", self.move.bind(this));
     self.container.addEventListener("mousedown", self.down.bind(this));
-    self.container.addEventListener("mouseup", self.up.bind(this));
+    window.addEventListener("mouseup", self.up.bind(this));
+    window.addEventListener("resize", self.resize.bind(this));
+  }
+
+  resize() {
+    console.log('resize');
+    this.area = this.el.offsetWidth - this.container.offsetWidth;
+    this.pos = 0;
+    this.target = 0;
+    this.point = 0;
+    this.percent = 0;
+    this.drag = 0;
+    this.el.style.transform =
+      "translateX(" + -this.percent + "%) translateY(" + 0 + "%)";
   }
 
   down(e) {
-    if (this.direction === "landscape") {
-      this.point = e.clientX;
-    } else {
-      this.point = e.clientY;
-    }
+    const self = this;
+    this.point = -this.point + e.clientX;
     this.moving = true;
     this.mX = 0;
     console.log("start moving");
+    this.el.classList.add('active');
   }
 
   move(e) {
     const self = this;
     if (this.moving) {
       let delta;
-
-      if (self.timeout !== undefined) {
-        window.clearTimeout(self.timeout);
-      }
-      self.timeout = window.setTimeout(function () {
-        this.valR = 0;
-        this.valL = 0;
-        console.log("stop moving");
-      }, 50);
-
-      let n;
-      if (this.direction === "landscape") {
-        delta = this.point - e.clientX;
-        n = (delta * this.el.offsetWidth) / this.wrap.offsetWidth;
-
-        if (e.pageX < this.mX) {
-          this.valR = 0;
-          this.valL = this.valL - this.drag;
-          this.target = this.target + this.valL;
-        } else {
-          this.valL = 0;
-          this.valR = this.valR + this.drag;
-
-          this.target = this.target + this.valR;
-        }
-
-        this.mX = e.pageX;
-      } else {
-        delta = this.point - e.clientY;
-        n = (delta * this.el.offsetHeight) / this.wrap.offsetHeight;
-
-        if (e.pageY < this.mX) {
-          this.valR = 0;
-          this.valL = this.valL - this.drag;
-          this.target = this.target + this.valL;
-        } else {
-          this.valL = 0;
-          this.valR = this.valR + this.drag;
-
-          this.target = this.target + this.valR;
-        }
-
-        this.mX = e.pageY;
-      }
-
-      this.target = self.constrain(this.target, -self.area, 0);
+      self.drag = self.point - e.clientX;
+      self.drag = constrain(self.drag, 0, self.area);
     }
   }
 
   up(e) {
     this.moving = false;
-    console.log("stop moving");
+    this.point = -this.drag;
+    console.log("stop moving", this.point);
+    this.el.classList.remove('active');
   }
-
 
   anima() {
     const self = this;
-    // requestAnimationFrame(self.anima.bind(this));
-
-
+    requestAnimationFrame(self.anima.bind(this));
+    this.area = this.el.offsetWidth - this.container.offsetWidth;
+    this.pos += (this.drag - this.pos) * this.ease;
+    this.percent = (this.pos * 100) / this.el.offsetWidth;
+    this.el.style.transform =
+      "translateX(" + -this.percent + "%) translateY(" + 0 + "%)";
   }
 }
 

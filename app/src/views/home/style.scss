@@ -2,7 +2,81 @@
 
 
 
-#home {
+
+header {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    z-index: 99;
+
+    .menu {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        background: white;
+        bottom: -100%;
+        display: none;
+
+
+
+        &.active {
+            display: block;
+
+        }
+    }
+
+    nav {
+        background-color: $color03;
+        display: flex;
+        position: absolute;
+        bottom: 2vw;
+        z-index: 3;
+        border-radius: 20vw;
+        align-items: center;
+
+        a {
+            padding-left: 2vw;
+            font-size: .7vw;
+            // line-height: 3vw;
+        }
+
+        #hamburger {
+            background: #fff;
+            border-radius: 100%;
+            width: 2.5vw;
+            height: 2.5vw;
+            margin: .3vw;
+            margin-left: 2vw;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        div {
+            width: .9vw;
+            height: .5vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            span {
+                height: 3px;
+                background: black;
+                border-radius: 10000px;
+                width: 100%;
+                display: block;
+
+            }
+        }
+    }
+}
+
+
+#home,
+.menu {
     z-index: 2;
     height: 100vh;
     width: 100%;
@@ -52,6 +126,16 @@
     }
 
 
+}
+
+.menu {
+    bottom: 0;
+    top: auto;
+    display: flex;
+    .hero-image {
+        background-color: $color01;
+        text-align: right;
+    }
 }
 
 #about {
@@ -225,15 +309,20 @@
 }
 
 #today {
-    z-index: 6;
+
     //  background-color: $color01;
     color: $color02;
     flex-direction: column;
     height: auto;
 
+    z-index: 6;
     position: absolute;
     top: 100%;
     padding-bottom: 100vh;
+
+
+    user-select: none;
+
 
 
 
@@ -263,8 +352,9 @@
 
         .today-cards_content {
             display: flex;
-            padding: 20vh 3vw;
-            padding-bottom: 0;
+            margin: 20vh 0vw;
+            margin-bottom: 0;
+            padding: 0 3vw;
 
         }
 
@@ -312,6 +402,7 @@
 
     position: absolute;
     top: 0;
+
     .bg {
         background-color: $color01;
         height: 100%;
@@ -578,6 +669,7 @@
                 margin-top: 2vh;
             }
         }
+
         .collaborations,
         .investors,
         .my-companies {
