@@ -2,6 +2,8 @@ import {
   onWheel,
   constrain
 } from '../../common/utils/utils'
+import {gsap
+} from "gsap";
 
 class DragController {
   constructor(opt) {
@@ -50,6 +52,8 @@ class DragController {
     this.mX = 0;
     console.log("start moving");
     this.el.classList.add('active');
+
+    gsap.to(self.container,{scale:.9,duration:.8,ease: "power3.out"});
   }
 
   move(e) {
@@ -62,10 +66,12 @@ class DragController {
   }
 
   up(e) {
+    const self = this;
     this.moving = false;
     this.point = -this.drag;
     console.log("stop moving", this.point);
     this.el.classList.remove('active');
+    gsap.to(self.container,{scale:1,duration:.8,ease: "power3.out"});
   }
 
   anima() {

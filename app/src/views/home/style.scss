@@ -10,6 +10,7 @@ header {
     bottom: 0;
     width: 100%;
     z-index: 99;
+    //user-select: none;
 
     .menu {
         position: absolute;
@@ -17,14 +18,18 @@ header {
         height: 100vh;
         background: white;
         bottom: -100%;
-        display: none;
-
-
-
-        &.active {
-            display: block;
-
-        }
+        display: flex;
+        -webkit-mask-repeat: no-repeat;
+        -webkit-mask-image: -webkit-linear-gradient(bottom, #fff, #fff 50%, hsla(0, 0%, 100%, 0));
+        -webkit-mask-size: 100% 200%;
+        -webkit-mask-position: 0 -100%;
+        mask-repeat: no-repeat;
+        mask-image: -webkit-linear-gradient(bottom,
+                #fff,
+                #fff 50%,
+                hsla(0, 0%, 100%, 0));
+        mask-size: 100% 200%;
+        mask-position: 0 -100%;
     }
 
     nav {
@@ -36,10 +41,15 @@ header {
         border-radius: 20vw;
         align-items: center;
 
-        a {
+        .link {
             padding-left: 2vw;
             font-size: .7vw;
+            cursor: pointer;
             // line-height: 3vw;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
 
         #hamburger {
@@ -53,24 +63,51 @@ header {
             display: flex;
             justify-content: center;
             align-items: center;
-        }
 
-        div {
-            width: .9vw;
-            height: .5vw;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
+            div {
+                width: 33%;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
 
-            span {
-                height: 3px;
-                background: black;
-                border-radius: 10000px;
-                width: 100%;
-                display: block;
+
+
+                .close-menu {
+                    width: 100%;
+                    display:none;
+                    position: relative;
+
+                }
+
+                .open-menu {
+                    width: 100%;
+                    display: block;
+                    position: relative;
+                    
+
+                }
+            }
+
+            &.active {
+                .close-menu {
+                   display: block;
+
+                }
+                .open-menu {
+                    display: none;
+
+                }
 
             }
+
+            &:hover {
+                text-decoration: none;
+            }
         }
+
+
     }
 }
 
@@ -95,7 +132,7 @@ header {
             }
 
             a.active {
-                border-bottom: 1px solid;
+                text-decoration: underline;
             }
         }
     }
@@ -132,9 +169,20 @@ header {
     bottom: 0;
     top: auto;
     display: flex;
-    .hero-image {
+
+    .menu-list {
         background-color: $color01;
         text-align: right;
+        display: flex;
+        justify-content: space-between;
+        flex-direction: column;
+
+        a {
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
     }
 }
 

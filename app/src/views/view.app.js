@@ -52,12 +52,12 @@ class AppView {
         
         </main>
         
-        <div>
 
-            <div id="preloader">
-                <img src="common/media/img/f2.gif" alt="">
-            </div>
+
+        <div id="preloader">
+            <img src="common/media/img/f2.gif" alt="">
         </div>
+
         <div class="rotate">
           
         </div>

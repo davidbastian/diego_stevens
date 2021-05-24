@@ -17,7 +17,8 @@ class AppController {
         const self = this;
         const request = new XMLHttpRequest();
 
-        history.pushState({}, null, '#/');
+        //history.pushState({}, null, '#/');
+
         /*request.open("GET", self.model.restURL + 'categories');
         request.onreadystatechange = (e) => {
             if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
@@ -27,7 +28,24 @@ class AppController {
             }
         }*/
 
-        HomeView.init(params, self.model.data);
+        console.log(params,'params')
+
+        if (!params[0]) {
+            HomeView.init(params, self.model.data);
+        } else  {
+           //console.log(document.body.querySelector('main').hasChildNodes(),'main')
+            
+         /*  if (document.querySelector('main').hasChildNodes() === undefined) {
+                HomeView.init(params, self.model.data);
+                if (params[0] === 'about') {
+                    HomeView.setAbout();
+                }
+            }*/
+           
+         
+        }
+
+        
 
         /*if (params.length === 1) {
             if (params[0] === 'services') {

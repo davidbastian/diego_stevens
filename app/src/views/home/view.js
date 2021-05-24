@@ -4,6 +4,8 @@ import {
 } from '../../../common/utils/utils';
 import Logo from '../../../common/svg/logo.svg'
 import Star from '../../../common/svg/star.svg'
+import Close from '../../../common/svg/close.svg'
+import Open from '../../../common/svg/open.svg'
 import ScrollController from '../../controllers/controller.scroll';
 import DragController from '../../controllers/controller.drag.js';
 import {gsap
@@ -17,27 +19,109 @@ class View {
         console.log(params, data, 'LOAD HOME');
         this.data = data;
         this.setup();
+        this.addEvents();
+
     }
+
+    addEvents(){
+       const self = this;
+        document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
+        for (let i = 0; i < document.querySelector('.menu-list').querySelectorAll('a').length; i++) {
+            const el = document.querySelector('.menu-list').querySelectorAll('a')[i];
+            el.addEventListener("click", self.updateSection.bind(this));     
+        }
+        
+    }
+
+    updateSection(e){
+        const self = this;
+        const current = e.currentTarget;
+        const link = current.getAttribute('href');
+        const scroll = Number(current.getAttribute('data-scroll'));
+
+        document.body.querySelector('#hamburger').classList.remove('active');
+        gsap.fromTo(
+            document.querySelector(".menu"),
+            { WebkitMaskPosition: "0% 100%",duration:1 },
+            {
+              WebkitMaskPosition: "0% -100%",
+              onComplete: function () {
+                document.querySelector(".menu").classList.add("hide");
+              }
+            }
+        );
+
+        self.setSection(scroll,link);
+
+    }
+
+    setSection(s,link){
+        const self = this;
+
+        console.log(s,'scroll');
+        console.log(link)
+        self.scroll.update(self.tl,s);
+
+    }
+
+
+    toggleMenu(e){
+        const checkClass= e.currentTarget.classList.contains('active');
+        
+        if (checkClass) {
+            e.currentTarget.classList.remove('active');
+
+            gsap.fromTo(
+                document.querySelector(".menu"),
+                { WebkitMaskPosition: "0% 100%",duration:1 },
+                {
+                  WebkitMaskPosition: "0% -100%",
+                  onComplete: function () {
+                    document.querySelector(".menu").classList.add("hide");
+                  }
+                }
+            );
+
+        } else {
+            document.body.querySelector('.menu').classList.remove('hide');
+            e.currentTarget.classList.add('active');
+
+            gsap.fromTo(
+                document.querySelector(".menu"),
+                { WebkitMaskPosition: "0% -100%",duration:1 },
+                { WebkitMaskPosition: "0% 100%" }
+            );
+            
+
+           
+        }
+
+  
+
+        return false;
+
+
+      //  if (e.currentTar)
+    }
+
 
     setup() {
         const self = this;
         const markup = /*html*/ `
-
                 <header>
-                    
                     <nav>
-                        <a target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
-                        <a target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
-                        <a href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
-                        <a href="#" id="hamburger">
+                        <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
+                        <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
+                        <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+                        <div  class="link"  id="hamburger">
                             <div>
-                                <span></span>
-                                <span></span>
+                                <img src="common/media/img/open.png" alt="" class="open-menu">
+                                <img src="common/media/img/close.png" alt="" class="close-menu">
                             </div> 
-                        </a>
+                        </div>
                     </nav>
 
-                    <div class="menu">  
+                    <div class="menu hide">  
                         <div class="hero-introduction border half">
                                 <div class="hero-logo">
                                     ${Logo}
@@ -49,18 +133,23 @@ class View {
                                 </dl>
                                     
                             </div>
-                            <div class="hero-image half pointer-none border">
+                            <div class="menu-list half  border">
                                 <div class="list">
                                     <ul>
-                                       <li><a href=""></a>About</li>
-                                       <li><a href=""></a>Interests</li>
-                                       <li><a href=""></a>Timeline</li>
-                                       <li><a href="">Today</a></li>
-                                       <li><a href="">Challenges</a></li>
-                                       <li><a href="">Press</a></li>
-                                       <li><a href="">Contact</a></li>
+                                       <li><a href="#/about" data-scroll="0.04009433962264151">About</a></li>
+                                       <li><a href="#/interests" data-scroll="0.197562893081761">Interests</a></li>
+                                       <li><a href="#/timeline" data-scroll="0.2531446540880503">Timeline</a></li>
+                                       <li><a href="#/today" data-scroll="0.34591194968553457">Today</a></li>
+                                       <li><a href="#/challenges" data-scroll="0.3783805031446541">Challenges</a></li>
+                                       <li><a href="#/press" data-scroll="0.45440251572327045">Press</a></li>
+                                       <li><a href="#/contact" data-scroll="0.6147798742138365">Contact</a></li>
                                    </ul>
 
+                                </div>
+
+                                <div class="credits-site">
+                                    <h6>Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
+                                    <h6>Photographs by <a target="_blank" href="http://cristobalmarambio.com/"><b>Cristobal Marambio</b></a></h6>
                                 </div>
 
                                    
@@ -301,7 +390,6 @@ class View {
                         <h6 class="copyright">The entire diegostevens.com Web site is Copyright ©2021 by Diego Stevens. All Rights Reserved. The diegostevens.com site may not be copied or duplicated in whole or part by any means without express prior agreement in writing or unless specifically noted on the site.
                             Some photographs or documents contained on the site may be the copyrighted property of others; acknowledgement of those copyrights is hereby given. All such material is used with the permission of the owner.
                         </h6>
-
                     </div>
                 </section>
 
@@ -320,6 +408,7 @@ class View {
 
         tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:25},'<');
         tl.fromTo(main.querySelector('#about').querySelector('.about-introduction'),{yPercent:100},{yPercent:-300,duration:100},'<-1');
+        tl.addLabel("about","-=74.5");
         tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:100},{yPercent:-1200,duration:125},'-=84');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:100},{yPercent:-1200,duration:90},'-=115');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-300},{yPercent:-1200,duration:90},'-=95');
@@ -332,7 +421,8 @@ class View {
 
         tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
         tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
-     //   tl.addLabel("interests","-=65.35");
+        tl.addLabel("interests","-=65.35");
+
 
 
        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:400},{yPercent:-140,duration:90},'-=70');
@@ -341,23 +431,28 @@ class View {
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3],{yPercent:200},{yPercent:-300,duration:100},'-=85');
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4],{yPercent:300},{yPercent:-900,duration:100},'-=80');
         tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[5],{yPercent:1200},{yPercent:-1400,duration:70},'-=100');
+        tl.addLabel("timeline","-=135");
+
         tl.fromTo(main.querySelector('#today'),{yPercent:0},{yPercent:-350,duration:150},'-=85');
+        tl.addLabel("today","-=141");
+
 
 
 
         tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=135');
         tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=118');
-
+        tl.addLabel("challenges","-=120.35");
 
        tl.fromTo(main.querySelector('#clients'),{yPercent:0},{yPercent:-400,duration:135},'-=112');
        tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:100},{yPercent:-1000,duration:90},'-=120');
-
+       tl.addLabel("press","-=95");
        tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[0],{yPercent:100},{yPercent:-1000,duration:200},'-=128');
        tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[1],{yPercent:100},{yPercent:-1000,duration:200},'-=195');
        tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[2],{yPercent:100},{yPercent:-1000,duration:200},'-=205');
        tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3],{yPercent:100},{yPercent:-1000,duration:210},'-=215');
 
       tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:250},'-=105');
+      tl.addLabel("contact","-=215");
 
 
       tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
@@ -373,8 +468,10 @@ class View {
 
        // tl.timeScale(3)
 
-      /*  tl.pause();
-       // tl.seek("interests");
+        tl.pause();
+
+         tl.seek("contact");
+        console.log(tl.progress())
 
        this.scroll = new ScrollController({
             container: main,
@@ -384,7 +481,11 @@ class View {
             timeline: tl
         });
 
-        this.scroll.init();*/
+        this.scroll.init();
+
+        self.tl = tl;
+
+        
 
 
         this.drag = new DragController({
@@ -402,18 +503,6 @@ class View {
 
     }
 
-    setScroll(main) {
-
-        /* this.scroll = new ScrollController({
-             container:main,
-             pos: 0,
-             ease: 0.05,
-             delta: 40,
-         });
-
-         this.scroll.init(main);*/
-
-    }
 
     setPartners(partners) {
         const self = this;
