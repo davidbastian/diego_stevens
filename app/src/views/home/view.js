@@ -10,6 +10,7 @@ import ScrollController from '../../controllers/controller.scroll';
 import DragController from '../../controllers/controller.drag.js';
 import {gsap
 } from "gsap";
+import {Howl} from 'howler';
 
 
 
@@ -20,18 +21,70 @@ class View {
         this.data = data;
         this.setup();
         this.addEvents();
+        const sound = new Howl({
+            src: ['common/media/audio/danger.mp3'],
+           // autoplay: true,
+            loop: true,
+            volume: 0.3,
+          });
+        
+          this.sound = sound;
+
+          const censor = new Howl({
+            src: ['common/media/audio/censor.mp3'],
+           // autoplay: true,
+            volume: 0.3,
+          });
+          this.censor = censor;
+          this.sound = sound;
+
+
+          this.censor.pause();
+          this.sound.pause();
+           
 
     }
 
     addEvents(){
        const self = this;
         document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
+
+        document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
+
         for (let i = 0; i < document.querySelector('.menu-list').querySelectorAll('a').length; i++) {
             const el = document.querySelector('.menu-list').querySelectorAll('a')[i];
             el.addEventListener("click", self.updateSection.bind(this));     
         }
         
     }
+
+    toggleMovie(e){
+        const self = this;
+        const checkClass= e.currentTarget.classList.contains('active');
+
+        
+        if (checkClass) {
+            self.censor.play();
+            e.currentTarget.classList.remove('active');
+            document.body.classList.remove('movie');
+            e.currentTarget.innerHTML ="Movie Mode<span></span>";
+            self.scroll.update(self.tl,self.tl.progress());
+            self.sound.pause();
+
+
+        } else {
+            self.censor.play();
+            e.currentTarget.classList.add('active');  
+            document.body.classList.add('movie');  
+            e.currentTarget.innerHTML= "Back to Normal<span></span>"; 
+         //   self.scroll.pause(self.tl,Number(s));
+            self.scroll.pause();
+            self.tl.play();
+            self.sound.play();
+        }
+
+    }
+
 
     updateSection(e){
         const self = this;
@@ -57,16 +110,19 @@ class View {
 
     setSection(s,link){
         const self = this;
-
         console.log(s,'scroll');
         console.log(link)
-        self.scroll.update(self.tl,s);
-
+        self.scroll.update(self.tl,Number(s));
     }
 
 
     toggleMenu(e){
         const checkClass= e.currentTarget.classList.contains('active');
+
+        gsap.to(
+            e.currentTarget,
+            { scale:.95,duration:.1,yoyo:true,repeat:1 }
+        );
         
         if (checkClass) {
             e.currentTarget.classList.remove('active');
@@ -81,6 +137,8 @@ class View {
                   }
                 }
             );
+
+            
 
         } else {
             document.body.querySelector('.menu').classList.remove('hide');
@@ -110,6 +168,7 @@ class View {
         const markup = /*html*/ `
                 <header>
                     <nav>
+                        <div class="link" id="movie">Movie Mode<span></span></div>
                         <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
                         <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
                         <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
@@ -136,13 +195,13 @@ class View {
                             <div class="menu-list half  border">
                                 <div class="list">
                                     <ul>
-                                       <li><a href="#/about" data-scroll="0.04009433962264151">About</a></li>
-                                       <li><a href="#/interests" data-scroll="0.197562893081761">Interests</a></li>
-                                       <li><a href="#/timeline" data-scroll="0.2531446540880503">Timeline</a></li>
-                                       <li><a href="#/today" data-scroll="0.34591194968553457">Today</a></li>
-                                       <li><a href="#/challenges" data-scroll="0.3783805031446541">Challenges</a></li>
-                                       <li><a href="#/press" data-scroll="0.45440251572327045">Press</a></li>
-                                       <li><a href="#/contact" data-scroll="0.6147798742138365">Contact</a></li>
+                                       <li><a href="#/about" data-scroll="0.031442663378545004">About</a></li>
+                                       <li><a href="#/interests" data-scroll="0.14260172626387177">Interests</a></li>
+                                       <li><a href="#/timeline" data-scroll="0.18618988902589395">Timeline</a></li>
+                                       <li><a href="#/today" data-scroll="0.34747225647348956">Today</a></li>
+                                       <li><a href="#/challenges" data-scroll="0.38304562268803943">Challenges</a></li>
+                                       <li><a href="#/press" data-scroll="0.44143033292231815">Press</a></li>
+                                       <li><a href="#/contact" data-scroll="0.531442663378545">Contact</a></li>
                                    </ul>
 
                                 </div>
@@ -193,7 +252,7 @@ class View {
                     <div class="content about-moments">
                         
                     <figure class="vertical" style="margin-left: 6vw;">
-                        <img style="width:27vw" src="common/media/img/001.png" alt="">
+                        <img style="width:27vw" src="common/media/img/001.jpg" alt="">
                         <dl>
                             <dt>Diego & Lorem ipsum</dt>
                             <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
@@ -201,7 +260,7 @@ class View {
                     </figure>
 
                     <figure class="vertical" style="margin-top: -25vh;  margin-left: 46vw;">
-                        <img  style="width: 27vw;" src="common/media/img/002.png" alt="">
+                        <img  style="width: 27vw;" src="common/media/img/002.jpg" alt="">
                         <dl>
                             <dt>Diego & Lorem ipsum</dt>
                             <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
@@ -217,7 +276,7 @@ class View {
                     </figure>
 
                     <figure class="horizontal"  style="margin-left: 40vw;margin-top: -8vh; ">
-                        <img style="width:20vw; transform-origin:right top;" src="common/media/img/004.png" alt="">
+                        <img style="width:20vw; transform-origin:right top;" src="common/media/img/004.jpg" alt="">
                         <dl>
                             <dt>Diego & Lorem ipsum</dt>
                             <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
@@ -235,7 +294,7 @@ class View {
                     <div class="content about-moments">
                         
                     <figure class="vertical" style="margin-left: 6vw;">
-                        <img style="width:27vw" src="common/media/img/005.png" alt="">
+                        <img style="width:27vw" src="common/media/img/005.jpg" alt="">
                         <dl>
                             <dt>Diego & Lorem ipsum</dt>
                             <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
@@ -243,7 +302,7 @@ class View {
                     </figure>
 
                     <figure class="vertical" style="margin-top: -25vh;  margin-left: 46vw;">
-                        <img  style="width: 27vw;" src="common/media/img/006.png" alt="">
+                        <img  style="width: 27vw;" src="common/media/img/006.jpg" alt="">
                         <dl>
                             <dt>Diego & Lorem ipsum</dt>
                             <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
@@ -398,7 +457,6 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-   
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
         main.querySelectorAll('.timeline-item')[0].style.border = "none";
@@ -413,67 +471,92 @@ class View {
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:100},{yPercent:-1200,duration:90},'-=115');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-300},{yPercent:-1200,duration:90},'-=95');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-350},{yPercent:-1200,duration:90},'-=90');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2430,duration:90},'-=80');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:1},{scale:2,duration:40},'<');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-800},{yPercent:-1600,duration:125},'-=85');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2630,duration:70},'-=93');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.9},{scale:2.1,duration:40},'<');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-800},{yPercent:-1600,duration:125},'-=80');
         tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500},{yPercent:-1200,duration:90},'-=120');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=95');
+        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=100');
 
-        tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=80');
-        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=62');
-        tl.addLabel("interests","-=65.35");
-
-
-
-       tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:400},{yPercent:-140,duration:90},'-=70');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1],{yPercent:200},{yPercent:-100,duration:90},'-=75');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2],{yPercent:400},{yPercent:-500,duration:90},'-=55');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3],{yPercent:200},{yPercent:-300,duration:100},'-=85');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4],{yPercent:300},{yPercent:-900,duration:100},'-=80');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[5],{yPercent:1200},{yPercent:-1400,duration:70},'-=100');
-        tl.addLabel("timeline","-=135");
-
-        tl.fromTo(main.querySelector('#today'),{yPercent:0},{yPercent:-350,duration:150},'-=85');
-        tl.addLabel("today","-=141");
+        tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=85');
+        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=68');
+        tl.addLabel("interests","-=70.35");
 
 
+        tl.fromTo(main.querySelector('#timeline'),{yPercent:100},{yPercent:-200,duration:600},'-=145')
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:0},{yPercent:300,duration:90},'-=490');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1],{yPercent:0},{yPercent:100,duration:90},'-=450');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2],{yPercent:0},{yPercent:300,duration:90},'-=440');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3],{yPercent:0},{yPercent:100,duration:90},'-=395');
+        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4],{yPercent:0},{yPercent:200,duration:90},'-=374');
+
+        tl.addLabel("timeline","-=490");
+
+        tl.fromTo(main.querySelector('#today'),{yPercent:0},{yPercent:-350,duration:350},'-=380');
+        tl.addLabel("today","-=359.2");
 
 
-        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=135');
-        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=118');
-        tl.addLabel("challenges","-=120.35");
+        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=345');
+        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=328');
+        tl.addLabel("challenges","-=330.35");
 
-       tl.fromTo(main.querySelector('#clients'),{yPercent:0},{yPercent:-400,duration:135},'-=112');
-       tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:100},{yPercent:-1000,duration:90},'-=120');
-       tl.addLabel("press","-=95");
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[0],{yPercent:100},{yPercent:-1000,duration:200},'-=128');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[1],{yPercent:100},{yPercent:-1000,duration:200},'-=195');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[2],{yPercent:100},{yPercent:-1000,duration:200},'-=205');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3],{yPercent:100},{yPercent:-1000,duration:210},'-=215');
+        tl.fromTo(main.querySelector('#press'),{yPercent:100},{yPercent:-200,duration:600},'-=430');
 
-      tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:250},'-=105');
-      tl.addLabel("contact","-=215");
+        tl.fromTo(main.querySelector('#clients'),{yPercent:0},{yPercent:-200,duration:270},'-=492');
+      
+       tl.addLabel("press","-=453");
+       tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:100},{yPercent:-350,duration:120},'-=490');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[0],{yPercent:200},{yPercent:-500,duration:200},'-=490');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[1],{yPercent:200},{yPercent:-600,duration:200},'-=480');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[2],{yPercent:200},{yPercent:-500,duration:200},'-=490');
+       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3],{yPercent:200},{yPercent:-700,duration:200},'-=473');
 
 
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=215');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=205');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=195');
+      tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:220},'-=410');
+      tl.addLabel("contact","-=380");
+
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=380');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
+      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
 
 
         function updateStats() {
             console.log(tl.progress())
+
+           /* if ((tl.progress() >= 0.031442663378545004) && (tl.progress() < 0.14260172626387177)) {
+               history.pushState({}, null, '#/about');
+            }
+            else if  ((tl.progress() >= 0.14260172626387177) && (tl.progress() < 0.18618988902589395)){
+                history.pushState({}, null, '#/interests');
+            }
+            else if  ((tl.progress() >= 0.18618988902589395) && (tl.progress() < 0.34747225647348956)){
+                history.pushState({}, null, '#/timeline');
+            }
+            else if  ((tl.progress() >= 0.34747225647348956) && (tl.progress() <0.38304562268803943)){
+                history.pushState({}, null, '#/today');
+            }
+            else if  ((tl.progress() >=  0.38304562268803943) && (tl.progress() <0.44143033292231815)){
+                history.pushState({}, null, '#/challenges');
+            }else if  ((tl.progress() >=  0.44143033292231815) && (tl.progress() <0.531442663378545)){
+                history.pushState({}, null, '#/press');
+            }else if  (tl.progress() >=0.531442663378545){
+                history.pushState({}, null, '#/contact');
+            } else {
+                history.pushState({}, null, '#/');
+            }*/
+
         }
 
-       // tl.timeScale(3)
-
+        tl.timeScale(1);
         tl.pause();
 
-         tl.seek("contact");
-        console.log(tl.progress())
+       /* tl.pause();
 
-       this.scroll = new ScrollController({
+        tl.seek("contact");
+        console.log(tl.progress());*/
+
+      this.scroll = new ScrollController({
             container: main,
             pos: 0,
             ease: 0.05,
@@ -634,6 +717,7 @@ class View {
                             <h3>${item.title}</h3>
                             <p>${item.description}</p>
                         </div>
+
                         
                         <img src="${item.media}" alt="">
                     </div>    

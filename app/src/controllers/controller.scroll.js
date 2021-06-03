@@ -56,6 +56,12 @@ class ScrollController {
       this.target = -n/0.0001;
       this.anima();
     }
+
+    pause(){
+      const self = this;
+      cancelAnimationFrame(self.animation);
+
+    }
 }
 
 export default ScrollController;

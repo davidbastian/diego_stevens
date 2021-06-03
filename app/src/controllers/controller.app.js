@@ -1,10 +1,4 @@
 import HomeView from '../views/home/view';
-import ServicesView from '../views/services/view';
-import ProjectsView from '../views/projects/view';
-import AboutView from '../views/about/view';
-import {
-    TweenMax
-} from 'gsap';
 
 class AppController {
     constructor(model, view) {
@@ -19,30 +13,40 @@ class AppController {
 
         //history.pushState({}, null, '#/');
 
-        /*request.open("GET", self.model.restURL + 'categories');
-        request.onreadystatechange = (e) => {
-            if (request.readyState === XMLHttpRequest.DONE && request.status === 200) {
-                HomeView.init(params, JSON.parse(request.responseText));
-
-
-            }
-        }*/
-
         console.log(params,'params')
 
         if (!params[0]) {
             HomeView.init(params, self.model.data);
         } else  {
            //console.log(document.body.querySelector('main').hasChildNodes(),'main')
-            
-         /*  if (document.querySelector('main').hasChildNodes() === undefined) {
-                HomeView.init(params, self.model.data);
-                if (params[0] === 'about') {
-                    HomeView.setAbout();
-                }
-            }*/
-           
-         
+           console.log(params[0],'params')
+           if(!document.querySelector('#home')) {
+            HomeView.init(params, self.model.data);
+            const items = document.querySelector('.menu-list').querySelectorAll('a');
+
+            if (params[0] === 'about') {
+                HomeView.setSection(items[0].getAttribute('data-scroll'),params[0]);
+            }
+            else if (params[0] === 'interests') {
+                HomeView.setSection(items[1].getAttribute('data-scroll'),params[0]);
+            }
+            else if (params[0] === 'timeline') {
+                HomeView.setSection(items[2].getAttribute('data-scroll'),params[0]);
+            }
+            else if (params[0] === 'today') {
+                HomeView.setSection(items[3].getAttribute('data-scroll'),params[0]);
+            }
+            else if (params[0] === 'challenges') {
+                HomeView.setSection(items[4].getAttribute('data-scroll'),params[0]);
+            }
+            else if (params[0] === 'press') {
+                HomeView.setSection(items[5].getAttribute('data-scroll'),params[0]);
+            }
+            else if (params[0] === 'contact') {
+                HomeView.setSection(items[6].getAttribute('data-scroll'),params[0]);
+            }
+           }       
+        
         }
 
         

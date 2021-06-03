@@ -3,19 +3,19 @@
         "name": "Diego",
         "lastname": "Stevens",
         "slogan": "Chilean, Entrepreneur & Tech Visionary",
-        "image": "common/media/img/000a.png"
+        "image": "common/media/img/000.jpg"
     },
 
     "about": {
         "introduction": "Diego’s been working with entrepreneurships, big companies and with his own initiatives for 10 years and has a broad view of what entrepreneurship truly involves and understands how to successfully combine it with the commercial area, which are essentially, powerful attributes for a new role as a tech advisor or a tech board member.<br> On one hand, he helps with a great team, enterprises such as Falabella, Arauco, Forus, Sura and many others to transform their digital business through a disruptive and revolutionary cultural mindset change and new business models.<br> On the other hand, he provides advice, mentoring and knowledge to Startups of his portfolio to raise money ($5MM USD YTD in Startup fundraising stage through private and public funds), finding the real value of their technology, market and industries through different disruptive strategies.Nowadays, he manages his own  portfolio of tech business valuated at more than $35 Million USD.",
         "quotes": [{
-            "quote": "The art of making<br>technology<br>more natural.",
-            "caption": "Keynote Conference",
-            "year": "2020"
+            "quote": "Don't start<br>something that <br>you cannot finish.",
+            "caption": "Justin Somper",
+            "year": "British Author"
         }, {
-            "quote": "Never regret<br>anything that<br>made you smile.",
-            "caption": "Mark Twain",
-            "year": "American writer"
+            "quote": "Be suborn on <br>vision, but flexible<br> on details.",
+            "caption": "Jeff Bezos",
+            "year": "Amazon CEO"
         }],
         "images": [{
             "url": "",
@@ -28,7 +28,7 @@
         "title": "Interests & Amusements",
         "list": ["Watchmaking", "Fintech", "Smartcity", "Fund Raising", "AI & Cognitive Services", "Disruptive Business Models", "Change Management"],
         "image": {
-            "url": "common/media/img/007.png",
+            "url": "common/media/img/007.jpg",
             "title": "",
             "description": ""
         }
@@ -41,7 +41,7 @@
             "year": "2016",
             "achivements": ["W* of National Pitch<br>Session of MeetLatam <br> Chile."],
             "img":{
-                "url":"common/media/img/021.png",
+                "url":"common/media/img/021.jpg",
                 "credits": {
                     "title":"",
                     "description":""
@@ -57,7 +57,7 @@
             "year": "2018",
             "achivements": ["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."],
             "img":{
-                "url":"common/media/img/022.png",
+                "url":"common/media/img/022.jpg",
                 "credits": {
                     "title":"",
                     "description":""
@@ -81,7 +81,7 @@
         "cards": [{
                 "title": "What is the <br>Aspiration?",
                 "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media": "common/media/img/008.png"
+                "media": "common/media/img/008.gif"
             },
             {
                 "title": "Where <br> am I now?",
@@ -101,7 +101,7 @@
             {
                 "title": "On going portfolio <br> of Projects",
                 "description": "Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
-                "media": "common/media/img/012.png"
+                "media":"common/media/img/012.png"
             }
         ]
     },
@@ -125,7 +125,7 @@
             "done": false
         }],
         "image": {
-            "url": "common/media/img/013.png",
+            "url": "common/media/img/003.jpg",
             "title": "",
             "description": ""
         }
@@ -181,34 +181,34 @@
                     "name":"Martin Burns",
                     "role":"Chief Financial Officer at Cleverit & Meetcard",
                     "link":"https://www.linkedin.com/in/martin-burns-krassa-5298013b/",
-                    "img":"common/media/img/023.png",
+                    "img":"common/media/img/025.jpg",
                     "pos":"-25vw"
                 },{
                     "name":"Gustavo Lugo",
                     "role":"Chief Information Officer at Cleverit",
                     "link":"https://www.linkedin.com/in/gustavoalugo/",
-                    "img":"common/media/img/025.png",
+                    "img":"common/media/img/023.jpg",
                     "pos":"0vw"
 
                 },{
                     "name":"Carlos Gallardo",
                     "role":"Chief Technology Officer at Cleverit",
                     "link":"https://www.linkedin.com/in/carlos-gallardo-66092615/",
-                    "img":"common/media/img/024.png",
+                    "img":"common/media/img/024.jpg",
                     "pos":"31vw"
                 },{
                     "name":"Orlando Orozco",
                     "role":"Co Founder y CTO at Meetcard",
                     "link":"https://www.linkedin.com/in/orlando-orozco-cancino-67bb1334/",
-                    "img":"common/media/img/026.png",
+                    "img":"common/media/img/026.jpg",
                     "pos":"55vw"
                 },
                 {
                     "name":"Matias Gonzalez",
                     "role":"International Director",
                     "link":"https://www.linkedin.com/in/matgonzaleza/",
-                    "img":"common/media/img/024.png",
-                    "pos":"15vw"
+                    "img":"common/media/img/027.jpg",
+                    "pos":"200vw"
                 }
 
             ],

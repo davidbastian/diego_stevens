@@ -55,7 +55,7 @@ class AppView {
 
 
         <div id="preloader">
-            <img src="common/media/img/f2.gif" alt="">
+            <img src="common/media/img/f5.gif" alt="">
         </div>
 
         <div class="rotate">
