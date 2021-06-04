@@ -22,7 +22,7 @@ class View {
         this.setup();
         this.addEvents();
         const sound = new Howl({
-            src: ['common/media/audio/danger.mp3'],
+            src: ['common/media/audio/danger-full.mp3'],
            // autoplay: true,
             loop: true,
             volume: 0.3,
@@ -51,8 +51,8 @@ class View {
 
         document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
 
-        for (let i = 0; i < document.querySelector('.menu-list').querySelectorAll('a').length; i++) {
-            const el = document.querySelector('.menu-list').querySelectorAll('a')[i];
+        for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
+            const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
             el.addEventListener("click", self.updateSection.bind(this));     
         }
         
@@ -110,7 +110,7 @@ class View {
 
     setSection(s,link){
         const self = this;
-        console.log(s,'scroll');
+       // console.log(s,'scroll');
         console.log(link)
         self.scroll.update(self.tl,Number(s));
     }
@@ -195,19 +195,19 @@ class View {
                             <div class="menu-list half  border">
                                 <div class="list">
                                     <ul>
-                                       <li><a href="#/about" data-scroll="0.031442663378545004">About</a></li>
-                                       <li><a href="#/interests" data-scroll="0.14260172626387177">Interests</a></li>
-                                       <li><a href="#/timeline" data-scroll="0.18618988902589395">Timeline</a></li>
-                                       <li><a href="#/today" data-scroll="0.34747225647348956">Today</a></li>
-                                       <li><a href="#/challenges" data-scroll="0.38304562268803943">Challenges</a></li>
-                                       <li><a href="#/press" data-scroll="0.44143033292231815">Press</a></li>
-                                       <li><a href="#/contact" data-scroll="0.531442663378545">Contact</a></li>
+                                       <li><div data-scroll="0.031442663378545004">About</div></li>
+                                       <li><div  data-scroll="0.14260172626387177">Interests</div></li>
+                                       <li><div  data-scroll="0.18618988902589395">Timeline</div></li>
+                                       <li><div  data-scroll="0.34747225647348956">Today</div></li>
+                                       <li><div  data-scroll="0.38304562268803943">Challenges</div></li>
+                                       <li><div data-scroll="0.44143033292231815">Press</div></li>
+                                       <li><div  data-scroll="0.531442663378545">Contact</div></li>
                                    </ul>
 
                                 </div>
 
                                 <div class="credits-site">
-                                    <h6>Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
+                                    <h6>Creative, Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
                                     <h6>Photographs by <a target="_blank" href="http://cristobalmarambio.com/"><b>Cristobal Marambio</b></a></h6>
                                 </div>
 
@@ -522,7 +522,7 @@ class View {
 
 
         function updateStats() {
-            console.log(tl.progress())
+          //  console.log(tl.progress())
 
            /* if ((tl.progress() >= 0.031442663378545004) && (tl.progress() < 0.14260172626387177)) {
                history.pushState({}, null, '#/about');

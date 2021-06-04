@@ -15,6 +15,7 @@ class ScrollController {
     init() {
         this.addEvents();
         this.anima();
+        
     }
 
     addEvents(){
@@ -44,7 +45,7 @@ class ScrollController {
         this.pos += (this.target - this.pos) * this.ease;
         let np =-this.pos*0.0001;
         let s = constrain(np, 0, 1);
-        self.timeline.progress(s)
+        self.timeline.progress(s);
 
     }
 
@@ -60,8 +61,8 @@ class ScrollController {
     pause(){
       const self = this;
       cancelAnimationFrame(self.animation);
-
     }
+
 }
 
 export default ScrollController;

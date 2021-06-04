@@ -53,7 +53,7 @@ class DragController {
     console.log("start moving");
     this.el.classList.add('active');
 
-    gsap.to(self.container,{scale:.9,duration:.8,ease: "power3.out"});
+    gsap.to(self.container,{scale:.95,duration:.8,ease: "power3.out"});
   }
 
   move(e) {

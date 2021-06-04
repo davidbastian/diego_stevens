@@ -203,7 +203,8 @@ header {
         justify-content: space-between;
         flex-direction: column;
 
-        a {
+        a,ul div {
+            cursor: pointer;
             &:hover {
                 text-decoration: underline;
             }
