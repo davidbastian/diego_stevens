@@ -523,35 +523,12 @@ class View {
 
         function updateStats() {
           //  console.log(tl.progress())
-
-           /* if ((tl.progress() >= 0.031442663378545004) && (tl.progress() < 0.14260172626387177)) {
-               history.pushState({}, null, '#/about');
-            }
-            else if  ((tl.progress() >= 0.14260172626387177) && (tl.progress() < 0.18618988902589395)){
-                history.pushState({}, null, '#/interests');
-            }
-            else if  ((tl.progress() >= 0.18618988902589395) && (tl.progress() < 0.34747225647348956)){
-                history.pushState({}, null, '#/timeline');
-            }
-            else if  ((tl.progress() >= 0.34747225647348956) && (tl.progress() <0.38304562268803943)){
-                history.pushState({}, null, '#/today');
-            }
-            else if  ((tl.progress() >=  0.38304562268803943) && (tl.progress() <0.44143033292231815)){
-                history.pushState({}, null, '#/challenges');
-            }else if  ((tl.progress() >=  0.44143033292231815) && (tl.progress() <0.531442663378545)){
-                history.pushState({}, null, '#/press');
-            }else if  (tl.progress() >=0.531442663378545){
-                history.pushState({}, null, '#/contact');
-            } else {
-                history.pushState({}, null, '#/');
-            }*/
-
         }
 
         tl.timeScale(1);
         tl.pause();
 
-       /* tl.pause();
+       /* 
 
         tl.seek("contact");
         console.log(tl.progress());*/
@@ -583,8 +560,100 @@ class View {
 
         this.drag.init();
 
+        this.preload();
+
 
     }
+
+    preload(){
+
+        const imgArr = [];
+
+        for (let index = 0; index < document.querySelectorAll('img').length; index++) {
+            const element =  document.querySelectorAll('img')[index];
+            imgArr.push(element.src);
+        }
+
+        console.log(imgArr);
+
+        this.getImages(imgArr);
+
+
+
+        
+    }
+
+    getImages(imgs){
+
+        function preloadImages(urls, allImagesLoadedCallback){
+            var loadedCounter = 0;
+          var toBeLoadedNumber = urls.length;
+          urls.forEach(function(url){
+            preloadImage(url, function(){
+                loadedCounter++;
+
+                console.log('Number of loaded images: ' + loadedCounter +' of' +toBeLoadedNumber);
+                let percent = (loadedCounter*100)/toBeLoadedNumber;
+               // let countdown = 10 - Math.round(percent);
+                let el = document.querySelector('h1');
+
+                el.innerHTML ='Loading '+Math.round(percent)+ '%';
+
+                
+
+                /*console.log('countdown' + countdown);
+
+                gsap.fromTo(el,{
+                scale:1.2,
+                opacity:1,
+                duration:.1,
+                onStart:function(){
+                    el.innerHTML =countdown;
+                },
+                onComplete:function(){
+                    el.innerHTML =countdown;
+                }
+                },{
+                    scale:.4,
+                    opacity:0
+                });*/
+
+
+
+              if(loadedCounter == toBeLoadedNumber){''
+                allImagesLoadedCallback();
+              }
+            });
+          });
+          function preloadImage(url, anImageLoadedCallback){
+              var img = new Image();
+              img.onload = anImageLoadedCallback;
+              img.src = url;
+          }
+        }
+        
+        // Let's call it:
+        preloadImages(imgs, function(){
+            console.log('All images were loaded');
+
+            gsap.fromTo(document.querySelector('#preloader'),{
+                scale:1,
+                opacity:1,
+                duration:.5,
+                },{
+                    opacity:0,
+                    onComplete:function(){
+                        document.querySelector('#preloader').outerHTML = " ";
+                    }
+                });
+
+
+        });
+
+
+    }
+
+    
 
 
     setPartners(partners) {

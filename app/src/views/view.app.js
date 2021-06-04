@@ -54,8 +54,16 @@ class AppView {
         
 
 
-        <div id="preloader">
+        <div id="grain">
             <img src="common/media/img/f5.gif" alt="">
+        </div>
+
+        <div id="preloader">
+            <div>
+                 <h1>Loading 1%</h1>
+            </div>
+        
+
         </div>
 
         <div class="rotate">

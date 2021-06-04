@@ -18,7 +18,6 @@ class AppController {
         if (!params[0]) {
             HomeView.init(params, self.model.data);
         } else  {
-           //console.log(document.body.querySelector('main').hasChildNodes(),'main')
            console.log(params[0],'params')
            if(!document.querySelector('#home')) {
             HomeView.init(params, self.model.data);
