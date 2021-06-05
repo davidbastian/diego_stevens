@@ -3,7 +3,7 @@ import {onWheel,constrain} from '../../common/utils/utils'
 class ScrollController {
     constructor(opt) {
         
-        console.log('start scroll')
+      //  console.log('start scroll')
         this.pos = opt.pos;
         this.ease = opt.ease;
         this.delta= opt.delta;
@@ -26,7 +26,7 @@ class ScrollController {
     scroll(e) {
         let delta;
         const self = this;
-        console.log(e,self);
+       // console.log(e,self);
         if (e.spinX != 0) {
           delta = e.spinX * -self.delta;
         }

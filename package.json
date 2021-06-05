@@ -19,6 +19,7 @@
     "mini-css-extract-plugin": "^1.6.0",
     "path": "^0.12.7",
     "raw-loader": "^4.0.2",
+    "resize-optimize-images": "^1.1.2",
     "sass": "^1.32.12",
     "sass-loader": "^11.1.0",
     "style-loader": "^2.0.0",
@@ -28,7 +29,8 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve --open"
+    "start": "webpack serve --open",
+    "optimize":"node optimize.js"
   },
   "keywords": [],
   "author": "",

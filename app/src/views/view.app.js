@@ -2,9 +2,8 @@ import './app.scss';
 import {
     checkDevice
 } from '../../common/utils/utils';
-import {
-    TweenMax
-} from 'gsap';
+import Logo from '../../common/svg/logo.svg'
+import Data from '../../common/data/data.json'
 
 class AppView {
     constructor() {
@@ -13,6 +12,7 @@ class AppView {
     }
 
     init() {
+        this.data = Data;
         this.addEvents();
         this.setMarkup();
         this.getURL();
@@ -45,6 +45,7 @@ class AppView {
     }
 
     setMarkup() {
+        const self = this;
         const markup = /*html*/ `
         
 
@@ -55,16 +56,33 @@ class AppView {
 
 
         <div id="grain">
-            <img src="common/media/img/f5.gif" alt="">
+            <video class="video" playsinline="" autoplay="" loop="" muted="" src="common/media/img/f5.mp4">
+                                <source src="common/media/img/f5.mp4" type="video/mp4">
+                        </video>
         </div>
 
-        <div id="preloader">
-            <div>
-                 <h1>Loading 1%</h1>
+        <div id="preloader-wrap">
+            <div id="preloader">
+
+                    <div class="hero-introduction border half">
+                            <div class="hero-logo">
+                                ${Logo}
+                            </div>
+
+                            <dl>
+                                <dt>${self.data.details.slogan}</dt>
+                                <dd>Loading 0%</dd>
+                            </dl>
+                            
+                        </div>
+                        <div class="hero-image half pointer-none">
+                        </div>
+            
+
             </div>
-        
 
         </div>
+        
 
         <div class="rotate">
           

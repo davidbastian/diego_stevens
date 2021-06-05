@@ -24,25 +24,42 @@ html {
     opacity: .3;
     display: none;
 
-    img {
+    img,video {
         object-fit: cover;
         width: 100%;
         height: 100%;
     }
 }
 
-#preloader {
-    width: 100vw;
+#preloader-wrap {
+    width: 100%;
     position: fixed;
-    height: 100vh;
-    top: 0;
+    bottom: 0;
     left: 0;
-    z-index: 100;
-    background-color: $color02;
+    overflow: hidden;
+    height: 100%;
+    z-index: 100!important;
+}
+#preloader {
+    width: 100vw!important;
+    position: absolute;
+    height: 100vh!important;
+    top: auto!important;
+    left: 0;
+ bottom: 0;
+    background-color: $color02!important;
     display: flex;
-    justify-content: center;
+    /*justify-content: center;
     align-items: center;
-    text-align: center;
+    text-align: center;*/
+    pointer-events: none;
+    color:$color01!important;
+
+    svg {
+        path {
+            fill:$color01!important;
+        }
+    }
 
 
 
@@ -60,7 +77,7 @@ html {
         }
     }
 
-    div {
+    dd {
         animation: flicker 1s infinite ease-in-out;
     }
 
@@ -123,7 +140,7 @@ body {
             filter: saturate(0) contrast(1.3) sepia(1);
         }
 
-        #preloader {
+        #grain {
             display: block;
         }
     }

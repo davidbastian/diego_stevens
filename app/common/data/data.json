@@ -3,6 +3,9 @@
         "name": "Diego",
         "lastname": "Stevens",
         "slogan": "Chilean, Entrepreneur & Tech Visionary",
+        "images":[
+            "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
+        ],
         "image": "common/media/img/000.jpg"
     },
 
@@ -81,27 +84,27 @@
         "cards": [{
                 "title": "What is the <br>Aspiration?",
                 "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media": "common/media/img/008.gif"
+                "media": "common/media/img/0080001-0050.mp4"
             },
             {
                 "title": "Where <br> am I now?",
                 "description": "Mature Digital model,<br>Main GAP and recommendation<br>Tecnical & Commercial sizing",
-                "media": "common/media/img/009.gif"
+                "media": "common/media/img/0090001-0050.mp4"
             },
             {
                 "title": "Where do I focus <br> my Transformation?",
                 "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
-                "media": "common/media/img/010.gif"
+                "media": "common/media/img/0100001-0050.mp4"
             },
             {
                 "title": "Consolidating my <br>Transformation",
                 "description": "Strategic & Economic focus <br> Defination goals, projects and bussiness driver",
-                "media": "common/media/img/011.gif"
+                "media": "common/media/img/0110001-0050.mp4"
             },
             {
                 "title": "On going portfolio <br> of Projects",
                 "description": "Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
-                "media":"common/media/img/012.gif"
+                "media":"common/media/img/0120001-0050.mp4"
             }
         ]
     },

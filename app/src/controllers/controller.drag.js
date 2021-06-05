@@ -8,7 +8,7 @@ import {gsap
 class DragController {
   constructor(opt) {
 
-    console.log('start scroll')
+    //console.log('start scroll')
     this.pos = opt.pos;
     this.ease = opt.ease;
     this.delta = opt.delta;
@@ -34,7 +34,7 @@ class DragController {
   }
 
   resize() {
-    console.log('resize');
+   // console.log('resize');
     this.area = this.el.offsetWidth - this.container.offsetWidth;
     this.pos = 0;
     this.target = 0;
@@ -50,7 +50,7 @@ class DragController {
     this.point = -this.point + e.clientX;
     this.moving = true;
     this.mX = 0;
-    console.log("start moving");
+ //   console.log("start moving");
     this.el.classList.add('active');
 
     gsap.to(self.container,{scale:.95,duration:.8,ease: "power3.out"});
@@ -69,7 +69,7 @@ class DragController {
     const self = this;
     this.moving = false;
     this.point = -this.drag;
-    console.log("stop moving", this.point);
+   // console.log("stop moving", this.point);
     this.el.classList.remove('active');
     gsap.to(self.container,{scale:1,duration:.8,ease: "power3.out"});
   }

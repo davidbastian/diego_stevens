@@ -17,7 +17,7 @@ import {Howl} from 'howler';
 class View {
 
     init(params, data) {
-        console.log(params, data, 'LOAD HOME');
+       // console.log(params, data, 'LOAD HOME');
         this.data = data;
         this.setup();
         this.addEvents();
@@ -48,7 +48,6 @@ class View {
     addEvents(){
        const self = this;
         document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
-
         document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
 
         for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
@@ -70,14 +69,11 @@ class View {
             e.currentTarget.innerHTML ="Movie Mode<span></span>";
             self.scroll.update(self.tl,self.tl.progress());
             self.sound.pause();
-
-
         } else {
             self.censor.play();
             e.currentTarget.classList.add('active');  
             document.body.classList.add('movie');  
             e.currentTarget.innerHTML= "Back to Normal<span></span>"; 
-         //   self.scroll.pause(self.tl,Number(s));
             self.scroll.pause();
             self.tl.play();
             self.sound.play();
@@ -111,7 +107,7 @@ class View {
     setSection(s,link){
         const self = this;
        // console.log(s,'scroll');
-        console.log(link)
+     //   console.log(link)
         self.scroll.update(self.tl,Number(s));
     }
 
@@ -424,7 +420,7 @@ class View {
                         <div class="collaborations">
                             <h6><b>Collaborations & Alliances</b></h6>
                             <div class="container">                            
-                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
+                                <a target="_blank" href="https://www.linkedin.com/company/colegio-de-ingenieros-de-chile/?originalSubdomain=cl"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://alianzaciberseguridad.cl/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
                             </div>   
                         </div>
 
@@ -456,6 +452,8 @@ class View {
         `
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
+
+
 
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
 
@@ -541,13 +539,11 @@ class View {
             timeline: tl
         });
 
-        this.scroll.init();
+       
 
         self.tl = tl;
 
         
-
-
         this.drag = new DragController({
             pos: 0,
             ease: 0.05,
@@ -558,6 +554,8 @@ class View {
             drag: 6
         });
 
+
+
         this.drag.init();
 
         this.preload();
@@ -566,15 +564,13 @@ class View {
     }
 
     preload(){
-
         const imgArr = [];
-
         for (let index = 0; index < document.querySelectorAll('img').length; index++) {
             const element =  document.querySelectorAll('img')[index];
             imgArr.push(element.src);
         }
 
-        console.log(imgArr);
+     //   console.log(imgArr);
 
         this.getImages(imgArr);
 
@@ -584,6 +580,7 @@ class View {
     }
 
     getImages(imgs){
+        const self = this;
 
         function preloadImages(urls, allImagesLoadedCallback){
             var loadedCounter = 0;
@@ -592,33 +589,11 @@ class View {
             preloadImage(url, function(){
                 loadedCounter++;
 
-                console.log('Number of loaded images: ' + loadedCounter +' of' +toBeLoadedNumber);
+            //console.log('Number of loaded images: ' + loadedCounter +' of' +toBeLoadedNumber);
                 let percent = (loadedCounter*100)/toBeLoadedNumber;
                // let countdown = 10 - Math.round(percent);
-                let el = document.querySelector('h1');
 
-                el.innerHTML ='Loading '+Math.round(percent)+ '%';
-
-                
-
-                /*console.log('countdown' + countdown);
-
-                gsap.fromTo(el,{
-                scale:1.2,
-                opacity:1,
-                duration:.1,
-                onStart:function(){
-                    el.innerHTML =countdown;
-                },
-                onComplete:function(){
-                    el.innerHTML =countdown;
-                }
-                },{
-                    scale:.4,
-                    opacity:0
-                });*/
-
-
+                document.querySelector('#preloader').querySelector('dd').innerHTML ='Loading '+Math.round(percent)+ '%';
 
               if(loadedCounter == toBeLoadedNumber){''
                 allImagesLoadedCallback();
@@ -634,18 +609,40 @@ class View {
         
         // Let's call it:
         preloadImages(imgs, function(){
-            console.log('All images were loaded');
+           // console.log('All images were loaded');
+            self.scroll.init();
 
-            gsap.fromTo(document.querySelector('#preloader'),{
-                scale:1,
-                opacity:1,
+            gsap.to(document.querySelector('#preloader-wrap'),{
+                height:0 + '%',
                 duration:.5,
-                },{
-                    opacity:0,
-                    onComplete:function(){
-                        document.querySelector('#preloader').outerHTML = " ";
+                ease:'easeOut.power3',
+                 onComplete:function(){
+                        document.querySelector('#preloader-wrap').outerHTML = " ";
                     }
-                });
+            });
+
+            gsap.fromTo(document.querySelector('header').querySelector('nav'),{
+                yPercent: 200,
+                opacity:0
+  
+            },{
+                ease:'easeOut.power3',
+                duration:.5,
+                delay:.2,
+                yPercent: 0,
+                opacity:1
+            });
+
+            gsap.fromTo(document.querySelector('#home').querySelector('img'),{
+                scale: 1.5,
+                opacity:0,        
+            },{
+                ease:'easeOut.power3',
+                duration:.5,
+                delay:.1,
+                scale: 1,
+                opacity:1
+            });
 
 
         });
@@ -710,6 +707,7 @@ class View {
         }
         return string;
     }
+
     setChallenges(challenges) {
         const self = this;
         let string = '';
@@ -746,7 +744,6 @@ class View {
     }
 
     setImageTimeline(item){
-
         let markup;
         if (item.img) {
             markup =/*html*/ `<div class="img-timeline-wrap ${item.img.align}"><img src="${item.img.url}" alt=""></div>`
@@ -754,11 +751,7 @@ class View {
             markup = "";
 
         }
-
         return markup
-
-        
-
     }
 
     setAchivements(achivements) {
@@ -787,8 +780,11 @@ class View {
                             <p>${item.description}</p>
                         </div>
 
-                        
-                        <img src="${item.media}" alt="">
+                        <video class="video" playsinline="" autoplay="" loop="" muted="" src="${item.media}">
+                                <source src="${item.media}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
                     </div>    
                 `
             string += markup + "";
