@@ -11,7 +11,9 @@ import DragController from '../../controllers/controller.drag.js';
 import {
     gsap
 } from "gsap";
-import { ScrollToPlugin } from "gsap/all";
+import {
+    ScrollToPlugin
+} from "gsap/all";
 import {
     Howl
 } from 'howler';
@@ -21,7 +23,7 @@ import {
 class View {
 
     init(params, data) {
-        gsap.registerPlugin(ScrollToPlugin); 
+        gsap.registerPlugin(ScrollToPlugin);
         // console.log(params, data, 'LOAD HOME');
         this.data = data;
 
@@ -113,11 +115,11 @@ class View {
             }
         );
 
-        self.setSection(scroll, link,scrollTo);
+        self.setSection(scroll, link, scrollTo);
 
     }
 
-    setSection(s, link,st) {
+    setSection(s, link, st) {
         const self = this;
         // console.log(s,'scroll');
         //   console.log(link)
@@ -125,8 +127,11 @@ class View {
         console.log(el);
 
         if (self.device === 'mobile') {
-            gsap.to(document.body.querySelector('main'), {duration: 0, scrollTo: st});
-        }else { 
+            gsap.to(document.body.querySelector('main'), {
+                duration: 0,
+                scrollTo: st
+            });
+        } else {
             self.scroll.update(self.tl, Number(s));
         }
 
@@ -503,9 +508,11 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-       
+
 
         if (self.device === "mobile") {
+
+            self.toggleNav();
 
 
         } else {
@@ -860,7 +867,7 @@ class View {
             if (self.device != 'mobile') {
                 self.scroll.init();
             }
-           
+
 
             gsap.to(document.querySelector('#preloader-wrap'), {
                 height: 0 + '%',
@@ -898,7 +905,41 @@ class View {
         });
 
 
+
     }
+
+    toggleNav() {
+        var lastScrollTop = 0;
+
+        // element should be replaced with the actual target element on which you have applied scroll, use window in case of no target element.
+        document.querySelector('main').addEventListener("scroll", function () { // or window.addEventListener("scroll"....
+            var st = window.pageYOffset || document.querySelector('main').scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            if (st > lastScrollTop) {
+
+                gsap.to(document.querySelector('header').querySelector('nav'), {
+                    yPercent: 200,
+                    opacity: 0,
+                    ease: 'easeOut.power3',
+                    duration: .5,
+                });
+
+                // downscroll code
+
+            } else {
+
+                gsap.to(document.querySelector('header').querySelector('nav'), {
+                    yPercent: 0,
+                    opacity: 1,
+                    ease: 'easeOut.power3',
+                    duration: .5,
+                });
+
+                // upscroll code
+            }
+            lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+        }, false);
+    }
+
 
 
 
