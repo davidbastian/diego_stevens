@@ -425,6 +425,117 @@ b {
         padding: 10vh 0;
     }
 
+    header {
+
+        #movie span {
+            width: 2vw;
+            height: 2vw;
+            right: -0.42vw;
+            top: -1vw;
+        }
+
+        #movie {
+            display: none;
+        }
+
+        nav {
+            bottom: 3vh;
+        }
+
+        nav .link {
+            padding-left: 8vw;
+            font-size: 3.2vw;
+        }
+
+        nav #hamburger {
+            width: 12vw;
+            height: 12vw;
+            margin: 1.5vw;
+            margin-left: 4vw;
+        }
+
+        .menu {
+            position: fixed!important;
+            top: auto!important;
+            bottom: 0%!important;
+
+            .menu-list {
+                position: absolute;
+                right: 4vh;
+                top: 7vh;
+            }
+        }
+
+    }
+
+    #home,
+    .menu,
+    #preloader {
+        top: 0;
+        bottom: auto;
+        height: calc(100vh - 114px);
+
+        dl {
+            dd {
+                line-height: 7vw;
+            }
+    
+            font-size: 3.5vw;
+    
+        }
+
+        .hero-introduction {
+            position: absolute;
+           // left: 3vw;
+           // top: 6vh;
+
+            dl {
+                position: absolute;
+                bottom: auto;
+                max-width: 38vw;
+                top: 61.5vh;
+                left: 4vh;
+            }
+
+            dd {
+                margin-top: 1.5vh;
+                span {
+                    display: inline-block;
+                    padding: 0 2vw;
+                }
+
+                a.active {}
+            }
+        }
+
+        .hero-image {
+            position: absolute;
+            right: 0;
+            height: 45vh;
+            width: 28vh;
+            top: 7vh;
+
+
+            img {}
+        }
+
+        .hero-logo {
+            height: 49.6vh;
+            position: absolute;
+            top: 6.8vh;
+            left: 4vh;
+            position: absolute;
+
+            svg {
+                width: auto;
+                height:100%;
+            }
+
+        }
+    }
+
+
+
 
     #about,
     #interests,
@@ -577,6 +688,9 @@ b {
         }
         .today-cards{
             margin-bottom: 0;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+        
         }
         .today-cards .today-card {
             width: 70vw;
@@ -657,9 +771,12 @@ b {
             margin: 0 auto;
             padding-top: 15vh;
             line-height: 3.2vw;
-            padding-bottom: 15vh;
+            padding-bottom: 20vh;
         }
+
+    
     }
+
 
 }
 

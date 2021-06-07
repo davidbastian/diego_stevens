@@ -8,76 +8,79 @@ import Close from '../../../common/svg/close.svg'
 import Open from '../../../common/svg/open.svg'
 import ScrollController from '../../controllers/controller.scroll';
 import DragController from '../../controllers/controller.drag.js';
-import {gsap
+import {
+    gsap
 } from "gsap";
-import {Howl} from 'howler';
+import {
+    Howl
+} from 'howler';
 
 
 
 class View {
 
     init(params, data) {
-       // console.log(params, data, 'LOAD HOME');
+        // console.log(params, data, 'LOAD HOME');
         this.data = data;
 
         this.device = checkDevice();
 
         document.querySelector('html').classList.add(this.device);
 
-        console.log(this.device,' device')
+        console.log(this.device, ' device')
         this.setup();
         this.addEvents();
         const sound = new Howl({
             src: ['common/media/audio/danger-full.mp3'],
-           // autoplay: true,
+            // autoplay: true,
             loop: true,
             volume: 0.3,
-          });
-        
-          this.sound = sound;
+        });
 
-          const censor = new Howl({
+        this.sound = sound;
+
+        const censor = new Howl({
             src: ['common/media/audio/censor.mp3'],
-           // autoplay: true,
+            // autoplay: true,
             volume: 0.3,
-          });
-          this.censor = censor;
-          this.sound = sound;
-          this.censor.pause();
-          this.sound.pause();
-           
+        });
+        this.censor = censor;
+        this.sound = sound;
+        this.censor.pause();
+        this.sound.pause();
+
 
     }
 
-    addEvents(){
-       const self = this;
+    addEvents() {
+        const self = this;
         document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
         document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
 
         for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
             const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
-            el.addEventListener("click", self.updateSection.bind(this));     
+            el.addEventListener("click", self.updateSection.bind(this));
         }
-        
+
     }
 
-    toggleMovie(e){
+    toggleMovie(e) {
         const self = this;
-        const checkClass= e.currentTarget.classList.contains('active');
+        const checkClass = e.currentTarget.classList.contains('active');
 
-        
+
         if (checkClass) {
             self.censor.play();
             e.currentTarget.classList.remove('active');
             document.body.classList.remove('movie');
-            e.currentTarget.innerHTML ="Movie Mode<span></span>";
-            self.scroll.update(self.tl,self.tl.progress());
+            e.currentTarget.innerHTML = "Movie Mode<span></span>";
+            self.scroll.update(self.tl, self.tl.progress());
             self.sound.pause();
         } else {
             self.censor.play();
-            e.currentTarget.classList.add('active');  
-            document.body.classList.add('movie');  
-            e.currentTarget.innerHTML= "Back to Normal<span></span>"; 
+            e.currentTarget.classList.add('active');
+            document.body.classList.add('movie');
+            e.currentTarget.innerHTML = "Back to Normal<span></span>";
             self.scroll.pause();
             self.tl.play();
             self.sound.play();
@@ -86,7 +89,7 @@ class View {
     }
 
 
-    updateSection(e){
+    updateSection(e) {
         const self = this;
         const current = e.currentTarget;
         const link = current.getAttribute('href');
@@ -94,77 +97,86 @@ class View {
 
         document.body.querySelector('#hamburger').classList.remove('active');
         gsap.fromTo(
-            document.querySelector(".menu"),
-            { WebkitMaskPosition: "0% 100%",duration:1 },
-            {
-              WebkitMaskPosition: "0% -100%",
-              onComplete: function () {
-                document.querySelector(".menu").classList.add("hide");
-              }
+            document.querySelector(".menu"), {
+                WebkitMaskPosition: "0% 100%",
+                duration: 1
+            }, {
+                WebkitMaskPosition: "0% -100%",
+                onComplete: function () {
+                    document.querySelector(".menu").classList.add("hide");
+                }
             }
         );
 
-        self.setSection(scroll,link);
+        self.setSection(scroll, link);
 
     }
 
-    setSection(s,link){
+    setSection(s, link) {
         const self = this;
-       // console.log(s,'scroll');
-     //   console.log(link)
-        self.scroll.update(self.tl,Number(s));
+        // console.log(s,'scroll');
+        //   console.log(link)
+        self.scroll.update(self.tl, Number(s));
     }
 
 
-    toggleMenu(e){
-        const checkClass= e.currentTarget.classList.contains('active');
+    toggleMenu(e) {
+        const checkClass = e.currentTarget.classList.contains('active');
 
         gsap.to(
-            e.currentTarget,
-            { scale:.95,duration:.1,yoyo:true,repeat:1 }
+            e.currentTarget, {
+                scale: .95,
+                duration: .1,
+                yoyo: true,
+                repeat: 1
+            }
         );
-        
+
         if (checkClass) {
             e.currentTarget.classList.remove('active');
 
             gsap.fromTo(
-                document.querySelector(".menu"),
-                { WebkitMaskPosition: "0% 100%",duration:1 },
-                {
-                  WebkitMaskPosition: "0% -100%",
-                  onComplete: function () {
-                    document.querySelector(".menu").classList.add("hide");
-                  }
+                document.querySelector(".menu"), {
+                    WebkitMaskPosition: "0% 100%",
+                    duration: 1
+                }, {
+                    WebkitMaskPosition: "0% -100%",
+                    onComplete: function () {
+                        document.querySelector(".menu").classList.add("hide");
+                    }
                 }
             );
 
-            
+
 
         } else {
             document.body.querySelector('.menu').classList.remove('hide');
             e.currentTarget.classList.add('active');
 
             gsap.fromTo(
-                document.querySelector(".menu"),
-                { WebkitMaskPosition: "0% -100%",duration:1 },
-                { WebkitMaskPosition: "0% 100%" }
+                document.querySelector(".menu"), {
+                    WebkitMaskPosition: "0% -100%",
+                    duration: 1
+                }, {
+                    WebkitMaskPosition: "0% 100%"
+                }
             );
-            
 
-           
+
+
         }
 
-  
+
 
         return false;
 
 
-      //  if (e.currentTar)
+        //  if (e.currentTar)
     }
 
-    setNav(){
+    setNav() {
         let markup;
-        if(this.device === "mobile") {
+        if (this.device === "mobile") {
             markup = /*html*/ `
                         <div class="link" id="movie"><span></span></div>
                         <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LI</a>
@@ -478,196 +490,395 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-        const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
-        main.querySelectorAll('.timeline-item')[0].style.border = "none";
+       
 
         if (self.device === "mobile") {
 
+
         } else {
-            tl.fromTo(main.querySelector('#home'),{yPercent:0},{yPercent:-100,duration:25});
-        tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1},{scale:1.5,duration:25},'<');
 
-        tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:25},'<');
-        tl.fromTo(main.querySelector('#about').querySelector('.about-introduction'),{yPercent:100},{yPercent:-300,duration:100},'<-1');
-        tl.addLabel("about","-=74.5");
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0],{yPercent:100},{yPercent:-1200,duration:125},'-=84');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0],{yPercent:100},{yPercent:-1200,duration:90},'-=115');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1],{yPercent:-300},{yPercent:-1200,duration:90},'-=95');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2],{yPercent:-350},{yPercent:-1200,duration:90},'-=90');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3],{yPercent:-1000},{yPercent:-2630,duration:70},'-=93');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'),{scale:.9},{scale:2.1,duration:40},'<');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1],{yPercent:-800},{yPercent:-1600,duration:125},'-=80');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0],{yPercent:-500},{yPercent:-1200,duration:90},'-=120');
-        tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1],{yPercent:-600},{yPercent:-1100,duration:90},'-=100');
-
-        tl.fromTo(main.querySelector('#interests'),{yPercent:100},{yPercent:-100,duration:50},'-=85');
-        tl.fromTo(main.querySelector('#interests').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=68');
-        tl.addLabel("interests","-=70.35");
+            const tl = gsap.timeline({
+                onUpdate: updateStats,
+                ease: "linear"
+            });
+            main.querySelectorAll('.timeline-item')[0].style.border = "none";
 
 
-        tl.fromTo(main.querySelector('#timeline'),{yPercent:100},{yPercent:-200,duration:600},'-=145')
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0],{yPercent:0},{yPercent:300,duration:90},'-=490');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1],{yPercent:0},{yPercent:100,duration:90},'-=450');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2],{yPercent:0},{yPercent:300,duration:90},'-=440');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3],{yPercent:0},{yPercent:100,duration:90},'-=395');
-        tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4],{yPercent:0},{yPercent:200,duration:90},'-=374');
+            tl.fromTo(main.querySelector('#home'), {
+                yPercent: 0
+            }, {
+                yPercent: -100,
+                duration: 25
+            });
+            tl.fromTo(main.querySelector('#home').querySelector('img'), {
+                scale: 1
+            }, {
+                scale: 1.5,
+                duration: 25
+            }, '<');
 
-        tl.addLabel("timeline","-=490");
+            tl.fromTo(main.querySelector('#about').querySelector('.bg'), {
+                yPercent: 0
+            }, {
+                yPercent: -100,
+                duration: 25
+            }, '<');
+            tl.fromTo(main.querySelector('#about').querySelector('.about-introduction'), {
+                yPercent: 100
+            }, {
+                yPercent: -300,
+                duration: 100
+            }, '<-1');
+            tl.addLabel("about", "-=74.5");
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[0], {
+                yPercent: 100
+            }, {
+                yPercent: -1200,
+                duration: 125
+            }, '-=84');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[0], {
+                yPercent: 100
+            }, {
+                yPercent: -1200,
+                duration: 90
+            }, '-=115');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[1], {
+                yPercent: -300
+            }, {
+                yPercent: -1200,
+                duration: 90
+            }, '-=95');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[2], {
+                yPercent: -350
+            }, {
+                yPercent: -1200,
+                duration: 90
+            }, '-=90');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3], {
+                yPercent: -1000
+            }, {
+                yPercent: -2630,
+                duration: 70
+            }, '-=93');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[0].querySelectorAll('figure')[3].querySelector('img'), {
+                scale: .9
+            }, {
+                scale: 2.1,
+                duration: 40
+            }, '<');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.quote')[1], {
+                yPercent: -800
+            }, {
+                yPercent: -1600,
+                duration: 125
+            }, '-=80');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[0], {
+                yPercent: -500
+            }, {
+                yPercent: -1200,
+                duration: 90
+            }, '-=120');
+            tl.fromTo(main.querySelector('#about').querySelectorAll('.about-moments')[1].querySelectorAll('figure')[1], {
+                yPercent: -600
+            }, {
+                yPercent: -1100,
+                duration: 90
+            }, '-=100');
 
-        tl.fromTo(main.querySelector('#today'),{yPercent:0},{yPercent:-350,duration:350},'-=380');
-        tl.addLabel("today","-=359.2");
+            tl.fromTo(main.querySelector('#interests'), {
+                yPercent: 100
+            }, {
+                yPercent: -100,
+                duration: 50
+            }, '-=85');
+            tl.fromTo(main.querySelector('#interests').querySelector('img'), {
+                scale: 1
+            }, {
+                scale: 1.5,
+                duration: 25
+            }, '-=68');
+            tl.addLabel("interests", "-=70.35");
 
 
-        tl.fromTo(main.querySelector('#challenges'),{yPercent:100},{yPercent:-100,duration:50},'-=345');
-        tl.fromTo(main.querySelector('#challenges').querySelector('img'),{scale:1},{scale:1.5,duration:25},'-=328');
-        tl.addLabel("challenges","-=330.35");
+            tl.fromTo(main.querySelector('#timeline'), {
+                yPercent: 100
+            }, {
+                yPercent: -200,
+                duration: 600
+            }, '-=145')
+            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0], {
+                yPercent: 0
+            }, {
+                yPercent: 300,
+                duration: 90
+            }, '-=490');
+            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1], {
+                yPercent: 0
+            }, {
+                yPercent: 100,
+                duration: 90
+            }, '-=450');
+            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2], {
+                yPercent: 0
+            }, {
+                yPercent: 300,
+                duration: 90
+            }, '-=440');
+            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3], {
+                yPercent: 0
+            }, {
+                yPercent: 100,
+                duration: 90
+            }, '-=395');
+            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4], {
+                yPercent: 0
+            }, {
+                yPercent: 200,
+                duration: 90
+            }, '-=374');
 
-        tl.fromTo(main.querySelector('#press'),{yPercent:100},{yPercent:-200,duration:600},'-=430');
+            tl.addLabel("timeline", "-=490");
 
-        tl.fromTo(main.querySelector('#clients'),{yPercent:0},{yPercent:-200,duration:270},'-=492');
-      
-       tl.addLabel("press","-=453");
-       tl.fromTo(main.querySelector('#press').querySelector('.press-intro'),{yPercent:100},{yPercent:-350,duration:120},'-=490');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[0],{yPercent:200},{yPercent:-500,duration:200},'-=490');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[1],{yPercent:200},{yPercent:-600,duration:200},'-=480');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[2],{yPercent:200},{yPercent:-500,duration:200},'-=490');
-       tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3],{yPercent:200},{yPercent:-700,duration:200},'-=473');
+            tl.fromTo(main.querySelector('#today'), {
+                yPercent: 0
+            }, {
+                yPercent: -350,
+                duration: 350
+            }, '-=380');
+            tl.addLabel("today", "-=359.2");
 
 
-        tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:220},'-=410');
-        tl.addLabel("contact","-=380");
+            tl.fromTo(main.querySelector('#challenges'), {
+                yPercent: 100
+            }, {
+                yPercent: -100,
+                duration: 50
+            }, '-=345');
+            tl.fromTo(main.querySelector('#challenges').querySelector('img'), {
+                scale: 1
+            }, {
+                scale: 1.5,
+                duration: 25
+            }, '-=328');
+            tl.addLabel("challenges", "-=330.35");
 
-        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
-        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
-        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=380');
-        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
-        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
+            tl.fromTo(main.querySelector('#press'), {
+                yPercent: 100
+            }, {
+                yPercent: -200,
+                duration: 600
+            }, '-=430');
+
+            tl.fromTo(main.querySelector('#clients'), {
+                yPercent: 0
+            }, {
+                yPercent: -200,
+                duration: 270
+            }, '-=492');
+
+            tl.addLabel("press", "-=453");
+            tl.fromTo(main.querySelector('#press').querySelector('.press-intro'), {
+                yPercent: 100
+            }, {
+                yPercent: -350,
+                duration: 120
+            }, '-=490');
+            tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[0], {
+                yPercent: 200
+            }, {
+                yPercent: -500,
+                duration: 200
+            }, '-=490');
+            tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[1], {
+                yPercent: 200
+            }, {
+                yPercent: -600,
+                duration: 200
+            }, '-=480');
+            tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[2], {
+                yPercent: 200
+            }, {
+                yPercent: -500,
+                duration: 200
+            }, '-=490');
+            tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3], {
+                yPercent: 200
+            }, {
+                yPercent: -700,
+                duration: 200
+            }, '-=473');
+
+
+            tl.fromTo(main.querySelector('#contact'), {
+                yPercent: 100
+            }, {
+                yPercent: 0,
+                duration: 220
+            }, '-=410');
+            tl.addLabel("contact", "-=380");
+
+            tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'), {
+                yPercent: 100
+            }, {
+                yPercent: -1000,
+                duration: 210
+            }, '-=360');
+            tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'), {
+                yPercent: 100
+            }, {
+                yPercent: -1000,
+                duration: 210
+            }, '-=360');
+            tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'), {
+                yPercent: 100
+            }, {
+                yPercent: -1000,
+                duration: 210
+            }, '-=380');
+            tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'), {
+                yPercent: 100
+            }, {
+                yPercent: -1000,
+                duration: 210
+            }, '-=350');
+            tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'), {
+                yPercent: 100
+            }, {
+                yPercent: -1000,
+                duration: 210
+            }, '-=350');
+
+            function updateStats() {
+                //  console.log(tl.progress())
+            }
+
+            tl.timeScale(1);
+            tl.pause();
+
+            /* 
+             tl.seek("contact");
+             console.log(tl.progress());*/
+
+            this.scroll = new ScrollController({
+                container: main,
+                pos: 0,
+                ease: 0.05,
+                delta: 40,
+                timeline: tl
+            });
+
+
+
+            self.tl = tl;
+
+            this.drag = new DragController({
+                pos: 0,
+                ease: 0.05,
+                el: main.querySelector(".today-cards_content"),
+                container: main.querySelector('.today-cards'),
+                direction: "landscape",
+                delta: 40,
+                drag: 6
+            });
+
+            this.drag.init();
 
         }
-        
-       
-
-        
 
 
-        function updateStats() {
-          //  console.log(tl.progress())
-        }
 
-        tl.timeScale(1);
-        tl.pause();
 
-       /* 
 
-        tl.seek("contact");
-        console.log(tl.progress());*/
 
-       /* this.scroll = new ScrollController({
-            container: main,
-            pos: 0,
-            ease: 0.05,
-            delta:40,
-            timeline: tl
-        });
 
-       
-
-        self.tl = tl;
-*/
-        
-        this.drag = new DragController({
-            pos: 0,
-            ease: 0.05,
-            el: main.querySelector(".today-cards_content"),
-            container:main.querySelector('.today-cards'),
-            direction: "landscape",
-            delta: 40,
-            drag: 6
-        });
-
-        this.drag.init();
 
         this.preload();
 
 
     }
 
-    preload(){
+    preload() {
         const imgArr = [];
         for (let index = 0; index < document.querySelectorAll('img').length; index++) {
-            const element =  document.querySelectorAll('img')[index];
+            const element = document.querySelectorAll('img')[index];
             imgArr.push(element.src);
         }
 
-     //   console.log(imgArr);
+        //   console.log(imgArr);
 
         this.getImages(imgArr);
- 
+
     }
 
-    getImages(imgs){
+    getImages(imgs) {
         const self = this;
 
-        function preloadImages(urls, allImagesLoadedCallback){
+        function preloadImages(urls, allImagesLoadedCallback) {
             var loadedCounter = 0;
-          var toBeLoadedNumber = urls.length;
-          urls.forEach(function(url){
-            preloadImage(url, function(){
-                loadedCounter++;
+            var toBeLoadedNumber = urls.length;
+            urls.forEach(function (url) {
+                preloadImage(url, function () {
+                    loadedCounter++;
 
-            //console.log('Number of loaded images: ' + loadedCounter +' of' +toBeLoadedNumber);
-                let percent = (loadedCounter*100)/toBeLoadedNumber;
-               // let countdown = 10 - Math.round(percent);
+                    //console.log('Number of loaded images: ' + loadedCounter +' of' +toBeLoadedNumber);
+                    let percent = (loadedCounter * 100) / toBeLoadedNumber;
+                    // let countdown = 10 - Math.round(percent);
 
-                document.querySelector('#preloader').querySelector('dd').innerHTML ='Loading '+Math.round(percent)+ '%';
+                    document.querySelector('#preloader').querySelector('dd').innerHTML = 'Loading ' + Math.round(percent) + '%';
 
-              if(loadedCounter == toBeLoadedNumber){''
-                allImagesLoadedCallback();
-              }
-            });
-          });
-          function preloadImage(url, anImageLoadedCallback){
-              var img = new Image();
-              img.onload = anImageLoadedCallback;
-              img.src = url;
-          }
-        }
-        
-        // Let's call it:
-        preloadImages(imgs, function(){
-           // console.log('All images were loaded');
-            self.scroll.init();
-
-            gsap.to(document.querySelector('#preloader-wrap'),{
-                height:0 + '%',
-                duration:.5,
-                ease:'easeOut.power3',
-                 onComplete:function(){
-                        document.querySelector('#preloader-wrap').outerHTML = " ";
+                    if (loadedCounter == toBeLoadedNumber) {
+                        ''
+                        allImagesLoadedCallback();
                     }
+                });
             });
 
-            gsap.fromTo(document.querySelector('header').querySelector('nav'),{
+            function preloadImage(url, anImageLoadedCallback) {
+                var img = new Image();
+                img.onload = anImageLoadedCallback;
+                img.src = url;
+            }
+        }
+
+        // Let's call it:
+        preloadImages(imgs, function () {
+            // console.log('All images were loaded');
+
+            if (self.device != 'mobile') {
+                self.scroll.init();
+            }
+           
+
+            gsap.to(document.querySelector('#preloader-wrap'), {
+                height: 0 + '%',
+                duration: .5,
+                ease: 'easeOut.power3',
+                onComplete: function () {
+                    document.querySelector('#preloader-wrap').outerHTML = " ";
+                }
+            });
+
+            gsap.fromTo(document.querySelector('header').querySelector('nav'), {
                 yPercent: 200,
-                opacity:0
-  
-            },{
-                ease:'easeOut.power3',
-                duration:.5,
-                delay:.2,
+                opacity: 0
+
+            }, {
+                ease: 'easeOut.power3',
+                duration: .5,
+                delay: .2,
                 yPercent: 0,
-                opacity:1
+                opacity: 1
             });
 
-            gsap.fromTo(document.querySelector('#home').querySelector('img'),{
+            gsap.fromTo(document.querySelector('#home').querySelector('img'), {
                 scale: 1.5,
-                opacity:0,        
-            },{
-                ease:'easeOut.power3',
-                duration:.5,
-                delay:.1,
+                opacity: 0,
+            }, {
+                ease: 'easeOut.power3',
+                duration: .5,
+                delay: .1,
                 scale: 1,
-                opacity:1
+                opacity: 1
             });
 
 
@@ -676,7 +887,7 @@ class View {
 
     }
 
-    
+
 
 
     setPartners(partners) {
@@ -734,14 +945,14 @@ class View {
         return string;
     }
 
-    setClientsBrands(clients){
+    setClientsBrands(clients) {
         const self = this;
         let markup;
-        if (self.device ==='mobile') {
+        if (self.device === 'mobile') {
 
             markup = /*html*/ `
             <img class="pointer-none" src="${self.data.clients.imgMobile}" alt="">`
-            
+
         } else {
             markup = /*html*/ `
             <img class="pointer-none" src="${self.data.clients.img}" alt="">`
@@ -787,10 +998,10 @@ class View {
         return string;
     }
 
-    setImageTimeline(item){
+    setImageTimeline(item) {
         let markup;
         if (item.img) {
-            markup =/*html*/ `<div class="img-timeline-wrap ${item.img.align}"><img src="${item.img.url}" alt=""></div>`
+            markup = /*html*/ `<div class="img-timeline-wrap ${item.img.align}"><img src="${item.img.url}" alt=""></div>`
         } else {
             markup = "";
 
