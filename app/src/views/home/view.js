@@ -19,6 +19,12 @@ class View {
     init(params, data) {
        // console.log(params, data, 'LOAD HOME');
         this.data = data;
+
+        this.device = checkDevice();
+
+        document.querySelector('html').classList.add(this.device);
+
+        console.log(this.device,' device')
         this.setup();
         this.addEvents();
         const sound = new Howl({
@@ -37,8 +43,6 @@ class View {
           });
           this.censor = censor;
           this.sound = sound;
-
-
           this.censor.pause();
           this.sound.pause();
            
@@ -158,16 +162,36 @@ class View {
       //  if (e.currentTar)
     }
 
+    setNav(){
+        let markup;
+        if(this.device === "mobile") {
+            markup = /*html*/ `
+                        <div class="link" id="movie"><span></span></div>
+                        <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LI</a>
+                        <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">INS</a>
+                        <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+            `
+        } else {
+            markup = /*html*/ `
+                        <div class="link" id="movie">Movie Mode<span></span></div>
+                        <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
+                        <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
+                        <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+            `
+
+        }
+
+        return markup;
+    }
+
 
     setup() {
         const self = this;
         const markup = /*html*/ `
                 <header>
                     <nav>
-                        <div class="link" id="movie">Movie Mode<span></span></div>
-                        <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
-                        <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
-                        <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+                        ${self.setNav()}
+
                         <div  class="link"  id="hamburger">
                             <div>
                                 <img src="common/media/img/open.png" alt="" class="open-menu">
@@ -368,7 +392,8 @@ class View {
                     <div id="clients">
                         <div class="clients-container">
                             <p>${self.data.clients.description}</p>
-                            <img class="pointer-none" src="${self.data.clients.img}" alt="">     
+                            ${self.setClientsBrands(self.data.clients)}
+                            
                         </div>    
                     </div>
 
@@ -453,13 +478,13 @@ class View {
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
 
-
-
         const tl = gsap.timeline({onUpdate: updateStats,ease:"linear"});
-
         main.querySelectorAll('.timeline-item')[0].style.border = "none";
 
-        tl.fromTo(main.querySelector('#home'),{yPercent:0},{yPercent:-100,duration:25});
+        if (self.device === "mobile") {
+
+        } else {
+            tl.fromTo(main.querySelector('#home'),{yPercent:0},{yPercent:-100,duration:25});
         tl.fromTo(main.querySelector('#home').querySelector('img'),{scale:1},{scale:1.5,duration:25},'<');
 
         tl.fromTo(main.querySelector('#about').querySelector('.bg'),{yPercent:0},{yPercent:-100,duration:25},'<');
@@ -509,14 +534,20 @@ class View {
        tl.fromTo(main.querySelector('.press-articles').querySelectorAll('a')[3],{yPercent:200},{yPercent:-700,duration:200},'-=473');
 
 
-      tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:220},'-=410');
-      tl.addLabel("contact","-=380");
+        tl.fromTo(main.querySelector('#contact'),{yPercent:100},{yPercent:0,duration:220},'-=410');
+        tl.addLabel("contact","-=380");
 
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=380');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
-      tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
+        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[0].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
+        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[1].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=360');
+        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[2].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=380');
+        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[3].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
+        tl.fromTo(main.querySelector('.partners-container').querySelectorAll('a')[4].querySelector('img'),{yPercent:100},{yPercent:-1000,duration:210},'-=350');
+
+        }
+        
+       
+
+        
 
 
         function updateStats() {
@@ -531,7 +562,7 @@ class View {
         tl.seek("contact");
         console.log(tl.progress());*/
 
-      this.scroll = new ScrollController({
+       /* this.scroll = new ScrollController({
             container: main,
             pos: 0,
             ease: 0.05,
@@ -542,7 +573,7 @@ class View {
        
 
         self.tl = tl;
-
+*/
         
         this.drag = new DragController({
             pos: 0,
@@ -553,8 +584,6 @@ class View {
             delta: 40,
             drag: 6
         });
-
-
 
         this.drag.init();
 
@@ -573,10 +602,7 @@ class View {
      //   console.log(imgArr);
 
         this.getImages(imgArr);
-
-
-
-        
+ 
     }
 
     getImages(imgs){
@@ -706,6 +732,24 @@ class View {
             string += markup + "";
         }
         return string;
+    }
+
+    setClientsBrands(clients){
+        const self = this;
+        let markup;
+        if (self.device ==='mobile') {
+
+            markup = /*html*/ `
+            <img class="pointer-none" src="${self.data.clients.imgMobile}" alt="">`
+            
+        } else {
+            markup = /*html*/ `
+            <img class="pointer-none" src="${self.data.clients.img}" alt="">`
+
+        }
+
+        return markup;
+
     }
 
     setChallenges(challenges) {
