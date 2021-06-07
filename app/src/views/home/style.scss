@@ -441,7 +441,7 @@ header {
         }
 
         .today-card {
-            background-color: $color02;
+          //  background-color: $color02;
             color: $color01;
             position: relative;
             width: 29vw;
@@ -468,6 +468,7 @@ header {
                 position: relative;
                 height: auto;
                 object-fit: cover;
+                z-index: -1;
             }
 
         }
