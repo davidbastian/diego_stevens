@@ -454,19 +454,46 @@ b {
             margin-left: 4vw;
         }
 
+      
+
         .menu {
             position: fixed!important;
             top: auto!important;
             bottom: 0%!important;
 
+
+            .credits-site {
+                position: absolute;
+                top: 29vh;
+                width: 100%;
+                transform: rotate(
+            -90deg
+            );
+                transform-origin: bottom right;
+            }
+
             .menu-list {
                 position: absolute;
                 right: 4vh;
                 top: 7vh;
+                z-index: -1;
             }
         }
 
     }
+
+    #preloader {
+        position: fixed!important;
+        top: 0%!important;
+        bottom: auto!important;
+    }
+
+    #preloader-wrap {
+        position: fixed!important;
+        top: 0%!important;
+        bottom: auto!important;
+    }
+
 
     #home,
     .menu,
@@ -551,7 +578,7 @@ b {
     }
 
     #preloader-wrap {
-        display: none;
+       // display: none;
     }
 
     #about {

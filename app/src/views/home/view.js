@@ -239,7 +239,7 @@ class View {
                                 </div>
 
                                 <div class="credits-site">
-                                    <h6>Creative, Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
+                                    <h6>Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
                                     <h6>Photographs by <a target="_blank" href="http://cristobalmarambio.com/"><b>Cristobal Marambio</b></a></h6>
                                 </div>
 
