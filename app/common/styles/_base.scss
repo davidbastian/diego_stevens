@@ -461,15 +461,15 @@ b {
             top: auto!important;
             bottom: 0%!important;
 
-
             .credits-site {
                 position: absolute;
-                top: 29vh;
+                top: 35vh;
                 width: 100%;
-                transform: rotate(
+                transform: scale(.85) rotate(
             -90deg
             );
                 transform-origin: bottom right;
+                text-align: left;
             }
 
             .menu-list {
@@ -477,6 +477,10 @@ b {
                 right: 4vh;
                 top: 7vh;
                 z-index: -1;
+                .list ul {
+                    font-size: 7.5vw;
+                    line-height: 9.5vw;
+                }
             }
         }
 

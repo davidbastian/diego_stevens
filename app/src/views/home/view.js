@@ -11,6 +11,7 @@ import DragController from '../../controllers/controller.drag.js';
 import {
     gsap
 } from "gsap";
+import { ScrollToPlugin } from "gsap/all";
 import {
     Howl
 } from 'howler';
@@ -20,6 +21,7 @@ import {
 class View {
 
     init(params, data) {
+        gsap.registerPlugin(ScrollToPlugin); 
         // console.log(params, data, 'LOAD HOME');
         this.data = data;
 
@@ -76,7 +78,9 @@ class View {
             e.currentTarget.innerHTML = "Movie Mode<span></span>";
             self.scroll.update(self.tl, self.tl.progress());
             self.sound.pause();
+
         } else {
+
             self.censor.play();
             e.currentTarget.classList.add('active');
             document.body.classList.add('movie');
@@ -94,6 +98,7 @@ class View {
         const current = e.currentTarget;
         const link = current.getAttribute('href');
         const scroll = Number(current.getAttribute('data-scroll'));
+        const scrollTo = current.getAttribute('data-scrollTo');
 
         document.body.querySelector('#hamburger').classList.remove('active');
         gsap.fromTo(
@@ -108,15 +113,23 @@ class View {
             }
         );
 
-        self.setSection(scroll, link);
+        self.setSection(scroll, link,scrollTo);
 
     }
 
-    setSection(s, link) {
+    setSection(s, link,st) {
         const self = this;
         // console.log(s,'scroll');
         //   console.log(link)
-        self.scroll.update(self.tl, Number(s));
+        const el = document.body.querySelector(st);
+        console.log(el);
+
+        if (self.device === 'mobile') {
+            gsap.to(document.body.querySelector('main'), {duration: 0, scrollTo: st});
+        }else { 
+            self.scroll.update(self.tl, Number(s));
+        }
+
     }
 
 
@@ -227,13 +240,13 @@ class View {
                             <div class="menu-list half  border">
                                 <div class="list">
                                     <ul>
-                                       <li><div data-scroll="0.031442663378545004">About</div></li>
-                                       <li><div  data-scroll="0.14260172626387177">Interests</div></li>
-                                       <li><div  data-scroll="0.18618988902589395">Timeline</div></li>
-                                       <li><div  data-scroll="0.34747225647348956">Today</div></li>
-                                       <li><div  data-scroll="0.38304562268803943">Challenges</div></li>
-                                       <li><div data-scroll="0.44143033292231815">Press</div></li>
-                                       <li><div  data-scroll="0.531442663378545">Contact</div></li>
+                                       <li><div  data-scrollTo=".about-introduction"  data-scroll="0.031442663378545004">About</div></li>
+                                       <li><div  data-scrollTo="#interests"  data-scroll="0.14260172626387177">Interests</div></li>
+                                       <li><div  data-scrollTo="#timeline" data-scroll="0.18618988902589395">Timeline</div></li>
+                                       <li><div  data-scrollTo="#today"  data-scroll="0.34747225647348956">Today</div></li>
+                                       <li><div  data-scrollTo="#challenges"  data-scroll="0.38304562268803943">Challenges</div></li>
+                                       <li><div  data-scrollTo="#press"  data-scroll="0.44143033292231815">Press</div></li>
+                                       <li><div  data-scrollTo="#contact"  data-scroll="0.531442663378545">Contact</div></li>
                                    </ul>
 
                                 </div>
