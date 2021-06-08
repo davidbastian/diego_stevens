@@ -18,6 +18,10 @@ import {
     Howl
 } from 'howler';
 
+const { detect } = require('detect-browser');
+ 
+
+
 
 
 class View {
@@ -28,8 +32,13 @@ class View {
         this.data = data;
 
         this.device = checkDevice();
+        this.br =  detect();
+
+        console.log(this.br.name,'br')
+        document.body.querySelector('.test').innerHTML = this.br.name;
 
         document.querySelector('html').classList.add(this.device);
+        document.querySelector('html').classList.add(this.br.name);
 
         console.log(this.device, ' device')
         this.setup();

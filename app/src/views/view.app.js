@@ -47,6 +47,10 @@ class AppView {
     setMarkup() {
         const self = this;
         const markup = /*html*/ `
+
+        <div class="test none">
+
+        </div>
         
 
         <main>
@@ -84,8 +88,8 @@ class AppView {
         </div>
         
 
-        <div class="rotate">
-          
+        <div id="rotate">
+          <h2>For a better<br>experience please<br>rotate your<br> screen.</h2>
         </div>
         
         `;

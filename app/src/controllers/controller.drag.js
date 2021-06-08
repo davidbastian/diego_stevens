@@ -30,6 +30,9 @@ class DragController {
     self.container.addEventListener("mousemove", self.move.bind(this));
     self.container.addEventListener("mousedown", self.down.bind(this));
     window.addEventListener("mouseup", self.up.bind(this));
+
+
+
     window.addEventListener("resize", self.resize.bind(this));
   }
 
@@ -59,9 +62,11 @@ class DragController {
   move(e) {
     const self = this;
     if (this.moving) {
-      let delta;
+
       self.drag = self.point - e.clientX;
       self.drag = constrain(self.drag, 0, self.area);
+
+
     }
   }
 
