@@ -1,0 +1,89 @@
+@import '../../../common/styles/_variables.scss';
+
+#today {
+
+    //  background-color: $color01;
+    color: $color02;
+    flex-direction: column;
+    height: auto;
+
+    z-index: 6;
+    position: absolute;
+    top: 100%;
+    padding-bottom: 100vh;
+
+
+    user-select: none;
+
+
+
+
+    .bg {
+        background-color: $color01;
+        height: 100%;
+    }
+
+    .today-intro {
+        display: flex;
+        margin-left: 4vw;
+        width: 100vw;
+
+        h2 {
+            margin-top: -.6vh;
+            width: 48.2vw;
+
+        }
+
+    }
+
+    .today-cards {
+        width: 100vw;
+        display: flex;
+        //overflow-x: scroll;
+        margin-bottom: 20vh;
+        user-select: none;
+
+        .today-cards_content {
+            display: flex;
+            margin: 20vh 0vw;
+            margin-bottom: 0;
+            padding: 0 3vw;
+
+        }
+
+        .today-card {
+          //  background-color: $color02;
+            color: $color01;
+            position: relative;
+            width: 29vw;
+            margin: 0 1vw;
+            display: block;
+
+            .today-card_info {
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 1;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                padding: 2vw;
+                box-sizing: border-box;
+            }
+
+            img,video {
+                display: block;
+                width: 100%;
+                position: relative;
+                height: auto;
+                object-fit: cover;
+                z-index: -1;
+            }
+
+        }
+
+    }
+
+}

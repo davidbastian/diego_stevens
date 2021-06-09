@@ -1,5 +1,61 @@
 @import '../../../common/styles/_variables.scss';
 
 #about {
+    z-index: 3;
+    background-color: $color02;
+    color: $color01;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    .bg {
+        background-color: $color02;
+    }
 
+    .about-introduction {
+        padding-left: 55vw;
+        padding-bottom: 18vh;
+        p {
+
+            width: 28vw;
+
+            br {
+                display: block;
+                margin-bottom: 3vh;
+                content: '';
+            }
+        }
+    }
+
+    .about-moments {
+        width: 80vw;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        figure {
+            display: flex;
+
+            img {
+                height: 100%;
+                width: 100%;
+            }
+
+            &.vertical {
+                flex-direction: column;
+
+                dl {
+                    padding: 2vh 0;
+                }
+            }
+
+            &.horizontal {
+                flex-direction: row;
+
+                dl {
+                    padding: 0 2vh;
+                }
+            }
+        }
+
+    }
 }

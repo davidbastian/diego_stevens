@@ -1,0 +1,52 @@
+@import '../../../common/styles/_variables.scss';
+
+#challenges {
+    background-color: $color02;
+    color: $color01;
+    z-index: 7;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+
+    .bg {
+        background-color: $color01;
+        height: 100%;
+        top: 100%;
+    }
+
+    img {
+        object-position: center;
+    }
+
+
+    .challenges-image {
+        overflow: hidden;
+        background-color: $color02;
+    }
+
+    p {
+        display: flex;
+
+        span {
+            display: block;
+            width: 1.1vw;
+            margin-right: .3vw;
+        }
+
+        svg {
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    li {
+        color: $color01;
+
+        &.done-true {
+            color: $color01;
+            text-decoration: line-through;
+
+        }
+    }
+}

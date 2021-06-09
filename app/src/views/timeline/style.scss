@@ -1,0 +1,84 @@
+@import '../../../common/styles/_variables.scss';
+
+#timeline {
+    z-index: 5;
+    background-color: $color02;
+    color: $color01;
+    flex-direction: column;
+    height: auto;
+
+    position: absolute;
+    top: 0;
+
+    .timeline-item {
+        display: flex;
+        margin-left: 4vw;
+        border-top: 1px solid $color04;
+        width: 100vw;
+        background-color: $color02;
+        position: relative;
+
+        /*  position: absolute;
+        top: 0;*/
+
+
+        &:last-child {
+            .timeline-item_content {
+                padding-bottom: 0;
+            }
+        }
+
+        .timeline-item_content {
+            padding: 6vh 0;
+            display: flex;
+            flex-wrap: wrap;
+
+            .img-timeline-wrap {
+
+                width: 100vw;
+                padding: 10vh 0;
+
+                img {
+                    width: 65vw;
+                    height: 100%;
+                }
+
+                display: flex;
+
+
+                &.flex-end {
+                    justify-content: flex-end;
+                }
+
+                &.flex-start {
+                    justify-content: flex-start;
+                }
+            }
+
+
+            .timeline-item_achivements {
+                display: flex;
+                width: 40vw;
+                flex-wrap: wrap;
+                justify-content: space-between;
+
+                p {
+                    margin-bottom: 13vh;
+                }
+            }
+        }
+
+        h2 {
+            margin-top: -.6vh;
+            width: 48.2vw;
+
+        }
+    }
+
+    .timeline-item_achivements {
+        display: flex;
+        width: 40vw;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+}

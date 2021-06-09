@@ -21,10 +21,6 @@ class ScrollController {
     this.addEvents();
     this.anima();
 
-
-
-
-
   }
 
   addEvents() {
@@ -36,23 +32,15 @@ class ScrollController {
   hola(e){
     let delta;
     const self = this;
-    console.log(e);
-
     //if (e.deltaX != 0) {
       delta = (e.deltaY/120) * self.delta;
   //  }
    // if (e.deltaY != 0) {
    //   delta = (e.deltaY/120) * self.delta;
    // }
-
-
     self.target += delta;
     self.target = constrain(self.target, -10000, 0);
-
-    console.log('hola',e)
-
   }
-
 
   /*scroll(e) {
     let delta;
@@ -64,7 +52,6 @@ class ScrollController {
     if (e.spinY != 0) {
       delta = e.spinY * -self.delta;
     }
-
 
     self.target += delta;
     self.target = constrain(self.target, -10000, 0);

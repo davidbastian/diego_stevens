@@ -3,17 +3,25 @@ import {
     checkDevice
 } from '../../../common/utils/utils';
 import Logo from '../../../common/svg/logo.svg'
-import Star from '../../../common/svg/star.svg'
-import Close from '../../../common/svg/close.svg'
-import Open from '../../../common/svg/open.svg'
+
+
 import ScrollController from '../../controllers/controller.scroll';
-import DragController from '../../controllers/controller.drag.js';
+import DragController from '../../controllers/controller.drag';
+
+
+import AboutView from '../../views/about/view'
+import InterestsView from '../../views/interests/view'
+import TimelineView from '../../views/timeline/view'
+import TodayView from '../../views/today/view'
+import ChallengesView from '../../views/challenges/view'
+import PressView from '../../views/press/view'
+import ContactView from '../../views/contact/view'
+
+
 import {
-    gsap
-} from "gsap";
-import {
-    ScrollToPlugin
+    gsap,ScrollToPlugin
 } from "gsap/all";
+
 import {
     Howl
 } from 'howler';
@@ -34,15 +42,25 @@ class View {
         this.device = checkDevice();
         this.br =  detect();
 
-        console.log(this.br.name,'br')
+      //  console.log(this.br.name,'br')
         document.body.querySelector('.test').innerHTML = this.br.name;
 
         document.querySelector('html').classList.add(this.device);
         document.querySelector('html').classList.add(this.br.name);
 
-        console.log(this.device, ' device')
+      //  console.log(this.device, ' device')
         this.setup();
+
+        this.parallaxYPos = 0;
+        this.parallaxXPos = 0;
+        this.parallaxYTarget = 0;
+        this.parallaxXTarget = 0;
+
         this.addEvents();
+        this.animaParallax();
+
+
+
         const sound = new Howl({
             src: ['common/media/audio/danger-full.mp3'],
             // autoplay: true,
@@ -75,12 +93,39 @@ class View {
             el.addEventListener("click", self.updateSection.bind(this));
         }
 
+        window.addEventListener("mousemove", self.addParallax.bind(this));
+
+    }
+
+    addParallax(e){
+        const self = this;
+        let percent = {
+            x:(100-((window.outerWidth - e.screenX)*200/window.outerWidth)),
+            y:(100-((window.outerHeight - e.screenY)*200/window.outerHeight)),
+        }
+        self.parallaxYTarget = percent.y/20;
+        self.parallaxXTarget = percent.x/20;
+    }
+
+    animaParallax() {
+        const self = this;
+        requestAnimationFrame(self.animaParallax.bind(this));
+
+        this.parallaxXPos += (this.parallaxXTarget - this.parallaxXPos) * 0.08;
+        this.parallaxYPos += (this.parallaxYTarget - this.parallaxYPos) * 0.08;
+
+
+        for (let i = 0; i < document.body.querySelectorAll('.parallax').length; i++) {
+            const element = document.body.querySelectorAll('.parallax')[i];
+
+            element.parentElement.style.perspective = '1200px';
+            element.style.transform = 'rotateX('+self.parallaxYPos+'deg) rotateY('+-self.parallaxXPos+'deg)'; 
+        }   
     }
 
     toggleMovie(e) {
         const self = this;
         const checkClass = e.currentTarget.classList.contains('active');
-
 
         if (checkClass) {
             self.censor.play();
@@ -91,7 +136,6 @@ class View {
             self.sound.pause();
 
         } else {
-
             self.censor.play();
             e.currentTarget.classList.add('active');
             document.body.classList.add('movie');
@@ -102,8 +146,6 @@ class View {
         }
 
     }
-
-
     updateSection(e) {
         const self = this;
         const current = e.currentTarget;
@@ -127,13 +169,9 @@ class View {
         self.setSection(scroll, link, scrollTo);
 
     }
-
     setSection(s, link, st) {
         const self = this;
-        // console.log(s,'scroll');
-        //   console.log(link)
         const el = document.body.querySelector(st);
-        console.log(el);
 
         if (self.device === 'mobile') {
             gsap.to(document.body.querySelector('main'), {
@@ -145,11 +183,8 @@ class View {
         }
 
     }
-
-
     toggleMenu(e) {
         const checkClass = e.currentTarget.classList.contains('active');
-
         gsap.to(
             e.currentTarget, {
                 scale: .95,
@@ -174,8 +209,6 @@ class View {
                 }
             );
 
-
-
         } else {
             document.body.querySelector('.menu').classList.remove('hide');
             e.currentTarget.classList.add('active');
@@ -188,17 +221,8 @@ class View {
                     WebkitMaskPosition: "0% 100%"
                 }
             );
-
-
-
         }
-
-
-
         return false;
-
-
-        //  if (e.currentTar)
     }
 
     setNav() {
@@ -206,20 +230,18 @@ class View {
         if (this.device === "mobile") {
             markup = /*html*/ `
                         <div class="link" id="movie"><span></span></div>
-                        <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LI</a>
+                        <a  class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LI</a>
                         <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">INS</a>
                         <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
             `
         } else {
             markup = /*html*/ `
                         <div class="link" id="movie">Movie Mode<span></span></div>
-                        <a class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
+                        <a  class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
                         <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
                         <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
             `
-
         }
-
         return markup;
     }
 
@@ -238,13 +260,11 @@ class View {
                             </div> 
                         </div>
                     </nav>
-
                     <div class="menu hide">  
                         <div class="hero-introduction border half">
                                 <div class="hero-logo">
                                     ${Logo}
                                 </div>
-
                                 <dl>
                                     <dt>${self.data.details.slogan}</dt>
                                     <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
@@ -264,16 +284,12 @@ class View {
                                    </ul>
 
                                 </div>
-
                                 <div class="credits-site">
                                     <h6>Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
                                     <h6>Photographs by <a target="_blank" href="http://cristobalmarambio.com/"><b>Cristobal Marambio</b></a></h6>
                                 </div>
-
-                                   
                             </div>  
                     </div>
-                
                 </header>
 
 
@@ -282,7 +298,6 @@ class View {
                         <div class="hero-logo">
                             ${Logo}
                         </div>
-
                         <dl>
                             <dt>${self.data.details.slogan}</dt>
                             <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
@@ -291,228 +306,16 @@ class View {
                     </div>
                     <div class="hero-image half pointer-none">
                             <img  class="cover" src="${self.data.details.image}" alt="${self.data.details.slogan}">
-                    </div>
-                      
+                    </div>  
                 </section>
 
-                <section id="about" class="border">
-                    <div class="bg"></div>
-                    <div class="about-introduction content">
-                        <p>${self.data.about.introduction}</p>
-                    </div>
-
-                    <figure class="quote">
-                        <blockquote>
-                        ${self.data.about.quotes[0].quote}
-                        </blockquote>
-                        <figcaption> ${self.data.about.quotes[0].caption}, <cite>${self.data.about.quotes[0].year}</cite> </figcaption>
-                    </figure>
-
-                    <div class="content about-moments">
-                        
-                    <figure class="vertical" style="margin-left: 6vw;">
-                        <img style="width:27vw" src="common/media/img/001.jpg" alt="">
-                        <dl>
-                            <dt>Diego & Lorem ipsum</dt>
-                            <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
-                        </dl>
-                    </figure>
-
-                    <figure class="vertical" style="margin-top: -25vh;  margin-left: 46vw;">
-                        <img  style="width: 27vw;" src="common/media/img/002.jpg" alt="">
-                        <dl>
-                            <dt>Diego & Lorem ipsum</dt>
-                            <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
-                        </dl>
-                    </figure>
-
-                    <figure class="vertical" style="margin-top: -21vh;">
-                        <img style="width: 27vw;"  src="common/media/img/003.png" alt="">
-                        <dl>
-                            <dt>Diego & Lorem ipsum</dt>
-                            <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
-                        </dl>
-                    </figure>
-
-                    <figure class="horizontal"  style="margin-left: 40vw;margin-top: -8vh; ">
-                        <img style="width:20vw; transform-origin:right top;" src="common/media/img/004.jpg" alt="">
-                        <dl>
-                            <dt>Diego & Lorem ipsum</dt>
-                            <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
-                        </dl>
-                    </figure>
-                    </div>
-
-                    <figure class="quote">
-                        <blockquote>
-                        ${self.data.about.quotes[1].quote}
-                        </blockquote>
-                        <figcaption> ${self.data.about.quotes[1].caption}, <cite>${self.data.about.quotes[1].year}</cite> </figcaption>
-                    </figure>
-
-                    <div class="content about-moments">
-                        
-                    <figure class="vertical" style="margin-left: 6vw;">
-                        <img style="width:27vw" src="common/media/img/005.jpg" alt="">
-                        <dl>
-                            <dt>Diego & Lorem ipsum</dt>
-                            <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
-                        </dl>
-                    </figure>
-
-                    <figure class="vertical" style="margin-top: -25vh;  margin-left: 46vw;">
-                        <img  style="width: 27vw;" src="common/media/img/006.jpg" alt="">
-                        <dl>
-                            <dt>Diego & Lorem ipsum</dt>
-                            <dd>Photo by Peter Stackpole <br> Photograph by Ronald Dick</dd>
-                        </dl>
-                    </figure>
-
-                    
-                    </div>
-                </section>
-
-                <section id="interests">
-                    <div class="interests-image half">
-                        <img class="cover" src="${self.data.interests.image.url}" alt="">  
-                    </div>
-
-                    <div class="interests-list list half border">
-                    <p>${self.data.interests.title}</p>
-                    <ul>
-                        ${self.setInterests(self.data.interests.list)}
-                    </ul>
-                    </div>
-                    
-                </section>
-
-                <section id="timeline" class="border content">
-    
-                    ${self.setTimeline(self.data.timeline)}
-
-                </section>
-
-                <section id="today" class="border content">
-                    <div class="bg"></div>
-                    <div class="today-intro">
-                            <h2>${self.data.today.title}</h2>
-                            <p>${self.data.today.description}</p>
-                            
-                    </div>
-
-                    <div class="today-cards">
-                        <div class="today-cards_content grabbable">
-                            ${self.setCards(self.data.today.cards)}
-                        </div>  
-                    </div>
-
-                </section>
-
-                <section id="challenges">
-                    <div class="bg"></div>
-
-                    <div class="challenges-list list half border">
-                        <p><span>${Star}</span> ${self.data.challenges.title}</p>
-                        <ul>
-                            ${self.setChallenges(self.data.challenges.list)}
-                        </ul>
-                    </div>
-
-                    <div class="challenges-image half">
-                        <img class="cover" src="${self.data.challenges.image.url}" alt="">  
-                    </div>
-  
-                </section>
-
-                
-                <section id="press" class="content">
-                    <div class="bg"></div>	
-
-                    <div id="clients">
-                        <div class="clients-container">
-                            <p>${self.data.clients.description}</p>
-                            ${self.setClientsBrands(self.data.clients)}
-                            
-                        </div>    
-                    </div>
-
-
-                    <div class="press-intro">
-                            <h2>${self.data.press.title}</h2>
-                            <p>${self.data.press.description}</p>
-                            
-                    </div>
-
-                    <div class="press-articles content"> 
-                        <div class="border">
-                            ${self.setArticles(self.data.press.articles)}
-                        </div>  
-                    </div>
-
-                </section>
-
-                <section id="contact" class="content">
-                    <div class="border contact-info">
-                        <h2>${self.data.contact.title}</h2>
-                        <h5>Let’s talk <br> <a href="">${self.data.contact.email}</a></h5>
-                    </div>
-                    <div id="cast" class="content">
-                        <div class="partners">
-                                <h6> <b>Partners & Friends</b> </h6>
-                                <div class="partners-container">
-                                    ${self.setPartners(self.data.cast.partners)}
-                                </div>
-                        </div>
-
-                        <div class="partnerships">
-                                <h6> <b>Partnerships</b> </h6>
-                                <div class="partnerships-container">  
-                                    <a target="_blank" href="https://www.prochile.gob.cl/"><p>Pro Chile</p></a>
-                                    <a target="_blank" href="https://www.meetlatam.com/"><p>MeetLatam</p></a>
-                                    <a target="_blank" href="https://www.microsoft.com"><p>Microsoft</p></a>
-                                    <a target="_blank" href="https://www.dtschile.com/"><p>DTS Chile</p></a>
-                                </div>
-                        </div>
-                        
-                        <div class="my-companies">
-                            <h6><b>My bridge to the binary world</b></h6>
-                            <div class="container">                            
-                                    <img src="common/media/img/019.png" alt="">    
-                            </div>   
-                        </div>
-
-                        <div class="collaborations">
-                            <h6><b>Collaborations & Alliances</b></h6>
-                            <div class="container">                            
-                                <a target="_blank" href="https://www.linkedin.com/company/colegio-de-ingenieros-de-chile/?originalSubdomain=cl"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://alianzaciberseguridad.cl/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
-                            </div>   
-                        </div>
-
-                        <div class="investors">
-                            <h6><b>Private and Public Inverstors</b></h6>
-                            <div class="container">                            
-                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a>
-                                <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
-                                <a target="_blank" href="https://www.conicyt.cl/"><h5>Conicyt</h5></a>
-                                
-                                
-                            </div>   
-                        </div>
-
-                        <div class="my-companies">
-                            <h6><b>Alma Matter</b></h6>
-                            <div class="container">                            
-                                    <img src="common/media/img/020.png" alt="">    
-                            </div>   
-                        </div>
-
-                        <h6 class="copyright">The entire diegostevens.com Web site is Copyright ©2021 by Diego Stevens. All Rights Reserved. The diegostevens.com site may not be copied or duplicated in whole or part by any means without express prior agreement in writing or unless specifically noted on the site.
-                            Some photographs or documents contained on the site may be the copyrighted property of others; acknowledgement of those copyrights is hereby given. All such material is used with the permission of the owner.
-                        </h6>
-                    </div>
-                </section>
-
-              
+                ${AboutView.setup(self.data.about)}
+                ${InterestsView.setup(self.data.interests)}
+                ${TimelineView.setup(self.data.timeline)}
+                ${TodayView.setup(self.data.today)}
+                ${ChallengesView.setup(self.data.challenges)}
+                ${PressView.setup(self.data.clients,self.data.press)}
+                ${ContactView.setup(self.data.contact,self.data.cast)}          
         `
         const main = document.body.querySelector('main');
         main.insertAdjacentHTML('afterbegin', markup);
@@ -628,7 +431,6 @@ class View {
             }, '-=68');
             tl.addLabel("interests", "-=70.35");
 
-
             tl.fromTo(main.querySelector('#timeline'), {
                 yPercent: 100
             }, {
@@ -638,33 +440,38 @@ class View {
             tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[0], {
                 yPercent: 0
             }, {
-                yPercent: 300,
+                yPercent: 250,
                 duration: 90
             }, '-=490');
+
             tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[1], {
+                yPercent: 0
+            }, {
+                yPercent: 350,
+                duration: 90
+            }, '-=475');
+
+            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2], {
                 yPercent: 0
             }, {
                 yPercent: 100,
                 duration: 90
-            }, '-=450');
-            tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[2], {
-                yPercent: 0
-            }, {
-                yPercent: 300,
-                duration: 90
             }, '-=440');
+
             tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[3], {
                 yPercent: 0
             }, {
                 yPercent: 100,
                 duration: 90
-            }, '-=395');
+            }, '-=400');
+
             tl.fromTo(main.querySelector('#timeline').querySelectorAll('.timeline-item')[4], {
                 yPercent: 0
             }, {
-                yPercent: 200,
+                yPercent: 150,
                 duration: 90
-            }, '-=374');
+            }, '-=375');
+
 
             tl.addLabel("timeline", "-=490");
 
@@ -814,13 +621,6 @@ class View {
 
         }
 
-
-
-
-
-
-
-
         this.preload();
 
 
@@ -951,165 +751,8 @@ class View {
 
 
 
+  
 
-
-    setPartners(partners) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < partners.length; i++) {
-            const partner = partners[i];
-            let markup = /*html*/ `
-                <a target="_blank" href="${partner.link}" class="partner-item">
-                    <p class="partner-role">${partner.role}</p>  
-                    <p class="partner-name">${partner.name}</p> 
-                    <div style="left:${partner.pos}" class="img-container">
-                        <img  src="${partner.img}" alt="">
-                    </div>
-                
-                    
-                </a>
-                `
-            string += markup + "";
-        }
-        return string;
-
-    }
-
-    setArticles(articles) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < articles.length; i++) {
-            const article = articles[i];
-            let markup = /*html*/ `
-                <a target="_blank" href="${article.url}">
-                    <img src="${article.img}" alt="${article.title}">
-                    <h6><b>${article.type}, </b>${article.date}</h6>
-                    <h3>${article.title}</h3>
-                    <p>${article.description}</p>
-                </a>
-                `
-            string += markup + "";
-        }
-        return string;
-
-
-    }
-
-    setInterests(interests) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < interests.length; i++) {
-            const interest = interests[i];
-            let markup = /*html*/ `
-                <li>${interest}</li>
-                `
-            string += markup + "";
-        }
-        return string;
-    }
-
-    setClientsBrands(clients) {
-        const self = this;
-        let markup;
-        if (self.device === 'mobile') {
-
-            markup = /*html*/ `
-            <img class="pointer-none" src="${self.data.clients.imgMobile}" alt="">`
-
-        } else {
-            markup = /*html*/ `
-            <img class="pointer-none" src="${self.data.clients.img}" alt="">`
-
-        }
-
-        return markup;
-
-    }
-
-    setChallenges(challenges) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < challenges.length; i++) {
-            const challenge = challenges[i];
-            let markup = /*html*/ `
-                <li class="done-${challenge.done}">${challenge.title}</li>
-                `
-            string += markup + "";
-        }
-        return string;
-    }
-
-    setTimeline(timeline) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < timeline.length; i++) {
-            const item = timeline[i];
-            let markup = /*html*/ `
-                <div class="timeline-item">
-                    <div class="timeline-item_content">
-                        <h2>${item.year}</h2>
-                        <div class="timeline-item_achivements">
-                            ${self.setAchivements(item.achivements)}
-                        </div>
-                        ${self.setImageTimeline(item)}
-                        
-                    </div>
-                </div>
-                `
-            string += markup + "";
-        }
-        return string;
-    }
-
-    setImageTimeline(item) {
-        let markup;
-        if (item.img) {
-            markup = /*html*/ `<div class="img-timeline-wrap ${item.img.align}"><img src="${item.img.url}" alt=""></div>`
-        } else {
-            markup = "";
-
-        }
-        return markup
-    }
-
-    setAchivements(achivements) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < achivements.length; i++) {
-            const item = achivements[i];
-            let markup = /*html*/ `
-                <p>${item}</p>
-                `
-            string += markup + "";
-        }
-        return string;
-
-    }
-
-    setCards(cards) {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < cards.length; i++) {
-            const item = cards[i];
-            let markup = /*html*/ `
-                    <div class="today-card">
-                        <div class="today-card_info">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-
-                        <video class="video" playsinline="" autoplay="" loop="" muted="" src="${item.media}">
-                                <source src="${item.media}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-
-                    </div>    
-                `
-            string += markup + "";
-        }
-        return string;
-
-    }
 
 
 

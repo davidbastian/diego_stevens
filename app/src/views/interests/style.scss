@@ -1,0 +1,20 @@
+@import '../../../common/styles/_variables.scss';
+
+#interests {
+    z-index: 4;
+    background-color: $color01;
+    height: auto;
+    height: 100vh;
+
+    position: absolute;
+    top: 0;
+
+    img {
+        object-position: center;
+    }
+
+    .interests-image {
+        overflow: hidden;
+        background-color: $color02;
+    }
+}

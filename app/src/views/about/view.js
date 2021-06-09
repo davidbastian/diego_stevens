@@ -1,127 +1,68 @@
 import './style.scss';
-import App from '../../../index';
-
-import {
-    TweenMax
-} from 'gsap';
-
-
 
 class View {
 
-    init(params, data) {
-        console.log(params, 'LOAD ABOUT');
-        this.data = data[0];
-        this.setup();
-
-    }
-
-    setup() {
+    setup(data) {
         const self = this;
-        const markup = /*html*/ `
-            <div id="about" class="page">
-                <section class="about_content">
-                        ${this.data.acf.description}
-                        <div class="about_social">
-                           <a href="${this.data.acf.linkedin_url}" target="_blank">LinkedIn</a>
-                           <a href="${this.data.acf.twitter_url}" target="_blank">Twitter</a>
-                        </div>
-                        <div class="about_profiles">
-                            ${this.addProfiles()}
-                        </div>
-                        <div class="about_info">
-                            <div class="about_info-desc">
-                                ${this.addKeys()}
-                                <div class="registered-about">
-                                    <h3>Registered at</h3>
-                                    <div>
-                                        <img src="common/media/img/005.jpg" alt="">
-                                    </div>
-                                
-                                </div>         
-                            </div>
-                        </div>                     
-              </div>
-            </section>
-        `;
-        document.body.querySelector('main').insertAdjacentHTML('afterbegin', markup);
-        
+        data = data;
 
-        this.addEvents();
-        window.APP.controller.routeTransition('about');
+        const markup = /*html*/ `  
+        <section id="about" class="border">
+                <div class="bg"></div>
+                    <div class="about-introduction content">
+                        <p>${data.introduction}</p>
+                    </div>
 
-    }
+                    <figure class="quote">
+                        <blockquote>
+                        ${data.quotes[0].quote}
+                        </blockquote>
+                        <figcaption> ${data.quotes[0].caption}, <cite>${data.quotes[0].year}</cite></figcaption>
+                    </figure>
 
-    addEvents() {
-        const self = this;
-        document.querySelector('#about').addEventListener('scroll', self.scroll.bind(this));
-    }
+                    <div class="content about-moments">
+                        ${self.setMoments(data.quotes[0].moments)}
+                    </div>
 
-    scroll(e) {
-        const header = document.querySelector('header');
-        let st =  document.querySelector('#about').scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-        if (st > this.lastScrollTop) {
-            // downscroll code
-        //    console.log('down');
+                    <figure class="quote">
+                        <blockquote>
+                        ${data.quotes[1].quote}
+                        </blockquote>
+                        <figcaption> ${data.quotes[1].caption}, <cite>${data.quotes[1].year}</cite> </figcaption>
+                    </figure>
 
-            TweenMax.to(header, 0.5, {
-                y: -100 + '%',
-                ease: 'Power3.easeOut',
-            });
+                    <div class="content about-moments">
+                        
+                    ${self.setMoments(data.quotes[1].moments)}
 
-        } else {
-          //  console.log('up');
-            TweenMax.to(header, 0.5, {
-                y: 0 + '%',
-                ease: 'Power3.easeOut',
-            });
-            // upscroll code
-        }
-        this.lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+                    
+                    </div>
+                </section>`
 
+                return markup;
 
     }
 
-
-
-    addKeys() {
+    setMoments(moments){
         let string = '';
-        for (let i = 0; i < this.data.acf.key_texts.length; i++) {
-            const key_texts = this.data.acf.key_texts[i];
+        for (let i = 0; i < moments.length; i++) {
+            const item = moments[i];
             let markup = /*html*/ `
-            <h3>${key_texts.title}</h3>
-            <p>${key_texts.description}</p>
-
-            `;
+                    <figure class="${item.orientation}" style="margin: ${item.position}">
+                        <img class="parallax"  style="width: ${item.width};  transform-origin:${item.origin};" src="${item.url}" alt="${item.title}">
+                        <dl>
+                            <dt>${item.title}</dt>
+                            <dd>${item.description}</dd>
+                        </dl>
+                    </figure>
+                
+                `
             string += markup + "";
-
         }
-
         return string;
 
     }
-    addProfiles() {
-        const self = this;
-        let string = '';
-        for (let i = 0; i < this.data.acf.profiles.length; i++) {
-            const profile = this.data.acf.profiles[i];
-            let markup = /*html*/ `     
-                <div>
-                            <img src="${profile.image.url}" alt="">
-                            <dl>
-                                <dt>${profile.name}</dt>
-                                <dd>${profile.role}</dd>
-                            </dl>
-                </div>
 
-            `;
-            string += markup + "";
-
-        }
-
-        return string;
-
-    }
 
 
 }

@@ -1,0 +1,272 @@
+{
+    "details": {
+        "name": "Diego",
+        "lastname": "Stevens",
+        "slogan": "Chilean, Entrepreneur & Tech Visionary",
+        "images":[
+            "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
+        ],
+        "image": "common/media/img/000.jpg"
+    },
+
+
+    "about": {
+        "introduction": "Diego’s been working with entrepreneurships, big companies and with his own initiatives for 10 years and has a broad view of what entrepreneurship truly involves and understands how to successfully combine it with the commercial area, which are essentially, powerful attributes for a new role as a tech advisor or a tech board member.<br> He helps with a great team, enterprises such as Falabella, Arauco, Forus, Sura and many others to transform their digital business through a disruptive and revolutionary cultural mindset change and new business models.<br> On the other hand, he provides advice, mentoring and knowledge to Startups of his portfolio to raise money ($5MM USD YTD in Startup fundraising stage through private and public funds), finding the real value of their technology, market and industries through different disruptive strategies.<br> Nowadays, he manages his own  portfolio of tech business valuated at more than $60 Million USD.",
+        "quotes": [{
+            "quote": "Don't start<br>something that <br>you cannot finish.",
+            "caption": "Justin Somper",
+            "year": "British Author",
+            "moments": [{
+                "url": "common/media/img/001.jpg",
+                "title": "Diego Stevens Ibañez",
+                "description": "After Dinner, Santiago, 19:40",
+                "position": "0 0 0 6vw",
+                "orientation":"vertical",
+                "width":"27vw",
+                "origin":"center center"
+            },{
+                "url": "common/media/img/002.jpg",
+                "title": "Lucky, Time and Drinks",
+                "description": "Vitacura, 20:35",
+                "position": "-25vh 0 0 46vw",
+                "orientation":"vertical",
+                "width":"27vw",
+                "origin":"center center"
+            },{
+                "url": "common/media/img/003.png",
+                "title": "Grandpa’s Furniture Workshop",
+                "description": " Santiago, 15:30",
+                "position": "-21vh 0 0 0",
+                "orientation":"vertical",
+                "width":"27vw",
+                "origin":"center center"
+            },{
+                "url": "common/media/img/004.jpg",
+                "title": "The Real Dreamer",
+                "description": "Santiago, 16:05",
+                "position": "-8vh 0 0 40vw",
+                "orientation":"horizontal",
+                "width":"20vw",
+                "origin":"right top"
+            }]
+
+        }, {
+            "quote": "Be stubborn on<br>vision, but flexible<br>on details.",
+            "caption": "Jeff Bezos",
+            "year": "Amazon CEO",
+            "moments": [{
+                "url": "common/media/img/005.jpg",
+                "title": "The Essential",
+                "description": "At Home, 12:30",
+                "position": "0 0 0 6vw",
+                "orientation":"vertical",
+                "width":"27vw",
+                "origin":"center center"
+            },{
+                "url": "common/media/img/006.jpg",
+                "title": "Time is multidimensional",
+                "description": "My Desk, 21:20",
+                "position": "-25vh 0 0 46vw",
+                "orientation":"vertical",
+                "width":"27vw",
+                "origin":"center center"
+            }]
+
+        }]
+        
+    },
+    "interests": {
+        "title": "Interests & Amusements",
+        "list": ["Watchmaking", "Fintech", "Smartcity", "Fund Raising", "AI & Cognitive Services", "Disruptive Business Models", "Change Management"],
+        "image": {
+            "url": "common/media/img/007.jpg"
+        }
+    },
+    "timeline": [{
+            "year": "2015",
+            "achivements": ["Award of Entrepreneur of<br>2015 by Chilean Institute<br>of Engineers."]
+        },
+        {
+            "year": "2016",
+            "achivements": ["Winner of National Pitch<br>Session of MeetLatam <br> Chile."]
+            
+        },
+        {
+            "year": "2017",
+            "achivements": ["Winner Silicon Valley<br>Tour-representing Chile as<br> one of the most important<br> Entrepreneurs' of Chile."],
+            "img":{
+                "url":"common/media/img/021.jpg",
+                "align": "flex-start"
+            }
+        },
+        {
+            "year": "2018",
+            "achivements": ["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."],
+            "img":{
+                "url":"common/media/img/022.jpg",
+                "align": "flex-end"
+            }
+        },
+        {
+            "year": "2019",
+            "achivements": ["7th place in the most<br>important Startup Event<br>in Colombia, StartCo.", "Representing Chile in the<br> Worldwide VC's event eMerge<br>Americas, Miami, USA.", "Representing Chile in the<br> World Congress Smart City<br> Barcelona."]
+        },
+        {
+            "year": "2020",
+            "achivements": ["Chilean of the Year 2020 in  <br> the Innovator Category for <br> Premios Natida Chile."]
+        }
+    ],
+
+    "today": {
+        "description": "Transforming technology <br> dreams into actions through  <br>5 questions and processes.",
+        "title": "Today",
+        "cards": [{
+                "title": "What is the <br>Aspiration?",
+                "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
+                "media": "common/media/img/0080001-0050.mp4"
+            },
+            {
+                "title": "Where <br> am I now?",
+                "description": "Mature Digital model,<br>Main GAP and recommendation<br>Tecnical & Commercial sizing",
+                "media": "common/media/img/0090001-0050.mp4"
+            },
+            {
+                "title": "Where do I focus <br> my Transformation?",
+                "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
+                "media": "common/media/img/0100001-0050.mp4"
+            },
+            {
+                "title": "Consolidating my <br>Transformation",
+                "description": "Strategic & Economic focus <br> Defination goals, projects and bussiness driver",
+                "media": "common/media/img/0110001-0050.mp4"
+            },
+            {
+                "title": "On going portfolio <br> of Projects",
+                "description": "Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
+                "media":"common/media/img/0120001-0050.mp4"
+            }
+        ]
+    },
+
+    "challenges": {
+        "title": "Challenges 2021",
+        "list": [{
+            "title": "Selfie with Satya Nadella",
+            "done": false
+        },{
+            "title": "Create a Shark Tank",
+            "done": false
+        },{
+            "title": "Parachute jump",
+            "done": false
+        },{
+            "title": "Take on a charity challenge",
+            "done": false
+        },{
+            "title": "Hang out with Elon Musk",
+            "done": false
+        }],
+        "image": {
+            "url": "common/media/img/003.jpg",
+            "title": "",
+            "description": ""
+        }
+
+    },
+    "clients":{
+        "description":"I work with clients & partners from all sectors based on a shared value set and vision for how to create a better future through technology.",
+        "img":"common/media/img/014.png",
+        "imgMobile":"common/media/img/014m.png"
+    },
+    "press":{
+        "title":"Press and<br>thoughts",
+        "description":"I love being able to share and help others achieve more through my work. These talks and interviews are my small contribution for a more open, connected and transparent industry. ",
+        "articles":[
+            {
+                "title":"The plans for the Softech <br> Startup of Cleverit",
+                "type":"News",
+                "img":"common/media/img/015.png",
+                "date":"4 April 2021",
+                "url":"https://dfu.owo.cl/#https://www.df.cl/noticias/df-lab/innovacion-y-startups/los-planes-de-la-startup-informatica-clever-it-para-apoyar-a/2021-04-07/112103.html",
+                "description":"They will invest a total of 20 million in lunching an area of entrepreneur incubation of the IT industry and accomplishing their global growth plan."
+            },{
+                "title":"Specialist talks about technology and innovation “made in Chile” that calls the attention of Europe",
+                "type":"Interview",
+                "img":"common/media/img/016.png",
+                "date":"30 March 2021",
+                "url":"https://www.america-retail.com/opinion/opinion-especialista-cuenta-sobre-tecnologia-e-innovacion-made-in-chile-que-seduce-a-europa/",
+                "description":"Meanwhile the entire world is experiences changes produced by accelerated digital transformation, in Chile, with out exception of this trend, has arisen a series of digital and technological solutions, that are well received in Europe."
+            },{
+                "title":"Social Medias and Innovation <br> for Entrepreneurs",
+                "type":"Podcast",
+                "img":"common/media/img/017.png",
+                "date":"19 Feb 2021",
+                "url":"https://open.spotify.com/episode/0gydjYg5MmebzUORLS3KOo?si=WCm8FM9zSS2iWFEq4b-V2g&nd=1",
+                "description":"The pandemic and the confinement increase and extended the use of social networks. Their commercial use to offer products and services has increased. Regardless, at the same time these new digital buyers have become more active and demanding."
+            },{
+                "title":"How the pandemic has driving the interest in robots of companies",
+                "type":"Quote",
+                "img":"common/media/img/018.png",
+                "date":"18 Jan 2021",
+                "url":"https://open.spotify.com/episode/0gydjYg5MmebzUORLS3KOo?si=WCm8FM9zSS2iWFEq4b-V2g&nd=1",
+                "description":"The trends of the following years will be oriented towards medical robots, services and mainly focus on people with handicaps, neurodegenerative illnesses, or the elderly. Among them, many devices will help chores around the house."
+            }
+        ]
+    },
+    "contact":{
+        "title":"Do you <br> wanna start a <br> tech business?",
+        "email":"hola@diegostevens.com"   
+    },
+    "cast":{
+           "partners": [
+                {
+                    "name":"Martin Burns",
+                    "role":"Chief Financial Officer at Cleverit & Meetcard",
+                    "link":"https://www.linkedin.com/in/martin-burns-krassa-5298013b/",
+                    "img":"common/media/img/025.jpg",
+                    "pos":"-25vw"
+                },{
+                    "name":"Gustavo Lugo",
+                    "role":"Chief Information Officer at Cleverit",
+                    "link":"https://www.linkedin.com/in/gustavoalugo/",
+                    "img":"common/media/img/023.jpg",
+                    "pos":"0vw"
+
+                },{
+                    "name":"Carlos Gallardo",
+                    "role":"Chief Technology Officer at Cleverit",
+                    "link":"https://www.linkedin.com/in/carlos-gallardo-66092615/",
+                    "img":"common/media/img/024.jpg",
+                    "pos":"31vw"
+                },{
+                    "name":"Orlando Orozco",
+                    "role":"Co Founder y CTO at Meetcard",
+                    "link":"https://www.linkedin.com/in/orlando-orozco-cancino-67bb1334/",
+                    "img":"common/media/img/026.jpg",
+                    "pos":"55vw"
+                },
+                {
+                    "name":"Matias Gonzalez",
+                    "role":"International Director",
+                    "link":"https://www.linkedin.com/in/matgonzaleza/",
+                    "img":"common/media/img/027.jpg",
+                    "pos":"200vw"
+                }
+
+            ],
+            "investors": [
+                {
+                    "name":"Tempus Asset Management",
+                    "link":"https://www.linkedin.com/company/tempus-asset-management/"
+                },{
+                    "name":"Corfo",
+                    "link":"https://www.linkedin.com/company/corfo/ "
+                },{
+                    "name":"Conicyt",
+                    "link":"https://www.conicyt.cl/"
+                }
+            ]
+    }
+
+
+}
