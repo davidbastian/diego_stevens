@@ -88,12 +88,21 @@ class View {
         document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
         document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
 
+        document.body.querySelector('.lng').addEventListener("click", self.setLanguage.bind(this));
+
+
         for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
             const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
             el.addEventListener("click", self.updateSection.bind(this));
         }
 
         window.addEventListener("mousemove", self.addParallax.bind(this));
+
+    }
+
+    setLanguage(e){
+       window.location.reload();
+       return false;
 
     }
 
@@ -267,7 +276,7 @@ class View {
                                 </div>
                                 <dl>
                                     <dt>${self.data.details.slogan}</dt>
-                                    <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
+                                    <dd><a class="active lng eng" href="#/">English</a><span>|</span><a class="es lng" href="#/es">Spanish</a></dd>
                                 </dl>
                                     
                             </div>
@@ -300,7 +309,7 @@ class View {
                         </div>
                         <dl>
                             <dt>${self.data.details.slogan}</dt>
-                            <dd><a class="active" href="">English</a><span>|</span><a href="">Spanish</a></dd>
+                            <dd><a class="active eng lng" href="#/">English</a><span>|</span><a class="es lng" href="#/es">Spanish</a></dd>
                         </dl>
                          
                     </div>
@@ -683,7 +692,7 @@ class View {
                 duration: .5,
                 ease: 'easeOut.power3',
                 onComplete: function () {
-                    document.querySelector('#preloader-wrap').outerHTML = " ";
+                    document.querySelector('#preloader-wrap').classList.add('hide');
                 }
             });
 

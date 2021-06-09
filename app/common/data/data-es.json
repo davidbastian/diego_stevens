@@ -2,7 +2,7 @@
     "details": {
         "name": "Diego",
         "lastname": "Stevens",
-        "slogan": "Chilean, Entrepreneur & Tech Visionary",
+        "slogan": "Chileno, Emprendedor & Visionario Tecnológico",
         "images":[
             "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
         ],
@@ -11,22 +11,22 @@
 
 
     "about": {
-        "introduction": "Diego’s been working with entrepreneurships, big companies and with his own initiatives for 10 years and has a broad view of what entrepreneurship truly involves and understands how to successfully combine it with the commercial area, which are essentially, powerful attributes for a new role as a tech advisor or a tech board member.<br> He helps with a great team, enterprises such as Falabella, Arauco, Forus, Sura and many others to transform their digital business through a disruptive and revolutionary cultural mindset change and new business models.<br> On the other hand, he provides advice, mentoring and knowledge to Startups of his portfolio to raise money ($5MM USD YTD in Startup fundraising stage through private and public funds), finding the real value of their technology, market and industries through different disruptive strategies.<br> Nowadays, he manages his own  portfolio of tech business valuated at more than $60 Million USD.",
+        "introduction": "Diego ha trabajado con emprendimientos, grandes empresas y con sus propias iniciativas tecnológicas por mas de 10 años, por lo que tiene una amplia mirada de que es lo que realmente significa el emprendimiento y entiende como combinarlo exitosamente con un foco comercial, lo cual es esencial, y un poderoso atributo, para un nuevo rol como asesor tecnológico o miembro de directorio.<br> Por otro lado, el ayuda con un gran equipo a grandes empresas como Falabella, Arauco, Forus, Sura y muchas otras, a transformar sus negocios digitales a través de una revolucionaria, disruptiva forma de pensar en el cambio de paradigma en nuevos modelos de negocios.<br>El puede entregar consejos, mentoría y conocimientos a emprendimos de su porfolio para levantar capital (Ha ayudado a levantar y gestionar levantamientos de capital por más de $5 millones de dólares en fondos públicos y privados), encontrando el real valor de sus tecnologías, mercado e industrias a través de diferentes estrategias disruptivas.<br> Hoy en día, maneja su propio portafolio de negocios tecnológicos, valorados en mas de $60 millones de dólares.",
         "quotes": [{
-            "quote": "Don't start<br>something that <br>you cannot finish.",
+            "quote": "No empieces<br>algo, que no vas<br>a terminar.",
             "caption": "Justin Somper",
-            "year": "British Author",
+            "year": "Autor Britanico",
             "moments": [{
                 "url": "common/media/img/001.jpg",
                 "title": "Diego Stevens Ibañez",
-                "description": "After Dinner, Santiago, 19:40",
+                "description": "Despues de Cenar, Santiago, 19:40",
                 "position": "0 0 0 6vw",
                 "orientation":"vertical",
                 "width":"27vw",
                 "origin":"center center"
             },{
                 "url": "common/media/img/002.jpg",
-                "title": "Lucky, Time and Drinks",
+                "title": "Suerte, Tiempo y Bebidas",
                 "description": "Vitacura, 20:35",
                 "position": "-25vh 0 0 46vw",
                 "orientation":"vertical",
@@ -34,7 +34,7 @@
                 "origin":"center center"
             },{
                 "url": "common/media/img/003.png",
-                "title": "Grandpa’s Furniture Workshop",
+                "title": "Taller de Muebles del Abuelo",
                 "description": " Santiago, 15:30",
                 "position": "-21vh 0 0 0",
                 "orientation":"vertical",
@@ -42,7 +42,7 @@
                 "origin":"center center"
             },{
                 "url": "common/media/img/004.jpg",
-                "title": "The Real Dreamer",
+                "title": "El Verdadero Soñador",
                 "description": "Santiago, 16:05",
                 "position": "-8vh 0 0 40vw",
                 "orientation":"horizontal",
@@ -51,21 +51,21 @@
             }]
 
         }, {
-            "quote": "Be stubborn on<br>vision, but flexible<br>on details.",
+            "quote": "Se obstinado en la<br>visión, pero flexible<br>en los detalles.",
             "caption": "Jeff Bezos",
             "year": "Amazon CEO",
             "moments": [{
                 "url": "common/media/img/005.jpg",
-                "title": "The Essential",
-                "description": "At Home, 12:30",
+                "title": "Lo Esencial",
+                "description": "En Casa, 12:30",
                 "position": "0 0 0 6vw",
                 "orientation":"vertical",
                 "width":"27vw",
                 "origin":"center center"
             },{
                 "url": "common/media/img/006.jpg",
-                "title": "Time is multidimensional",
-                "description": "My Desk, 21:20",
+                "title": "Tiempo es Multidimensional",
+                "description": "Mi Escritorio, 21:20",
                 "position": "-25vh 0 0 46vw",
                 "orientation":"vertical",
                 "width":"27vw",
@@ -76,8 +76,8 @@
         
     },
     "interests": {
-        "title": "Interests & Amusements",
-        "list": ["Watchmaking", "Fintech", "Smartcity", "Fund Raising", "AI & Cognitive Services", "Disruptive Business Models", "Change Management"],
+        "title": "Intereses y Diversiones",
+        "list": ["Relojeria", "Fintech", "Smartcity", "Levantamiento de Capital", "I. Artificial y servicios cognitivos", "Modelos de negocios disruptivos", "Gestión del Cambio"],
         "image": {
             "url": "common/media/img/007.jpg"
         }

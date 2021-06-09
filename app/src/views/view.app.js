@@ -17,8 +17,6 @@ class AppView {
         this.getURL();
     }
 
-
-
     getURL() {
         const self = this;
         const params = location.hash.slice(1) || "/";
@@ -32,15 +30,6 @@ class AppView {
     addEvents() {
         const self = this;
         window.addEventListener("hashchange", this.getURL.bind(this));
-        for (let i = 0; i < document.querySelectorAll('a').length; i++) {
-            const a = document.querySelectorAll('a')[i];
-            a.addEventListener('click', self.addWait.bind(this));
-
-        }
-    }
-
-    addWait() {
-        document.querySelector('body').classList.add('wait');
     }
 
     setMarkup() {
@@ -52,7 +41,7 @@ class AppView {
         </div>
         
         <main>
-            
+
         </main>
         
         <div id="grain">

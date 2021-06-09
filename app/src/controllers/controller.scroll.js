@@ -1,5 +1,4 @@
 import {
-  onWheel,
   constrain
 } from '../../common/utils/utils'
 import VirtualScroll from 'virtual-scroll';
@@ -25,38 +24,20 @@ class ScrollController {
 
   addEvents() {
     const self = this;
-  //   onWheel(self.scroll.bind(this));
-    self.scroller.on(self.hola.bind(this));
+
+    self.scroller.on(self.scroll.bind(this));
   }
 
-  hola(e){
+  scroll(e){
     let delta;
     const self = this;
-    //if (e.deltaX != 0) {
+
       delta = (e.deltaY/120) * self.delta;
-  //  }
-   // if (e.deltaY != 0) {
-   //   delta = (e.deltaY/120) * self.delta;
-   // }
+
     self.target += delta;
     self.target = constrain(self.target, -10000, 0);
   }
 
-  /*scroll(e) {
-    let delta;
-    const self = this;
-
-    if (e.spinX != 0) {
-      delta = e.spinX * -self.delta;
-    }
-    if (e.spinY != 0) {
-      delta = e.spinY * -self.delta;
-    }
-
-    self.target += delta;
-    self.target = constrain(self.target, -10000, 0);
-
-  }*/
 
   anima() {
     const self = this;
