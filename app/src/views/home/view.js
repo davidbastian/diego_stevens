@@ -254,6 +254,19 @@ class View {
         return markup;
     }
 
+    setMenu(list){
+        const self = this;
+        let string = '';
+        for (let i = 0; i < list.length; i++) {
+            const item = list[i];
+            let markup = /*html*/ `
+                     <li><div  data-scrollTo="${item.scrollTo}"  data-scroll="${item.scrollData}">${item.title}</div></li>         `
+            string += markup + "";
+        }
+        return string;
+
+    }
+
 
     setup() {
         const self = this;
@@ -283,13 +296,7 @@ class View {
                             <div class="menu-list half  border">
                                 <div class="list">
                                     <ul>
-                                       <li><div  data-scrollTo=".about-introduction"  data-scroll="0.031442663378545004">About</div></li>
-                                       <li><div  data-scrollTo="#interests"  data-scroll="0.14260172626387177">Interests</div></li>
-                                       <li><div  data-scrollTo="#timeline" data-scroll="0.18618988902589395">Timeline</div></li>
-                                       <li><div  data-scrollTo="#today"  data-scroll="0.34747225647348956">Today</div></li>
-                                       <li><div  data-scrollTo="#challenges"  data-scroll="0.38304562268803943">Challenges</div></li>
-                                       <li><div  data-scrollTo="#press"  data-scroll="0.44143033292231815">Press</div></li>
-                                       <li><div  data-scrollTo="#contact"  data-scroll="0.531442663378545">Contact</div></li>
+                                        ${self.setMenu(self.data.details.menu)}
                                    </ul>
 
                                 </div>

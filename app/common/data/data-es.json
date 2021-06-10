@@ -6,7 +6,36 @@
         "images":[
             "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
         ],
-        "image": "common/media/img/000.jpg"
+        "image": "common/media/img/000.jpg",
+        "menu":[{
+            "title":"Acerca",
+            "scrollTo":".about-introduction",
+            "scrollData":"0.031442663378545004"
+        },{
+            "title":"Intereses",
+            "scrollTo":".#interests",
+            "scrollData":"0.14260172626387177"
+        },{
+            "title":"Linea de Tiempo",
+            "scrollTo":"#timeline",
+            "scrollData":"0.18618988902589395"
+        },{
+            "title":"Hoy Dia",
+            "scrollTo":"#today",
+            "scrollData":"0.34747225647348956"
+        },{
+            "title":"Challenges",
+            "scrollTo":"#challenges",
+            "scrollData":"0.38304562268803943"
+        },{
+            "title":"Prensa",
+            "scrollTo":"#press",
+            "scrollData":"0.44143033292231815"
+        },{
+            "title":"Contacto",
+            "scrollTo":"#contact",
+            "scrollData":"0.531442663378545"
+        }]
     },
 
 
@@ -77,23 +106,23 @@
     },
     "interests": {
         "title": "Intereses y Diversiones",
-        "list": ["Relojeria", "Fintech", "Smartcity", "Levantamiento de Capital", "I. Artificial y servicios cognitivos", "Modelos de negocios disruptivos", "Gestión del Cambio"],
+        "list": ["Relojeria", "Fintech", "Smartcity", "Levantamiento de Capital", "I. Artificial y Servicios Cognitivos", "Modelos de Negocios Disruptivos", "Gestión del Cambio"],
         "image": {
             "url": "common/media/img/007.jpg"
         }
     },
     "timeline": [{
             "year": "2015",
-            "achivements": ["Award of Entrepreneur of<br>2015 by Chilean Institute<br>of Engineers."]
+            "achivements": ["Ganador Emprendedor del año <br>2015 por el Colegio de Ingenieros<br> de Chile."]
         },
         {
             "year": "2016",
-            "achivements": ["Winner of National Pitch<br>Session of MeetLatam <br> Chile."]
+            "achivements": ["Ganador del Pitch nacional de<br> emprendimientos de<br> Meetlatam, Chile."]
             
         },
         {
             "year": "2017",
-            "achivements": ["Winner Silicon Valley<br>Tour-representing Chile as<br> one of the most important<br> Entrepreneurs' of Chile."],
+            "achivements": ["Ganador y representante del <br>Tour Sillicon Valley, como <br>uno de las mas importantes<br> Startups de Chile, junto a grandes <br> empresarios de Chile y USA."],
             "img":{
                 "url":"common/media/img/021.jpg",
                 "align": "flex-start"
@@ -101,7 +130,7 @@
         },
         {
             "year": "2018",
-            "achivements": ["8th place in the Smart<br>city Pitch Contest of<br>SXSW Austin, USA."],
+            "achivements": ["8° lugar en la competición de <br>Pitch, de categoría Smart City,<br> en el evento de SXSW <br>en Austin, USA."],
             "img":{
                 "url":"common/media/img/022.jpg",
                 "align": "flex-end"
@@ -109,40 +138,40 @@
         },
         {
             "year": "2019",
-            "achivements": ["7th place in the most<br>important Startup Event<br>in Colombia, StartCo.", "Representing Chile in the<br> Worldwide VC's event eMerge<br>Americas, Miami, USA.", "Representing Chile in the<br> World Congress Smart City<br> Barcelona."]
+            "achivements": ["7° lugar en el evento <br>StartCo, Colombia, <br>representando a chile.", "Representando a Chile <br>en el encuentro mundial <br>de Ventures Capitals en<br> el evento eMerge Americas,<br> Miami, USA.","Representante de Chile,<br> en el congreso mundial <br>de Smart City<br> Barcelona, España."]
         },
         {
             "year": "2020",
-            "achivements": ["Chilean of the Year 2020 in  <br> the Innovator Category for <br> Premios Natida Chile."]
+            "achivements": ["Chileno del Año 2020, <br>en la categoría Innovador,<br> por los premios <br>Natida, Chile."]
         }
     ],
 
     "today": {
-        "description": "Transforming technology <br> dreams into actions through  <br>5 questions and processes.",
-        "title": "Today",
+        "description": "Transformando sueños <br>tecnológicos en acciones<br> a través de 5 <br>preguntas y procesos.",
+        "title": "Hoy Dia",
         "cards": [{
-                "title": "What is the <br>Aspiration?",
-                "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
+                "title": "Cuál es <br>la aspiración?",
+                "description": "Enfoque estratégico y económico<br>Definición Metas, Proyectos <br>y Business Driver",
                 "media": "common/media/img/0080001-0050.mp4"
             },
             {
-                "title": "Where <br> am I now?",
-                "description": "Mature Digital model,<br>Main GAP and recommendation<br>Tecnical & Commercial sizing",
+                "title": "¿Dónde <br>estoy ahora?",
+                "description": "Modelo de Madurez Digital<br>Principales GAP y Recomendaciones <br>Dimensionamiento Tecnico-Económico<br>de proyectos a desarrollar",
                 "media": "common/media/img/0090001-0050.mp4"
             },
             {
-                "title": "Where do I focus <br> my Transformation?",
-                "description": "Strategic & Economic focus <br> Defination goals, projects <br> and bussiness driver",
+                "title": "¿Dónde focalizo mi transformación?",
+                "description": "Indagando en los procesos de negocio,<br>Definición de la Estrategia,<br>Búsqueda de Presupuesto o fondos",
                 "media": "common/media/img/0100001-0050.mp4"
             },
             {
-                "title": "Consolidating my <br>Transformation",
-                "description": "Strategic & Economic focus <br> Defination goals, projects and bussiness driver",
+                "title": "Consolidando camino hacia la transformación",
+                "description": "Cultura organizacional, Políticas y Regulaciones, Análisis de Aplicaciones, Plataformas y Tecnologías, Data Driven Company como estrategia",
                 "media": "common/media/img/0110001-0050.mp4"
             },
             {
-                "title": "On going portfolio <br> of Projects",
-                "description": "Mature Digital model,<br>Main GAP and recommendation <br> Technical & Commercial sizing",
+                "title": "Puesta en marcha de los Proyectos",
+                "description": "Madurar el modelo digital, principales espacios de mejoras, recomendaciones técnicas y comerciales",
                 "media":"common/media/img/0120001-0050.mp4"
             }
         ]
@@ -154,16 +183,16 @@
             "title": "Selfie with Satya Nadella",
             "done": false
         },{
-            "title": "Create a Shark Tank",
+            "title": "Crear un Shark Tank",
             "done": false
         },{
-            "title": "Parachute jump",
+            "title": "Lanzarse en Paracaidas donde sea",
             "done": false
         },{
-            "title": "Take on a charity challenge",
+            "title": "Ayudar fundación o evento de caridad",
             "done": false
         },{
-            "title": "Hang out with Elon Musk",
+            "title": "Conocer a Elon Musk",
             "done": false
         }],
         "image": {
@@ -174,48 +203,49 @@
 
     },
     "clients":{
-        "description":"I work with clients & partners from all sectors based on a shared value set and vision for how to create a better future through technology.",
+        "description":"Trabajo con clientes y partners de todos los sectores, que comparten valores y una visión de como crearun mejor futuro a través de la tecnología.",
         "img":"common/media/img/014.png",
         "imgMobile":"common/media/img/014m.png"
     },
     "press":{
-        "title":"Press and<br>thoughts",
-        "description":"I love being able to share and help others achieve more through my work. These talks and interviews are my small contribution for a more open, connected and transparent industry. ",
+        "title":"Prensa y <br>pensamientos",
+        "description":"Me encanta poder compartir y ayudar a otros a lograr diferentes desafíos, a través de mi trabajo. Estas charlas y entrevistas son mi pequeña contribución para una industria abierta, conectada y transparente.",
         "articles":[
             {
-                "title":"The plans for the Softech <br> Startup of Cleverit",
-                "type":"News",
+                "title":"Los planes de la <br>startup informática Clever IT",
+                "type":"Noticia",
                 "img":"common/media/img/015.png",
-                "date":"4 April 2021",
+                "date":"4 Abril 2021",
                 "url":"https://dfu.owo.cl/#https://www.df.cl/noticias/df-lab/innovacion-y-startups/los-planes-de-la-startup-informatica-clever-it-para-apoyar-a/2021-04-07/112103.html",
-                "description":"They will invest a total of 20 million in lunching an area of entrepreneur incubation of the IT industry and accomplishing their global growth plan."
+                "description":"Invertirán un total de US$ 20 millones en el lanzamiento de un área de incubación para emprendedores de la industria SofTech y en concretar su plan de crecimiento con alcance global."
             },{
-                "title":"Specialist talks about technology and innovation “made in Chile” that calls the attention of Europe",
-                "type":"Interview",
+                "title":"Especialista cuenta sobre tecnología e innovación “made in Chile” que seduce a Europa",
+                "type":"Entrevista",
                 "img":"common/media/img/016.png",
-                "date":"30 March 2021",
+                "date":"30 Marzo 2021",
                 "url":"https://www.america-retail.com/opinion/opinion-especialista-cuenta-sobre-tecnologia-e-innovacion-made-in-chile-que-seduce-a-europa/",
-                "description":"Meanwhile the entire world is experiences changes produced by accelerated digital transformation, in Chile, with out exception of this trend, has arisen a series of digital and technological solutions, that are well received in Europe."
+                "description":"Mientras en todo el mundo se experimentan diversos cambios producidos por la acelerada transformación digital, en Chile – y sin ser una excepción a esta tendencia- han surgido una serie de tecnologías y soluciones digitales."
             },{
-                "title":"Social Medias and Innovation <br> for Entrepreneurs",
+                "title":"Redes sociales e innovación <br>para emprendedores",
                 "type":"Podcast",
                 "img":"common/media/img/017.png",
-                "date":"19 Feb 2021",
+                "date":"19 Febrero 2021",
                 "url":"https://open.spotify.com/episode/0gydjYg5MmebzUORLS3KOo?si=WCm8FM9zSS2iWFEq4b-V2g&nd=1",
-                "description":"The pandemic and the confinement increase and extended the use of social networks. Their commercial use to offer products and services has increased. Regardless, at the same time these new digital buyers have become more active and demanding."
+                "description":"La pandemia y el confinamiento aumentaron y extendieron el uso de las redes sociales. Su uso comercial para ofrecer productos y servicios aumentó, pero a la vez hizo de estos nuevos compradores digitales personas más activas y exigentes."
             },{
-                "title":"How the pandemic has driving the interest in robots of companies",
-                "type":"Quote",
+                "title":"Cómo la pandemia impulsó el interés por los robots de compañía",
+                "type":"Citas",
                 "img":"common/media/img/018.png",
-                "date":"18 Jan 2021",
-                "url":"https://open.spotify.com/episode/0gydjYg5MmebzUORLS3KOo?si=WCm8FM9zSS2iWFEq4b-V2g&nd=1",
-                "description":"The trends of the following years will be oriented towards medical robots, services and mainly focus on people with handicaps, neurodegenerative illnesses, or the elderly. Among them, many devices will help chores around the house."
+                "date":"18 Enero 2021",
+                "url":"https://www.latercera.com/que-pasa/noticia/como-la-pandemia-impulso-el-interes-por-los-robots-de-compania/O6F6WLJSPFGIJCESDY25PA242Y",
+                "description":"La tendencia en los próximos años serán los robots médicos, de compañía y servicio, mayormente enfocados en personas con discapacidades, enfermedades neurodegenerativas o la tercera edad. Entre ellos, muchos aparatos que ayudarán en las tareas del hogar."
             }
         ]
     },
     "contact":{
-        "title":"Do you <br> wanna start a <br> tech business?",
-        "email":"hola@diegostevens.com"   
+        "title":"¿Quieres partir<br>un negocio<br>tecnológico?",
+        "email":"hola@diegostevens.com",
+        "copy":"Hablemos"   
     },
     "cast":{
            "partners": [
