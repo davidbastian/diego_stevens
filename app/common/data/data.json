@@ -268,6 +268,7 @@
         "copy":"Let's Talk"   
     },
     "cast":{
+            "partnersTitle":"Partners & Friends",
            "partners": [
                 {
                     "name":"Martin Burns",
@@ -304,6 +305,40 @@
                 }
 
             ],
+            "partnershipsTitle":"Partnerships",
+            "partnerships": [
+                {
+                    "name":"Pro Chile",
+                    "link":"https://www.prochile.gob.cl"
+                },{
+                    "name":"MeetLatam",
+                    "link":"https://www.meetlatam.com/ "
+                },{
+                    "name":"Microsoft",
+                    "link":"https://www.microsoft.com"
+                },{
+                    "name":"DTS Chile",
+                    "link":"https://www.dtschile.com/"
+                }
+            ],
+            "companiesTitle":"My bridge to the binary world",
+            "companiesImg":"common/media/img/019.png",
+            "companies": [
+                {
+                    "name":"Pro Chile",
+                    "link":"https://www.prochile.gob.cl"
+                },{
+                    "name":"MeetLatam",
+                    "link":"https://www.meetlatam.com/ "
+                },{
+                    "name":"Microsoft",
+                    "link":"https://www.microsoft.com"
+                },{
+                    "name":"DTS Chile",
+                    "link":"https://www.dtschile.com/"
+                }
+            ],
+
             "investors": [
                 {
                     "name":"Tempus Asset Management",

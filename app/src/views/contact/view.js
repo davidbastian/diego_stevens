@@ -9,30 +9,27 @@ class View {
         <section id="contact" class="content">
                     <div class="border contact-info">
                         <h2>${contact.title}</h2>
-                        <h5>Let’s talk <br> <a href="">${contact.email}</a></h5>
+                        <h5>${contact.copy}<br> <a href="">${contact.email}</a></h5>
                     </div>
                     <div id="cast" class="content">
                         <div class="partners">
-                                <h6><b>Partners & Friends</b> </h6>
+                                <h6><b>${cast.partnersTitle}</b> </h6>
                                 <div class="partners-container">
                                     ${self.setPartners(cast.partners)}
                                 </div>
                         </div>
 
                         <div class="partnerships">
-                                <h6> <b>Partnerships</b> </h6>
+                                <h6><b>${cast.partnershipsTitle}</b></h6>
                                 <div class="partnerships-container">  
-                                    <a target="_blank" href="https://www.prochile.gob.cl/"><p>Pro Chile</p></a>
-                                    <a target="_blank" href="https://www.meetlatam.com/"><p>MeetLatam</p></a>
-                                    <a target="_blank" href="https://www.microsoft.com"><p>Microsoft</p></a>
-                                    <a target="_blank" href="https://www.dtschile.com/"><p>DTS Chile</p></a>
+                                    ${self.setPartnership(cast.partnerships)}
                                 </div>
                         </div>
                         
                         <div class="my-companies">
-                            <h6><b>My bridge to the binary world</b></h6>
+                            <h6><b>${cast.companiesTitle}</b></h6>
                             <div class="container">                            
-                                    <img src="common/media/img/019.png" alt="">    
+                                    <img src="${cast.companiesImg}" alt="">    
                             </div>   
                         </div>
 
@@ -54,7 +51,7 @@ class View {
                             </div>   
                         </div>
 
-                        <div class="my-companies">
+                        <div class="my-companies alma-matter">
                             <h6><b>Alma Matter</b></h6>
                             <div class="container">                            
                                     <img src="common/media/img/020.png" alt="">    
@@ -95,6 +92,18 @@ class View {
         }
         return string;
 
+    }
+    setPartnership(partnership){
+        const self = this;
+        let string = '';
+        for (let i = 0; i < partnership.length; i++) {
+            const partner = partnership[i];
+            let markup = /*html*/ `
+                 <a target="_blank" href="${partner.link}"><p>${partner.name}</p></a>
+                `
+            string += markup + "";
+        }
+        return string;
     }
 
 

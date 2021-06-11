@@ -270,6 +270,7 @@
         "copy":"Hablemos"   
     },
     "cast":{
+            "partnersTitle":"Socios & Amigos",
            "partners": [
                 {
                     "name":"Martin Burns",
@@ -305,6 +306,39 @@
                     "pos":"200vw"
                 }
 
+            ],
+            "partnershipsTitle":"Asociaciones",
+            "partnerships": [
+                {
+                    "name":"Pro Chile",
+                    "link":"https://www.prochile.gob.cl"
+                },{
+                    "name":"MeetLatam",
+                    "link":"https://www.meetlatam.com/ "
+                },{
+                    "name":"Microsoft",
+                    "link":"https://www.microsoft.com"
+                },{
+                    "name":"DTS Chile",
+                    "link":"https://www.dtschile.com/"
+                }
+            ],
+            "companiesTitle":"Mi puente al mundo binario",
+            "companiesImg":"common/media/img/019.png",
+            "companies": [
+                {
+                    "name":"Pro Chile",
+                    "link":"https://www.prochile.gob.cl"
+                },{
+                    "name":"MeetLatam",
+                    "link":"https://www.meetlatam.com/ "
+                },{
+                    "name":"Microsoft",
+                    "link":"https://www.microsoft.com"
+                },{
+                    "name":"DTS Chile",
+                    "link":"https://www.dtschile.com/"
+                }
             ],
             "investors": [
                 {
