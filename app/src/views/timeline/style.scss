@@ -82,3 +82,32 @@
         justify-content: space-between;
     }
 }
+
+
+.mobile {
+    #timeline {
+        height: auto;
+        padding: 0;
+        padding-bottom: 6vh;
+
+        img {
+            width: 100vw !important;
+        }
+
+        .img-timeline-wrap {
+            padding-bottom: 0 !important;
+        }
+
+        .timeline-item_achivements {
+            p {
+                margin-bottom: 0 !important;
+
+                br {
+                    display: none;
+                }
+            }
+
+        }
+
+    }
+}

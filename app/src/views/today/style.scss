@@ -88,7 +88,55 @@
 
 }
 
-.es {
+.tablet {
+    .today-cards {
+        overflow-x: scroll !important;
+        -webkit-overflow-scrolling: touch !important;
+
+    }
+}
+
+.es.desktop {
+
+
+}
+
+.mobile {
+    #today {
+
+        padding: 0;
+
+        .today-intro {
+            padding-top: 6vh;
+
+            p {
+                width: 40vw;
+
+                br {
+                    display: none;
+                }
+            }
+        }
+
+        .today-cards_content {
+            margin: 8vh 0vw !important;
+            padding: 0 5vw !important;
+        }
+
+        .today-cards {
+            margin-bottom: 0;
+            overflow-x: scroll;
+            -webkit-overflow-scrolling: touch;
+
+        }
+
+        .today-cards .today-card {
+            width: 70vw;
+            margin: 0 1vw;
+        }
+    }
+}
+/*.es {
     #today .today-cards .today-card {
         width: 29vw;
         display: block;
@@ -125,4 +173,4 @@
         padding: 2vw;
         box-sizing: border-box;
     }
-}
+}*/

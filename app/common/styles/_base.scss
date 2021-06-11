@@ -168,8 +168,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
     color: $color02;
     background-color: $color01;
-
-
 }
 
 
@@ -178,18 +176,10 @@ main {
     height: 100vh;
     overflow: hidden;
 
-
-    //   overflow-y: scroll;
-
     section {
         width: 100vw;
         display: flex;
         position: relative;
-        // overflow: hidden;
-        /*    position: absolute;
-        top: 100%;
-        left: 0;
-        height: 100vh;*/
     }
 }
 
@@ -361,18 +351,9 @@ b {
     background-color: red;
 }
 
+
 //mobile css
-.tablet {
-    .today-cards {
-        overflow-x: scroll !important;
-        -webkit-overflow-scrolling: touch !important;
-
-    }
-}
-
-
 .mobile {
-
     &.ios {
 
         #home,
@@ -383,8 +364,6 @@ b {
             height: calc(100vh - 114px);
         }
     }
-
-
 
     main {
         overflow-y: scroll;
@@ -545,8 +524,7 @@ b {
 
         .hero-introduction {
             position: absolute;
-            // left: 3vw;
-            // top: 6vh;
+
 
             dl {
                 position: absolute;
@@ -576,7 +554,6 @@ b {
             top: 7vh;
 
 
-            img {}
         }
 
         .hero-logo {
@@ -594,9 +571,6 @@ b {
         }
     }
 
-
-
-
     #about,
     #interests,
     #timeline,
@@ -610,301 +584,18 @@ b {
         height: auto;
     }
 
-    #preloader-wrap {
-        // display: none;
-    }
-
-    #about {
-        height: auto;
-
-        .about-introduction {
-            padding-left: 4vh;
-            padding-bottom: 15vh;
-
-            p {
-                width: 90%;
-            }
-
-        }
-
-        .about-moments {
-            width: 100%;
-
-            figure {
-                &:nth-child(1) {
-                    margin-left: 0 !important;
-                    display: flex;
-                    flex-direction: column;
-                    align-items: flex-end;
-
-                    img {
-                        width: 100% !important;
-                    }
-
-                    dl {
-                        padding-right: 15vw;
-                    }
-                }
-
-
-                &:nth-child(2) {
-                    margin-top: 10vh !important;
-                    margin-left: 32vw !important;
-
-                    img {
-                        width: 47vw !important;
-                    }
-                }
-
-                &:nth-child(3) {
-                    margin-top: 10vh !important;
-                    margin-left: 32vw !important;
-
-                    img {
-                        width: 68vw !important;
-                    }
-                }
-
-                &:nth-child(4) {
-                    margin-top: 10vh !important;
-                    margin-left: 9vw !important;
-                    flex-direction: column;
-
-                    img {
-                        width: 93vw !important;
-                    }
-
-                    dl {
-                        padding: 2vh 0;
-                    }
-                }
-            }
-        }
-
-    }
-
-    #interests,
-    #challenges {
-        display: block;
-        padding: 7vw;
-        box-sizing: border-box;
-        height: auto;
-
-        p span {
-            width: 3.2vw;
-        }
-
-        .interests-image,
-        .challenges-image {
-            position: absolute;
-            width: 46.5vh;
-            right: 0;
-            top: 13vh;
-            height: 38vh;
-        }
-
-        .interests-list,
-        .challenges-list {
-            width: 100%;
-            justify-content: flex-start;
-
-            ul {
-                padding-top: 50vh;
-            }
-        }
-    }
-
-    #timeline {
-        height: auto;
-        padding: 0;
-        padding-bottom: 6vh;
-
-        img {
-            width: 100vw !important;
-        }
-
-        .img-timeline-wrap {
-            padding-bottom: 0 !important;
-        }
-
-        .timeline-item_achivements {
-            p {
-                margin-bottom: 0 !important;
-
-                br {
-                    display: none;
-                }
-            }
-
-        }
-
-    }
-
-    #today {
-
-        padding: 0;
-
-        .today-intro {
-            padding-top: 6vh;
-
-            p {
-                width: 40vw;
-
+    &.es {
+        #about {
+            blockquote {
                 br {
                     display: none;
                 }
             }
         }
-
-        .today-cards_content {
-            margin: 8vh 0vw !important;
-            padding: 0 5vw !important;
-        }
-
-        .today-cards {
-            margin-bottom: 0;
-            overflow-x: scroll;
-            -webkit-overflow-scrolling: touch;
-
-        }
-
-        .today-cards .today-card {
-            width: 70vw;
-            margin: 0 1vw;
-        }
     }
-
-    #press {
-        height: auto;
-
-        .press-articles a {
-            width: 100%;
-            margin-left: 0 !important;
-        }
-
-        .press-intro {
-            width: 100vw;
-            flex-direction: column;
-        }
-
-        .press-intro p {
-            width: 87vw;
-        }
-
-
-        #clients {
-            padding-bottom: 12vh;
-
-            img {
-                width: 82vw;
-            }
-
-            p {
-                max-width: 86%;
-                margin: 0vh auto;
-                margin-bottom: 12vh;
-            }
-
-
-        }
-    }
-
-    #contact {
-        padding-top: 10vh;
-
-        #cast .partners {
-            width: 90vw;
-
-            padding-top: 30vh;
-            padding-bottom: 33vh;
-            margin-top: 0;
-
-            .partners-container {
-                padding-top: 1vh;
-
-                .partner-item p.partner-role {
-                    font-size: 2.7vw;
-                }
-            }
-        }
-
-        #cast .collaborations .container h4 {
-            margin: 1.5vh 0;
-            margin-bottom: 1.5vh;
-            font-size: 2vw;
-        }
-
-        #cast .collaborations,
-        #cast .partnerships,
-        #cast .my-companies,
-        #cast .investors {
-            margin-top: 15vh;
-        }
-
-        #cast .my-companies {
-            img {
-                width: 83vw;
-            }
-        }
-
-        #cast .copyright {
-            text-align: center;
-            width: 90vw;
-            margin: 0 auto;
-            padding-top: 15vh;
-            line-height: 3.2vw;
-            padding-bottom: 20vh;
-        }
-
-        #cast .partners .partners-container .partner-item {
-
-            &:nth-child(1) {
-
-                div {
-                    left: -7vw !important;
-                    top: -34vh;
-                }
-            }
-
-            &:nth-child(2) {
-
-                div {
-                    left: -7vw !important;
-                    top: 22vh;
-                }
-            }
-
-            &:nth-child(3) {
-
-                div {
-                    left: 55vw !important;
-                    top: -32vh;
-                }
-            }
-
-            &:nth-child(4) {
-
-                div {
-                    top: 20vh;
-                }
-            }
-
-
-            img {
-                width: 38vw;
-            }
-
-        }
-
-
-
-
-    }
-
 
 }
 
-.tablet {}
 
 #rotate {
     display: none;
@@ -925,7 +616,6 @@ b {
     }
 }
 
-
 .tablet,
 .desktop {
     @media (orientation: portrait) {
@@ -934,8 +624,6 @@ b {
         }
     }
 }
-
-
 
 .mobile {
     @media (orientation: landscape) {

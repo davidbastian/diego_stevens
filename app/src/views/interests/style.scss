@@ -18,3 +18,33 @@
         background-color: $color02;
     }
 }
+
+.mobile {
+    #interests {
+        display: block;
+        padding: 7vw;
+        box-sizing: border-box;
+        height: auto;
+
+        p span {
+            width: 3.2vw;
+        }
+
+        .interests-image {
+            position: absolute;
+            width: 46.5vh;
+            right: 0;
+            top: 13vh;
+            height: 38vh;
+        }
+
+        .interests-list{
+            width: 100%;
+            justify-content: flex-start;
+
+            ul {
+                padding-top: 50vh;
+            }
+        }
+    }
+}

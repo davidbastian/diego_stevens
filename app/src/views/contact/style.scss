@@ -195,3 +195,97 @@
     }
 
 }
+
+.mobile {
+    #contact {
+        padding-top: 10vh;
+
+        #cast .partners {
+            width: 90vw;
+
+            padding-top: 30vh;
+            padding-bottom: 33vh;
+            margin-top: 0;
+
+            .partners-container {
+                padding-top: 1vh;
+
+                .partner-item p.partner-role {
+                    font-size: 2.7vw;
+                }
+            }
+        }
+
+        #cast .collaborations .container h4 {
+            margin: 1.5vh 0;
+            margin-bottom: 1.5vh;
+            font-size: 2vw;
+        }
+
+        #cast .collaborations,
+        #cast .partnerships,
+        #cast .my-companies,
+        #cast .investors {
+            margin-top: 15vh;
+        }
+
+        #cast .my-companies {
+            img {
+                width: 83vw;
+            }
+        }
+
+        #cast .copyright {
+            text-align: center;
+            width: 90vw;
+            margin: 0 auto;
+            padding-top: 15vh;
+            line-height: 3.2vw;
+            padding-bottom: 20vh;
+        }
+
+        #cast .partners .partners-container .partner-item {
+
+            &:nth-child(1) {
+
+                div {
+                    left: -7vw !important;
+                    top: -34vh;
+                }
+            }
+
+            &:nth-child(2) {
+
+                div {
+                    left: -7vw !important;
+                    top: 22vh;
+                }
+            }
+
+            &:nth-child(3) {
+
+                div {
+                    left: 55vw !important;
+                    top: -32vh;
+                }
+            }
+
+            &:nth-child(4) {
+
+                div {
+                    top: 20vh;
+                }
+            }
+
+
+            img {
+                width: 38vw;
+            }
+
+        }
+
+
+
+
+    }
+}

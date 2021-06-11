@@ -99,3 +99,40 @@
 
     }
 }
+
+.mobile {
+    #press {
+        height: auto;
+
+        .press-articles a {
+            width: 100%;
+            margin-left: 0 !important;
+        }
+
+        .press-intro {
+            width: 100vw;
+            flex-direction: column;
+        }
+
+        .press-intro p {
+            width: 87vw;
+        }
+
+
+        #clients {
+            padding-bottom: 12vh;
+
+            img {
+                width: 82vw;
+            }
+
+            p {
+                max-width: 86%;
+                margin: 0vh auto;
+                margin-bottom: 12vh;
+            }
+
+
+        }
+    }
+}

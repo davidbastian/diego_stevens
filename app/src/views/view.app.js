@@ -78,11 +78,6 @@ class AppView {
     }
 
 
-    preload() {
-
-
-    }
-
 }
 
 

@@ -90,7 +90,7 @@ class View {
             el.addEventListener("click", self.updateSection.bind(this));
         }
 
-        window.addEventListener("mousemove", self.addParallax.bind(this));
+        document.body.querySelector('main').addEventListener("mousemove", self.addParallax.bind(this));
 
     }
 
@@ -143,8 +143,8 @@ class View {
             self.tl.play();
             self.sound.play();
         }
-
     }
+    
     updateSection(e) {
         const self = this;
         const current = e.currentTarget;

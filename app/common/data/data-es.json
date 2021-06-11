@@ -102,7 +102,7 @@
             }]
 
         }, {
-            "quote": "Se obstinado en la<br>visión, pero flexible<br>en los detalles.",
+            "quote": "Se obstinado en la <br>visión, pero flexible<br>en los detalles.",
             "caption": "Jeff Bezos",
             "year": "Amazon CEO",
             "moments": [{
@@ -340,6 +340,18 @@
                     "link":"https://www.dtschile.com/"
                 }
             ],
+            "collaborationsTitle":"Colaboraciones & Alianzas",
+            "collaborationsHR":"y",
+            "collaborations": [
+                {
+                    "name":"Colegio de Ingenieros de Chile",
+                    "link":"https://www.linkedin.com/company/colegio-de-ingenieros-de-chile/?originalSubdomain=cl"
+                },{
+                    "name":"Alianza Chilena de Ciberseguridad",
+                    "link":"https://alianzaciberseguridad.cl/ "
+                }
+            ],
+            "investorsTitle":"Inversores Publicos y Privados",
             "investors": [
                 {
                     "name":"Tempus Asset Management",
@@ -351,7 +363,10 @@
                     "name":"Conicyt",
                     "link":"https://www.conicyt.cl/"
                 }
-            ]
+            ],
+            "almamatter":"common/media/img/020.png",
+            "copyright":"Todo el sitio web diegostevens.com tiene Copyright © 2021 de Diego Stevens. Reservados todos los derechos. El sitio diegostevens.com no puede ser copiado o duplicado total o parcialmente por ningún medio sin un acuerdo previo expreso por escrito o a menos que se indique específicamente en el sitio. Algunas fotografías o documentos contenidos en el sitio pueden ser propiedad de terceros con derechos de autor; Por la presente se reconoce esos derechos de autor. Todo ese material se utiliza con el permiso del propietario."
+
     }
 
 

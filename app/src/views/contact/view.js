@@ -2,7 +2,7 @@ import './style.scss';
 
 class View {
 
-    setup(contact,cast) {
+    setup(contact, cast) {
         const self = this;
 
         const markup = /*html*/ `  
@@ -34,18 +34,16 @@ class View {
                         </div>
 
                         <div class="collaborations">
-                            <h6><b>Collaborations & Alliances</b></h6>
+                            <h6><b>${cast.collaborationsTitle}</b></h6>
                             <div class="container">                            
-                                <a target="_blank" href="https://www.linkedin.com/company/colegio-de-ingenieros-de-chile/?originalSubdomain=cl"><h5>Colegio de Ingenieros de Chile</h5></a><h4>and</h4> <a target="_blank" href="https://alianzaciberseguridad.cl/"><h5>Alianza Chilena de Ciberseguridad</h5></a>
+                                <a target="_blank" href="${cast.collaborations[0].link}"><h5>${cast.collaborations[0].name}</h5></a><h4>${cast.collaborationsHR}</h4> <a target="_blank" href="${cast.collaborations[1].link}"><h5>${cast.collaborations[1].name}</h5></a>
                             </div>   
                         </div>
 
                         <div class="investors">
-                            <h6><b>Private and Public Inverstors</b></h6>
-                            <div class="container">                            
-                                <a target="_blank" href="https://www.linkedin.com/company/tempus-asset-management/"><h5>Tempus Asset Management</h5></a>
-                                <a target="_blank" href="https://www.linkedin.com/company/corfo/"><h5>Corfo</h5></a>
-                                <a target="_blank" href="https://www.conicyt.cl/"><h5>Conicyt</h5></a>
+                            <h6><b>${cast.investorsTitle}</b></h6>
+                            <div class="container">  
+                                ${self.setInvestors(cast.investors)}                     
                                 
                                 
                             </div>   
@@ -54,21 +52,21 @@ class View {
                         <div class="my-companies alma-matter">
                             <h6><b>Alma Matter</b></h6>
                             <div class="container">                            
-                                    <img src="common/media/img/020.png" alt="">    
+                                    <img src="${cast.almamatter}" alt="">    
                             </div>   
                         </div>
 
-                        <h6 class="copyright">The entire diegostevens.com Web site is Copyright ©2021 by Diego Stevens. All Rights Reserved. The diegostevens.com site may not be copied or duplicated in whole or part by any means without express prior agreement in writing or unless specifically noted on the site.
-                            Some photographs or documents contained on the site may be the copyrighted property of others; acknowledgement of those copyrights is hereby given. All such material is used with the permission of the owner.
+                        <h6 class="copyright">
+                            ${cast.copyright}
                         </h6>
                     </div>
         </section>`
 
-                return markup;
+        return markup;
 
     }
 
-    
+
 
 
 
@@ -93,13 +91,26 @@ class View {
         return string;
 
     }
-    setPartnership(partnership){
+    setPartnership(partnership) {
         const self = this;
         let string = '';
         for (let i = 0; i < partnership.length; i++) {
             const partner = partnership[i];
             let markup = /*html*/ `
                  <a target="_blank" href="${partner.link}"><p>${partner.name}</p></a>
+                `
+            string += markup + "";
+        }
+        return string;
+    }
+
+    setInvestors(investors) {
+        const self = this;
+        let string = '';
+        for (let i = 0; i < investors.length; i++) {
+            const investor = investors[i];
+            let markup = /*html*/ `
+                 <a target="_blank" href="${investor.link}"><h5>${investor.name}</h5></a>
                 `
             string += markup + "";
         }
