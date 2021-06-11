@@ -3,6 +3,26 @@
         "name": "Diego",
         "lastname": "Stevens",
         "slogan": "Chilean, Entrepreneur & Tech Visionary",
+        "social":{
+            "linkedin":"https://www.linkedin.com/in/diegostevensi/",
+            "instagram":"https://www.instagram.com/dstevensi/"
+        },
+        "languages":[{
+            "title":"English",
+            "url":"#/"
+        },{
+            "title":"Spanish",
+            "url":"#/es"
+        }],
+        "credits":[{
+            "copy":"Design & Develop by ",
+            "name":"davidbastian.red",
+            "url":"https://davidbastian.red"
+        },{
+            "copy":"Photographs by ",
+            "name":"Cristobal Marambio",
+            "url":"http://cristobalmarambio.com/"
+        }],
         "images":[
             "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
         ],

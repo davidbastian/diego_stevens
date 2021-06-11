@@ -27,9 +27,6 @@ import {
 } from 'howler';
 
 const { detect } = require('detect-browser');
- 
-
-
 
 
 class View {
@@ -42,13 +39,12 @@ class View {
         this.device = checkDevice();
         this.br =  detect();
 
-      //  console.log(this.br.name,'br')
         document.body.querySelector('.test').innerHTML = this.br.name;
 
         document.querySelector('html').classList.add(this.device);
         document.querySelector('html').classList.add(this.br.name);
 
-      //  console.log(this.device, ' device')
+
         this.setup();
 
         this.parallaxYPos = 0;
@@ -88,8 +84,6 @@ class View {
         document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
         document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
 
-        document.body.querySelector('.lng').addEventListener("click", self.setLanguage.bind(this));
-
 
         for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
             const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
@@ -100,11 +94,7 @@ class View {
 
     }
 
-    setLanguage(e){
-       window.location.reload();
-       return false;
 
-    }
 
     addParallax(e){
         const self = this;
@@ -234,21 +224,21 @@ class View {
         return false;
     }
 
-    setNav() {
+    setNav(mail,social) {
         let markup;
         if (this.device === "mobile") {
             markup = /*html*/ `
                         <div class="link" id="movie"><span></span></div>
-                        <a  class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LI</a>
-                        <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">INS</a>
-                        <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+                        <a  class="link" target="_blank" href="${social.linkedin}">LI</a>
+                        <a  class="link" target="_blank" href="${social.instagram}">INS</a>
+                        <a  class="link" href="mailto:${mail}"><b>${mail}</b></a>
             `
         } else {
             markup = /*html*/ `
                         <div class="link" id="movie">Movie Mode<span></span></div>
-                        <a  class="link" target="_blank" href="https://www.linkedin.com/in/diegostevensi/">LinkedIn</a>
-                        <a  class="link" target="_blank" href="https://www.instagram.com/dstevensi/">Instagram</a>
-                        <a  class="link" href="mailto:hola@diegostevens.com"><b>hola@diegostevens.com</b></a>
+                        <a  class="link" target="_blank" href="${social.linkedin}">LinkedIn</a>
+                        <a  class="link" target="_blank" href="${social.instagram}">Instagram</a>
+                        <a  class="link" href="mailto:${mail}"><b>${mail}</b></a>
             `
         }
         return markup;
@@ -267,14 +257,29 @@ class View {
 
     }
 
+    setLanguages(languages,slogan){
+        let markup = /*html*/ `
+                        <dt>${slogan}</dt>
+                        <dd><a class="active eng lng" href="${languages[0].url}">${languages[0].title}</a><span>|</span><a class="es lng" href="${languages[1].url}">${languages[1].title}</a></dd>
+            `
+        return markup;
+    }
+
+    setCredits(credits){
+        let markup = /*html*/ `
+                <h6>${credits[0].copy} <a target="_blank" href="${credits[0].url}"><b>${credits[0].name}</b></a></h6>
+                <h6>${credits[1].copy} <a target="_blank" href="${credits[1].url}"><b>${credits[1].name}</b></a></h6>
+            `
+        return markup;
+    }
+
 
     setup() {
         const self = this;
         const markup = /*html*/ `
                 <header>
                     <nav>
-                        ${self.setNav()}
-
+                        ${self.setNav(self.data.contact.email,self.data.details.social)}
                         <div  class="link"  id="hamburger">
                             <div>
                                 <img src="common/media/img/open.png" alt="" class="open-menu">
@@ -288,8 +293,7 @@ class View {
                                     ${Logo}
                                 </div>
                                 <dl>
-                                    <dt>${self.data.details.slogan}</dt>
-                                    <dd><a class="active lng eng" href="#/">English</a><span>|</span><a class="es lng" href="#/es">Spanish</a></dd>
+                                    ${self.setLanguages(self.data.details.languages,self.data.details.slogan)}
                                 </dl>
                                     
                             </div>
@@ -298,25 +302,21 @@ class View {
                                     <ul>
                                         ${self.setMenu(self.data.details.menu)}
                                    </ul>
-
                                 </div>
                                 <div class="credits-site">
-                                    <h6>Design & Develop by <a target="_blank" href="https://davidbastian.red"><b>davidbastian.red</b></a></h6>
-                                    <h6>Photographs by <a target="_blank" href="http://cristobalmarambio.com/"><b>Cristobal Marambio</b></a></h6>
+                                    ${self.setCredits(self.data.details.credits)}
                                 </div>
                             </div>  
                     </div>
                 </header>
-
 
                 <section  id="home">
                     <div class="hero-introduction border half">
                         <div class="hero-logo">
                             ${Logo}
                         </div>
-                        <dl>
-                            <dt>${self.data.details.slogan}</dt>
-                            <dd><a class="active eng lng" href="#/">English</a><span>|</span><a class="es lng" href="#/es">Spanish</a></dd>
+                        <dl>      
+                            ${self.setLanguages(self.data.details.languages,self.data.details.slogan)}
                         </dl>
                          
                     </div>
@@ -337,12 +337,8 @@ class View {
         main.insertAdjacentHTML('afterbegin', markup);
 
 
-
         if (self.device === "mobile") {
-
-            self.toggleNav();
-
-
+             self.toggleNav();
         } else {
 
             const tl = gsap.timeline({
@@ -620,7 +616,6 @@ class View {
             });
 
 
-
             self.tl = tl;
 
             this.drag = new DragController({
@@ -648,16 +643,12 @@ class View {
             const element = document.querySelectorAll('img')[index];
             imgArr.push(element.src);
         }
-
-        //   console.log(imgArr);
-
         this.getImages(imgArr);
 
     }
 
     getImages(imgs) {
         const self = this;
-
         function preloadImages(urls, allImagesLoadedCallback) {
             var loadedCounter = 0;
             var toBeLoadedNumber = urls.length;
