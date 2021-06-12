@@ -16,7 +16,10 @@ class ScrollController {
   }
 
   init() {
-    this.scroller = new VirtualScroll();
+    const self = this;
+    this.scroller = new VirtualScroll({
+      el:self.container
+    });
     this.addEvents();
     this.anima();
 
@@ -24,9 +27,14 @@ class ScrollController {
 
   addEvents() {
     const self = this;
-
     self.scroller.on(self.scroll.bind(this));
   }
+
+  removeEvents() {
+    const self = this;
+    self.scroller.off();
+  }
+
 
   scroll(e){
     let delta;

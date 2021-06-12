@@ -30,10 +30,15 @@ class DragController {
     self.container.addEventListener("mousemove", self.move.bind(this));
     self.container.addEventListener("mousedown", self.down.bind(this));
     window.addEventListener("mouseup", self.up.bind(this));
-
-
-
     window.addEventListener("resize", self.resize.bind(this));
+  }
+
+  removeEvents() {
+    const self = this;
+    self.container.removeEventListener("mousemove", self.move);
+    self.container.removeEventListener("mousedown", self.down);
+    window.removeEventListener("mouseup", self.up);
+    window.removeEventListener("resize", self.resize);
   }
 
   resize() {

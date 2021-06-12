@@ -36,9 +36,7 @@ class AppView {
         const self = this;
         const markup = /*html*/ `
 
-        <div class="test none">
-
-        </div>
+        <div class="test none"></div>
         
         <main>
 

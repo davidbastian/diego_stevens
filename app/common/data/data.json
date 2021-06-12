@@ -9,10 +9,12 @@
         },
         "languages":[{
             "title":"English",
-            "url":"#/"
+            "url":"#/",
+            "cta":"active"
         },{
             "title":"Spanish",
-            "url":"#/es"
+            "url":"#/es",
+            "cta":""
         }],
         "credits":[{
             "copy":"Design & Develop by ",

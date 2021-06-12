@@ -5,8 +5,9 @@ import {
 import Logo from '../../../common/svg/logo.svg'
 
 
-import ScrollController from '../../controllers/controller.scroll';
-import DragController from '../../controllers/controller.drag';
+import ScrollController from '../../controllers/controller.scroll'
+import DragController from '../../controllers/controller.drag'
+import ParallaxController from '../../controllers/controller.parallax'
 
 
 import AboutView from '../../views/about/view'
@@ -19,41 +20,36 @@ import ContactView from '../../views/contact/view'
 
 
 import {
-    gsap,ScrollToPlugin
+    gsap,
+    ScrollToPlugin
 } from "gsap/all";
 
 import {
     Howl
 } from 'howler';
 
-const { detect } = require('detect-browser');
+const {
+    detect
+} = require('detect-browser');
 
 
 class View {
 
     init(params, data) {
+        const self = this;
         gsap.registerPlugin(ScrollToPlugin);
         // console.log(params, data, 'LOAD HOME');
         this.data = data;
 
         this.device = checkDevice();
-        this.br =  detect();
+        this.br = detect();
 
         document.body.querySelector('.test').innerHTML = this.br.name;
-
         document.querySelector('html').classList.add(this.device);
         document.querySelector('html').classList.add(this.br.name);
 
-
         this.setup();
-
-        this.parallaxYPos = 0;
-        this.parallaxXPos = 0;
-        this.parallaxYTarget = 0;
-        this.parallaxXTarget = 0;
-
         this.addEvents();
-        this.animaParallax();
 
 
 
@@ -76,6 +72,8 @@ class View {
         this.censor.pause();
         this.sound.pause();
 
+        window.APP.controller.model.addEvents(self);
+ 
 
     }
 
@@ -84,43 +82,33 @@ class View {
         document.body.querySelector('#hamburger').addEventListener("click", self.toggleMenu.bind(this));
         document.body.querySelector('#movie').addEventListener("click", self.toggleMovie.bind(this));
 
-
         for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
             const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
             el.addEventListener("click", self.updateSection.bind(this));
         }
-
-        document.body.querySelector('main').addEventListener("mousemove", self.addParallax.bind(this));
-
     }
 
-
-
-    addParallax(e){
+    removeEvents() {
         const self = this;
-        let percent = {
-            x:(100-((window.outerWidth - e.screenX)*200/window.outerWidth)),
-            y:(100-((window.outerHeight - e.screenY)*200/window.outerHeight)),
+        document.body.querySelector('#hamburger').removeEventListener("click", self.toggleMenu);
+        document.body.querySelector('#movie').removeEventListener("click", self.toggleMovie);
+        for (let i = 0; i < document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div').length; i++) {
+            const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
+            el.removeEventListener("click", self.updateSection);
         }
-        self.parallaxYTarget = percent.y/20;
-        self.parallaxXTarget = percent.x/20;
+        self.parallax.removeEvents();
+        self.drag.removeEvents();
+        self.scroll.removeEvents();
+
+        document.body.querySelector('#movie').classList.remove('active');
+        document.body.classList.remove('movie');
+        document.body.querySelector('#movie').innerHTML = "Movie Mode<span></span>";
+       // self.scroll.update(self.tl, self.tl.progress());
+        self.sound.pause();
+
+        
     }
 
-    animaParallax() {
-        const self = this;
-        requestAnimationFrame(self.animaParallax.bind(this));
-
-        this.parallaxXPos += (this.parallaxXTarget - this.parallaxXPos) * 0.08;
-        this.parallaxYPos += (this.parallaxYTarget - this.parallaxYPos) * 0.08;
-
-
-        for (let i = 0; i < document.body.querySelectorAll('.parallax').length; i++) {
-            const element = document.body.querySelectorAll('.parallax')[i];
-
-            element.parentElement.style.perspective = '1200px';
-            element.style.transform = 'rotateX('+self.parallaxYPos+'deg) rotateY('+-self.parallaxXPos+'deg)'; 
-        }   
-    }
 
     toggleMovie(e) {
         const self = this;
@@ -144,7 +132,7 @@ class View {
             self.sound.play();
         }
     }
-    
+
     updateSection(e) {
         const self = this;
         const current = e.currentTarget;
@@ -224,7 +212,7 @@ class View {
         return false;
     }
 
-    setNav(mail,social) {
+    setNav(mail, social) {
         let markup;
         if (this.device === "mobile") {
             markup = /*html*/ `
@@ -244,7 +232,7 @@ class View {
         return markup;
     }
 
-    setMenu(list){
+    setMenu(list) {
         const self = this;
         let string = '';
         for (let i = 0; i < list.length; i++) {
@@ -257,15 +245,15 @@ class View {
 
     }
 
-    setLanguages(languages,slogan){
+    setLanguages(languages, slogan) {
         let markup = /*html*/ `
                         <dt>${slogan}</dt>
-                        <dd><a class="active eng lng" href="${languages[0].url}">${languages[0].title}</a><span>|</span><a class="es lng" href="${languages[1].url}">${languages[1].title}</a></dd>
+                        <dd><a class="${languages[0].cta} eng lng" href="${languages[0].url}">${languages[0].title}</a><span>|</span><a class="${languages[1].cta} es lng" href="${languages[1].url}">${languages[1].title}</a></dd>
             `
         return markup;
     }
 
-    setCredits(credits){
+    setCredits(credits) {
         let markup = /*html*/ `
                 <h6>${credits[0].copy} <a target="_blank" href="${credits[0].url}"><b>${credits[0].name}</b></a></h6>
                 <h6>${credits[1].copy} <a target="_blank" href="${credits[1].url}"><b>${credits[1].name}</b></a></h6>
@@ -338,7 +326,7 @@ class View {
 
 
         if (self.device === "mobile") {
-             self.toggleNav();
+            self.toggleNav();
         } else {
 
             const tl = gsap.timeline({
@@ -630,6 +618,15 @@ class View {
 
             this.drag.init();
 
+            this.parallax = new ParallaxController({
+                percent: 20,
+                ease: 0.08,
+                el: main.querySelectorAll('.parallax'),
+                container: main
+            });
+
+            this.parallax.init();
+
         }
 
         this.preload();
@@ -649,6 +646,7 @@ class View {
 
     getImages(imgs) {
         const self = this;
+
         function preloadImages(urls, allImagesLoadedCallback) {
             var loadedCounter = 0;
             var toBeLoadedNumber = urls.length;
@@ -758,7 +756,7 @@ class View {
 
 
 
-  
+
 
 
 

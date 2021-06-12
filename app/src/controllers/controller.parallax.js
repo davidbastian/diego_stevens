@@ -1,66 +1,62 @@
-import {
-    constrain
-  } from '../../common/utils/utils'
-  
-  class ScrollController {
-    constructor(opt) {
-      //  console.log('start scroll')
-      this.pos = opt.pos;
-      this.ease = opt.ease;
-      this.delta = opt.delta;
-      this.target = opt.pos;
-      this.container = opt.container;
-      this.timeline = opt.timeline;
-    }
-  
-    init() {
-      this.scroller = new VirtualScroll();
-      this.addEvents();
-      this.anima();
-  
-    }
-  
-    addEvents() {
-      const self = this;
-  
-      self.scroller.on(self.scroll.bind(this));
-    }
-  
-    scroll(e){
-      let delta;
-      const self = this;
-  
-        delta = (e.deltaY/120) * self.delta;
-  
-      self.target += delta;
-      self.target = constrain(self.target, -10000, 0);
-    }
-  
-  
-    anima() {
-      const self = this;
-      self.animation = requestAnimationFrame(self.anima.bind(this));
-      this.pos += (this.target - this.pos) * this.ease;
-      let np = -this.pos * 0.0001;
-      let s = constrain(np, 0, 1);
-      self.timeline.progress(s);
-  
-    }
-  
-    update(tl, n) {
-      const self = this;
-      cancelAnimationFrame(self.animation);
-      tl.progress(n)
-      this.pos = -n / 0.0001;
-      this.target = -n / 0.0001;
-      this.anima();
-    }
-  
-    pause() {
-      const self = this;
-      cancelAnimationFrame(self.animation);
-    }
-  
+class ParallaxController {
+  constructor(opt) {
+    //  console.log('start scroll')
+    this.el = opt.el;
+    this.ease = opt.ease;
+    this.container = opt.container;
+    this.percent = opt.percent;
+    this.parallaxYPos = 0;
+    this.parallaxXPos = 0;
+    this.parallaxYTarget = 0;
+    this.parallaxXTarget = 0;
   }
-  
-  export default ScrollController;
+
+  init() {
+    this.addEvents();
+    this.animaParallax();
+  }
+
+  addEvents() {
+    const self = this;
+    self.container.addEventListener("mousemove", self.addParallax.bind(this));
+  }
+
+  removeEvents() {
+    const self = this;
+    self.container.removeEventListener("mousemove", self.addParallax);
+  }
+
+  addParallax(e) {
+
+    const self = this;
+    let percent = {
+      x: (100 - ((window.outerWidth - e.screenX) * 200 / window.outerWidth)),
+      y: (100 - ((window.outerHeight - e.screenY) * 200 / window.outerHeight)),
+    }
+    self.parallaxYTarget = percent.y / self.percent;
+    self.parallaxXTarget = percent.x / self.percent;
+
+
+  }
+
+  animaParallax() {
+    const self = this;
+    requestAnimationFrame(self.animaParallax.bind(this));
+
+    this.parallaxXPos += (this.parallaxXTarget - this.parallaxXPos) * self.ease;
+    this.parallaxYPos += (this.parallaxYTarget - this.parallaxYPos) * self.ease;
+
+
+    for (let i = 0; i < self.el.length; i++) {
+      const element = self.el[i];
+
+      element.parentElement.style.perspective = '1200px';
+      element.style.transform = 'rotateX(' + self.parallaxYPos + 'deg) rotateY(' + -self.parallaxXPos + 'deg)';
+    }
+  }
+
+
+
+}
+
+export default ParallaxController;

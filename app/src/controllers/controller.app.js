@@ -9,8 +9,9 @@ class AppController {
 
     route(params) {
         const self = this;
-        const request = new XMLHttpRequest();
        console.log(params[0],'params')
+       window.APP.controller.model.removeEvents();
+     
             if (params[0] === 'es') {
                 document.body.classList.add('es');
                 document.querySelector('main').innerHTML = '';

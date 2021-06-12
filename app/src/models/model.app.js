@@ -4,13 +4,24 @@ class AppModel {
     constructor() {
         this.data = Data;
         this.dataES = DataES;
+        this.events = [];
     }
 
-    cleanData(){
-
+    addEvents(e){
+        this.events.push(e);
     }
-    getData(){
-        
+
+    removeEvents(){
+        const self = this;
+        if (self.events.length > 0) {
+            for (let i = 0; i < self.events.length; i++) {
+                const event = self.events[i];
+                if (event) {
+                    event.removeEvents();
+                } 
+            }
+
+        }  
     }
 
 }

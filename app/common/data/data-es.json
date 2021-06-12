@@ -9,10 +9,12 @@
         },
         "languages":[{
             "title":"Ingles",
-            "url":"#/"
+            "url":"#/",
+            "cta":""
         },{
             "title":"Español",
-            "url":"#/es"
+            "url":"#/es",
+            "cta":"active"
         }],
 
         "credits":[{

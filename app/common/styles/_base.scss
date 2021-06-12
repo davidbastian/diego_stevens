@@ -537,6 +537,10 @@ b {
             dd {
                 margin-top: 1.5vh;
 
+                button {
+                    display: inline-block;
+                }
+
                 span {
                     display: inline-block;
                     padding: 0 2vw;
