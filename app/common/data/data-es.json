@@ -37,7 +37,7 @@
             "scrollData":"0.031442663378545004"
         },{
             "title":"Intereses",
-            "scrollTo":".#interests",
+            "scrollTo":"#interests",
             "scrollData":"0.14260172626387177"
         },{
             "title":"Linea de Tiempo",
@@ -180,12 +180,12 @@
             },
             {
                 "title": "¿Dónde <br>estoy ahora?",
-                "description": "Modelo de Madurez Digital<br>Principales GAP y Recomendaciones <br>Dimensionamiento Tecnico-Económico<br>de proyectos a desarrollar",
+                "description": "Modelo de Madurez Digital, Principales GAP y Recomendaciones, Dimensionamiento Tecnico-Económico de proyectos a desarrollar",
                 "media": "common/media/img/0090001-0050.mp4"
             },
             {
                 "title": "¿Dónde focalizo mi transformación?",
-                "description": "Indagando en los procesos de negocio,<br>Definición de la Estrategia,<br>Búsqueda de Presupuesto o fondos",
+                "description": "Indagando en los procesos de negocio, Definición de la Estrategia, Búsqueda de Presupuesto o fondos",
                 "media": "common/media/img/0100001-0050.mp4"
             },
             {
@@ -195,7 +195,7 @@
             },
             {
                 "title": "Puesta en marcha de los Proyectos",
-                "description": "Madurar el modelo digital, principales espacios de mejoras, recomendaciones técnicas y comerciales",
+                "description": "Madurar el modelo digital, Principales espacios de mejoras, Recomendaciones técnicas y comerciales",
                 "media":"common/media/img/0120001-0050.mp4"
             }
         ]

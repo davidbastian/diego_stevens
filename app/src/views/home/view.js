@@ -96,9 +96,11 @@ class View {
             const el = document.querySelector('.menu-list').querySelector('ul').querySelectorAll('div')[i];
             el.removeEventListener("click", self.updateSection);
         }
-        self.parallax.removeEvents();
-        self.drag.removeEvents();
-        self.scroll.removeEvents();
+        if (self.scroll) {
+            self.parallax.removeEvents();
+            self.drag.removeEvents();
+            self.scroll.removeEvents();
+        }
 
         document.body.querySelector('#movie').classList.remove('active');
         document.body.classList.remove('movie');
@@ -591,9 +593,11 @@ class View {
             tl.timeScale(1);
             tl.pause();
 
-            /* 
-             tl.seek("contact");
+            
+            /* tl.seek("interests");
              console.log(tl.progress());*/
+
+             self.tl = tl;
 
             this.scroll = new ScrollController({
                 container: main,
@@ -604,7 +608,7 @@ class View {
             });
 
 
-            self.tl = tl;
+            
 
             this.drag = new DragController({
                 pos: 0,

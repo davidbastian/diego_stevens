@@ -353,6 +353,48 @@ b {
 
 
 //mobile css
+
+.mobile.es {
+    #home,
+    .menu,
+    #preloader {
+        .hero-introduction {
+            position: absolute;
+
+
+            dl {
+                position: absolute;
+                bottom: auto;
+                max-width: 41vw;
+                top: 61.5vh;
+                left: 4vh;
+            }
+        }
+    }
+
+    .list ul {
+        font-size: 4.8vw;
+        line-height: 7.4vw;
+    }
+
+    header .menu .menu-list .list ul {
+        font-size: 7vw;
+        line-height: 9.2vw;
+    }
+
+    
+    header .menu .menu-list {
+        width: 52vw;
+    }
+
+    h2 {
+        font-size: 13vw;
+        line-height: 14vw;
+    }
+}
+
+
+
 .mobile {
     &.ios {
 

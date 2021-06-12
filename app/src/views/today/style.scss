@@ -96,9 +96,37 @@
     }
 }
 
-.es.desktop {
+.es.desktop, .es.tablet  {
+    #today {
+        .today-card {
+            h3 {
+                font-size: 2.3vw;
+                line-height: 3vw;
+            }
+                p {
+                    font-size: 1.2vw;
+                    line-height: 1.45vw;
+                }
+        }
 
 
+    }
+}
+
+.mobile.es{
+    #today {
+
+        .today-card {
+            h3 {
+                font-size: 5.5vw;
+                line-height: 7.2vw;
+            }
+            p {
+                font-size: 2.9vw;
+                line-height: 4.3vw;
+            }
+        }
+    }
 }
 
 .mobile {
@@ -136,41 +164,3 @@
         }
     }
 }
-/*.es {
-    #today .today-cards .today-card {
-        width: 29vw;
-        display: block;
-        background: black;
-        height: 44vw;
-
-
-    }
-
-    #today .today-card_info h3 {
-        font-size: 2.3vw;
-    }
-
-    #today .today-cards .today-card img, #today .today-cards .today-card video {
-        display: block;
-        width: 100%;
-        position: relative;
-        height: auto;
-        object-fit: cover;
-        z-index: 1;
-        margin: 0 auto;
-    }
-
-    #today .today-cards .today-card .today-card_info {
-        height: 100%;
-        width: 100%;
-        position: absolute;
-        left: 0;
-        top: 0;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 2vw;
-        box-sizing: border-box;
-    }
-}*/

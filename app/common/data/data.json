@@ -35,7 +35,7 @@
             "scrollData":"0.031442663378545004"
         },{
             "title":"Interests",
-            "scrollTo":".#interests",
+            "scrollTo":"#interests",
             "scrollData":"0.14260172626387177"
         },{
             "title":"Timeline",
