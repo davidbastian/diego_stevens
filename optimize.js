@@ -1,4 +1,3 @@
-console.log('hola');
 const path = require('path');
 const imagemin = require('imagemin');
 const imageminJpegRecompress = require('imagemin-jpeg-recompress');
