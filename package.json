@@ -1,5 +1,5 @@
 {
-  "name": "diego_stevens_v2",
+  "name": "diego_stevens",
   "version": "1.0.0",
   "description": "",
   "main": "webpack.config.js",
@@ -31,8 +31,7 @@
   },
   "scripts": {
     "build": "webpack",
-    "start": "webpack serve --open",
-    "optimize": "node optimize.js"
+    "start": "webpack serve --open"
   },
   "keywords": [],
   "author": "",
