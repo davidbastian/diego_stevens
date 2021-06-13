@@ -2,7 +2,7 @@ import './style.scss';
 import {
     checkDevice
 } from '../../../common/utils/utils';
-import Logo from '../../../common/svg/logo.svg'
+import Logo from '../../../common/media/svg/logo.svg'
 
 
 import ScrollController from '../../controllers/controller.scroll'
@@ -38,7 +38,6 @@ class View {
     init(params, data) {
         const self = this;
         gsap.registerPlugin(ScrollToPlugin);
-        // console.log(params, data, 'LOAD HOME');
         this.data = data;
 
         this.device = checkDevice();
@@ -104,8 +103,7 @@ class View {
 
         document.body.querySelector('#movie').classList.remove('active');
         document.body.classList.remove('movie');
-        document.body.querySelector('#movie').innerHTML = "Movie Mode<span></span>";
-       // self.scroll.update(self.tl, self.tl.progress());
+        document.body.querySelector('#movie').innerHTML = self.data.details.modes[0]+"<span></span>";
         self.sound.pause();
 
         
@@ -120,7 +118,7 @@ class View {
             self.censor.play();
             e.currentTarget.classList.remove('active');
             document.body.classList.remove('movie');
-            e.currentTarget.innerHTML = "Movie Mode<span></span>";
+            e.currentTarget.innerHTML = self.data.details.modes[0]+"<span></span>";
             self.scroll.update(self.tl, self.tl.progress());
             self.sound.pause();
 
@@ -128,7 +126,7 @@ class View {
             self.censor.play();
             e.currentTarget.classList.add('active');
             document.body.classList.add('movie');
-            e.currentTarget.innerHTML = "Back to Normal<span></span>";
+            e.currentTarget.innerHTML = self.data.details.modes[1]+"<span></span>";
             self.scroll.pause();
             self.tl.play();
             self.sound.play();
@@ -215,6 +213,7 @@ class View {
     }
 
     setNav(mail, social) {
+        const self = this;
         let markup;
         if (this.device === "mobile") {
             markup = /*html*/ `
@@ -225,7 +224,7 @@ class View {
             `
         } else {
             markup = /*html*/ `
-                        <div class="link" id="movie">Movie Mode<span></span></div>
+                        <div class="link" id="movie">${self.data.details.modes[0]}<span></span></div>
                         <a  class="link" target="_blank" href="${social.linkedin}">LinkedIn</a>
                         <a  class="link" target="_blank" href="${social.instagram}">Instagram</a>
                         <a  class="link" href="mailto:${mail}"><b>${mail}</b></a>
@@ -311,7 +310,7 @@ class View {
                          
                     </div>
                     <div class="hero-image half pointer-none">
-                            <img  class="cover" src="${self.data.details.image}" alt="${self.data.details.slogan}">
+                        ${self.setHeroImage(self.data.details.images)}
                     </div>  
                 </section>
 
@@ -330,7 +329,6 @@ class View {
         if (self.device === "mobile") {
             self.toggleNav();
         } else {
-
             const tl = gsap.timeline({
                 onUpdate: updateStats,
                 ease: "linear"
@@ -593,7 +591,6 @@ class View {
             tl.timeScale(1);
             tl.pause();
 
-            
             /* tl.seek("interests");
              console.log(tl.progress());*/
 
@@ -636,6 +633,14 @@ class View {
         this.preload();
 
 
+    }
+
+    setHeroImage(images){
+        const self = this;
+        const randomImage = Math.floor(Math.random()*images.length);
+        let markup = /*html*/ `
+            <img class="cover" style="object-position:${images[randomImage].align}" src="${images[randomImage].url}"  alt="Diego Stevens, ${self.data.details.slogan}">`
+            return markup; 
     }
 
     preload() {

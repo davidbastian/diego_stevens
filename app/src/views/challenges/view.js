@@ -1,5 +1,5 @@
 import './style.scss';
-import Star from '../../../common/svg/star.svg'
+import Star from '../../../common/media/svg/star.svg'
 
 class View {
 

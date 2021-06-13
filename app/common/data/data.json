@@ -7,6 +7,7 @@
             "linkedin":"https://www.linkedin.com/in/diegostevensi/",
             "instagram":"https://www.instagram.com/dstevensi/"
         },
+        "modes":["Movie Mode", "Back to Normal"],
         "languages":[{
             "title":"English",
             "url":"#/",
@@ -25,9 +26,18 @@
             "name":"Cristobal Marambio",
             "url":"http://cristobalmarambio.com/"
         }],
-        "images":[
-            "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
-        ],
+        "images":[{
+            "url":  "common/media/img/000.jpg",
+            "align":"left"
+        },
+        {
+            "url":  "common/media/img/000a.jpg",
+            "align":"right"
+        },
+        {
+            "url":  "common/media/img/000b.jpg",
+            "align":"center"
+        }],
         "image": "common/media/img/000.jpg",
         "menu":[{
             "title":"About",

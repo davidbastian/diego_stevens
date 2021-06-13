@@ -29,6 +29,10 @@ module.exports = {
                 {
                     from: "app/common/media/",
                     to: "common/media/"
+                },
+                {
+                    from: "app/common/social/",
+                    to: "common/social/"
                 }
             ]
         })

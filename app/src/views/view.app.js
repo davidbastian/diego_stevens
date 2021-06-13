@@ -2,7 +2,7 @@ import './app.scss';
 import {
     checkDevice
 } from '../../common/utils/utils';
-import Logo from '../../common/svg/logo.svg'
+import Logo from '../../common/media/svg/logo.svg'
 import Data from '../../common/data/data.json'
 
 class AppView {

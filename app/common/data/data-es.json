@@ -7,6 +7,7 @@
             "linkedin":"https://www.linkedin.com/in/diegostevensi/",
             "instagram":"https://www.instagram.com/dstevensi/"
         },
+        "modes":["Modo Pelicula", "Volver a Normal"],
         "languages":[{
             "title":"Ingles",
             "url":"#/",
@@ -26,9 +27,20 @@
             "name":"Cristobal Marambio",
             "url":"http://cristobalmarambio.com/"
         }],
+        "images":[{
+            "url":  "common/media/img/000.jpg",
+            "align":"left"
+        },
+        {
+            "url":  "common/media/img/000a.jpg",
+            "align":"right"
+        },
+        {
+            "url":  "common/media/img/000b.jpg",
+            "align":"center"
+        }
+  
 
-        "images":[
-            "common/media/img/000.jpg","common/media/img/000.png","common/media/img/000a.png"
         ],
         "image": "common/media/img/000.jpg",
         "menu":[{
@@ -66,7 +78,7 @@
     "about": {
         "introduction": "Diego ha trabajado con emprendimientos, grandes empresas y con sus propias iniciativas tecnológicas por mas de 10 años, por lo que tiene una amplia mirada de que es lo que realmente significa el emprendimiento y entiende como combinarlo exitosamente con un foco comercial, lo cual es esencial, y un poderoso atributo, para un nuevo rol como asesor tecnológico o miembro de directorio.<br> Por otro lado, el ayuda con un gran equipo a grandes empresas como Falabella, Arauco, Forus, Sura y muchas otras, a transformar sus negocios digitales a través de una revolucionaria, disruptiva forma de pensar en el cambio de paradigma en nuevos modelos de negocios.<br>El puede entregar consejos, mentoría y conocimientos a emprendimos de su porfolio para levantar capital (Ha ayudado a levantar y gestionar levantamientos de capital por más de $5 millones de dólares en fondos públicos y privados), encontrando el real valor de sus tecnologías, mercado e industrias a través de diferentes estrategias disruptivas.<br> Hoy en día, maneja su propio portafolio de negocios tecnológicos, valorados en mas de $60 millones de dólares.",
         "quotes": [{
-            "quote": "No empieces<br>algo, que no vas<br>a terminar.",
+            "quote": "No empieces<br> algo, que no vas<br> a terminar.",
             "caption": "Justin Somper",
             "year": "Autor Britanico",
             "moments": [{
@@ -104,7 +116,7 @@
             }]
 
         }, {
-            "quote": "Se obstinado en la <br>visión, pero flexible<br>en los detalles.",
+            "quote": "Se obstinado en la <br>visión, pero flexible<br> en los detalles.",
             "caption": "Jeff Bezos",
             "year": "Amazon CEO",
             "moments": [{
